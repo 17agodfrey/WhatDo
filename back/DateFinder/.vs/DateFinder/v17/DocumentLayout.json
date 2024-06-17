@@ -1,0 +1,306 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.tests\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|solutionrelative:datefinder.tests\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6D59E7E-909B-47B2-B383-66811F45BDE5}|DateFinder.Storage.Tests\\DateFinder.Storage.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.storage.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6D59E7E-909B-47B2-B383-66811F45BDE5}|DateFinder.Storage.Tests\\DateFinder.Storage.Tests.csproj|solutionrelative:datefinder.storage.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.storage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|solutionrelative:datefinder.storage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EB1C2E-A5C7-427B-8154-8823B8A52827}|DateFinder.Services.Tests\\DateFinder.Services.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.services.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3EB1C2E-A5C7-427B-8154-8823B8A52827}|DateFinder.Services.Tests\\DateFinder.Services.Tests.csproj|solutionrelative:datefinder.services.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BEA23CC-EB7B-4E83-B63B-506509B18F70}|DateFinder.Services\\DateFinder.Services.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.services\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BEA23CC-EB7B-4E83-B63B-506509B18F70}|DateFinder.Services\\DateFinder.Services.csproj|solutionrelative:datefinder.services\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25722931-4330-4692-953B-B8EE5CB1D893}|DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.repositories.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25722931-4330-4692-953B-B8EE5CB1D893}|DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj|solutionrelative:datefinder.repositories.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.repositories\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|solutionrelative:datefinder.repositories\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|solutionrelative:datefinder.external\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Models.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Models.csproj|solutionrelative:datefinder.models\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 630,
+          "SelectedChildIndex": 29,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:149:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Tests\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Tests\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Tests\\Program.cs",
+              "RelativeToolTip": "DateFinder.Tests\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:43:01.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "DateFinder.Storage.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "DateFinder.Storage.Tests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:42:37.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Storage\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage\\Program.cs",
+              "RelativeToolTip": "DateFinder.Storage\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:42:24.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "DateFinder.Services.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "DateFinder.Services.Tests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:41:24.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Services\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services\\Program.cs",
+              "RelativeToolTip": "DateFinder.Services\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:40:24.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "DateFinder.Repositories.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "DateFinder.Repositories.Tests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:39:52.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Repositories\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories\\Program.cs",
+              "RelativeToolTip": "DateFinder.Repositories\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:39:31.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "DateFinder.External.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "DateFinder.External.Tests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:37:42.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.External\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\Program.cs",
+              "RelativeToolTip": "DateFinder.External\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:34:58.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Program.cs",
+              "RelativeToolTip": "DateFinder.Models\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T23:34:03.836Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
