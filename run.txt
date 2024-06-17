@@ -1,0 +1,9 @@
+## backend 
+navigate into backend, then do: 
+poetry shell
+python manage.py runserver
+
+
+## frontend
+navigate to frontend, then do: 
+npm run dev 
