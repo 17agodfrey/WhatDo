@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yoQx0NZFXRBmpiVYK9hpvrm45Q3RXg4ANHuNC6JMgEePSrBSig/DoXxdV8QRVuEOKmy1sgVAeS7Eo+sUOqWQNA==",
+  "dgSpecHash": "Qrs+tpBP+WXIGx0X/ez2NvuYseZnZrlyycbCBZJWTE3y8Jdi7qCO72M/9Fv9lC514S6Wjy1lUsQW6htL5mKS9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

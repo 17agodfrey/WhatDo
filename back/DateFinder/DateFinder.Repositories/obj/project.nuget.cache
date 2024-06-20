@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RJ7SwgTwhMUSys59l7M+1mtpxaqLGZqd7212CmgpWc/Npps8g0NVz7F01gqWAxiWAqJWQSEpkueFooccOA3oUg==",
+  "dgSpecHash": "npLUNeL4J8HcSeFUJcBqutflBt1rRdHzEpwSCP9V5uGQGE5asPUkIcQT+GF3FTCFuAYJroU95+ZuMorx0bWLTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories\\DateFinder.Repositories.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
