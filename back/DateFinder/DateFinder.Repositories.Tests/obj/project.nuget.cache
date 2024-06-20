@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dDUuMaDjwqJNQxTrj5IdiTmvsf+9wDz2lNKZdY3oid61HxWE3VFlZEYEUuHbytjfezGzgXXeSquz1nkSy+m4+g==",
+  "dgSpecHash": "azRPO98bFIFN1b8Af6ZshWc1iI5T56coUijUm/Rz+VgFebTt1c01RamcQ8x0fakkKwFGZx46/bKLZnXYTVzqOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\17ago\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0\\microsoft.testplatform.objectmodel.17.8.0.nupkg.sha512",
