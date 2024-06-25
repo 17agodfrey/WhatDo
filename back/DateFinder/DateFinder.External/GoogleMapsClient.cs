@@ -26,9 +26,8 @@ namespace DateFinder.External
             _googleMapsSettings = googleMapsSettings.Value;
         }
 
-        public async Task<IEnumerable<string>> TextSearch(string query)
+        public async Task<string> TextSearchAsync(string query)
         {
-            // Sample: GettingStarted
             PlacesClient client = PlacesClient.Create();
             CallSettings callSettings = CallSettings.FromHeader("X-Goog-Api-Key", _googleMapsSettings.ApiKey)
                 .WithHeader("Content-Type", "applications/json")
@@ -37,9 +36,16 @@ namespace DateFinder.External
             {
                 TextQuery = query
             };
-            SearchTextResponse response = client.SearchText(request, callSettings);
+            SearchTextResponse response = await client.SearchTextAsync(request, callSettings);
             Console.WriteLine(response);
-            // End sample
+
+            var displayNames = response.Places
+                .Where(place => !string.IsNullOrEmpty(place.DisplayName.ToString()))
+                .Select(place => place.DisplayName)
+                .Take(5) // Return only the first 5 results
+                .ToList().ToString();
+
+            return displayNames;
         }
     }
 }
