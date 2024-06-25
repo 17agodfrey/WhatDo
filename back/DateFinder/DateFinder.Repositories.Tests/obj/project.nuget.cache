@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "azRPO98bFIFN1b8Af6ZshWc1iI5T56coUijUm/Rz+VgFebTt1c01RamcQ8x0fakkKwFGZx46/bKLZnXYTVzqOg==",
+  "dgSpecHash": "4o1SGLOZLTmubWaQbOaErE8AcmmV7rQMYylJ1eWa1leUI97SXBtQYv+GjTg9WBiwK77cZ7ywCPkGVExK6/zrwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj",
   "expectedPackageFiles": [
@@ -9,15 +9,10 @@
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
-    "C:\\Users\\17ago\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0\\microsoft.testplatform.objectmodel.17.8.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\microsoft.testplatform.testhost\\17.8.0\\microsoft.testplatform.testhost.17.8.0.nupkg.sha512",
-    "C:\\Users\\17ago\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
-    "C:\\Users\\17ago\\.nuget\\packages\\nunit\\3.14.0\\nunit.3.14.0.nupkg.sha512",
-    "C:\\Users\\17ago\\.nuget\\packages\\nunit.analyzers\\3.9.0\\nunit.analyzers.3.9.0.nupkg.sha512",
-    "C:\\Users\\17ago\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
     "C:\\Users\\17ago\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []

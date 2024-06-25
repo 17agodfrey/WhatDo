@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DateFinder.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ba1edab804b1abfe8cfec145f09b2890529e268")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82ff8ce703da422e24e057ad7f0048972dd8c066")]
 [assembly: System.Reflection.AssemblyProductAttribute("DateFinder.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DateFinder.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
