@@ -8,9 +8,9 @@ using Moq;
 using Microsoft.Extensions.Configuration;
 using DateFinder.Api.Configuration;
 using DateFinder.Storage;
-using DateFinder.Models;
 using Microsoft.EntityFrameworkCore;
-using DateFinder.Models.EnumAttributes;
+using DateFinder.Domain.DataLayer.EnumAttributes;
+using DateFinder.Domain.DataLayer;
 
 namespace DateFinder.Tests.Helpers
 {
@@ -19,7 +19,7 @@ namespace DateFinder.Tests.Helpers
         public IServiceProvider Create()
         {
             var container = new ServiceCollection();
-            var configuration = new ConfigurationBuilder().Build(); // Empty configuration for tests
+            //var configuration = new ConfigurationBuilder().Build(); // Empty configuration for tests
             (new DateFinderServiceCollection()).ConfigureServices(container);
 
             RegisterAll(container);

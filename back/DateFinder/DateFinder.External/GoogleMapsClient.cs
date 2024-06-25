@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,23 +12,24 @@ using System.ComponentModel.Design;
 //using GoogleApi;
 using Google.Api.Gax.Grpc;
 using Google.Maps.Places.V1;
+using DateFinder.Domain.External;
+using DateFinder.Domain.Api.Configuration;
 
 
 namespace DateFinder.External
 {
     public class GoogleMapsClient : IGoogleMapsClient
     {
-        private GoogleMapsSettings _googleMapsSettings;
-
-        public GoogleMapsClient(IOptions<GoogleMapsSettings> googleMapsSettings)
+        private readonly IDateFinderConfigurationSettings _dateFinderConfigurationSettings;
+        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings)
         {
-            _googleMapsSettings = googleMapsSettings.Value;
+            _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
         }
 
         public async Task<string> TextSearchAsync(string query)
         {
             PlacesClient client = PlacesClient.Create();
-            CallSettings callSettings = CallSettings.FromHeader("X-Goog-Api-Key", _googleMapsSettings.ApiKey)
+            CallSettings callSettings = CallSettings.FromHeader("X-Goog-Api-Key", _dateFinderConfigurationSettings.GoogleMapsApiKey)
                 .WithHeader("Content-Type", "applications/json")
                 .WithHeader("X-Goog-FieldMask", "places.displayName,places.formattedAddress,places.priceLevel");
             SearchTextRequest request = new SearchTextRequest

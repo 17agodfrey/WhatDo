@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DateFinder.Models\DateFinder.Models.csproj" />
+    <ProjectReference Include="..\DateFinder.Models\DateFinder.Domain.csproj" />
   </ItemGroup>
 
 </Project>

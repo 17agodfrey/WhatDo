@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DateFinder.Models.EnumAttributes
+namespace DateFinder.Domain.DataLayer.EnumAttributes
 {
-    public enum IndoorOutdoor
+    public enum ActivityLevel
     {
-        Indoor, 
-        Outdoor, 
-        Both
+        Low,
+        Medium,
+        High
     }
 }

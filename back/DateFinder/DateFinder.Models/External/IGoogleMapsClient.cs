@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DateFinder.External
+namespace DateFinder.Domain.External
 {
     public interface IGoogleMapsClient
     {

@@ -3,29 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Api", "DateFinder.Api\DateFinder.Api.csproj", "{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Api", "DateFinder.Api\DateFinder.Api.csproj", "{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Api.Tests", "DateFinder.Api.Tests\DateFinder.Api.Tests.csproj", "{58200EE1-1252-48DD-B4B5-BD53AA45D033}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Api.Tests", "DateFinder.Api.Tests\DateFinder.Api.Tests.csproj", "{58200EE1-1252-48DD-B4B5-BD53AA45D033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Models", "DateFinder.Models\DateFinder.Models.csproj", "{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Domain", "DateFinder.Models\DateFinder.Domain.csproj", "{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.External", "DateFinder.External\DateFinder.External.csproj", "{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.External", "DateFinder.External\DateFinder.External.csproj", "{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.External.Tests", "DateFinder.External.Tests\DateFinder.External.Tests.csproj", "{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.External.Tests", "DateFinder.External.Tests\DateFinder.External.Tests.csproj", "{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Repositories", "DateFinder.Repositories\DateFinder.Repositories.csproj", "{4FA5A104-415A-4CC0-BC6C-99DECB534108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Repositories", "DateFinder.Repositories\DateFinder.Repositories.csproj", "{4FA5A104-415A-4CC0-BC6C-99DECB534108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Repositories.Tests", "DateFinder.Repositories.Tests\DateFinder.Repositories.Tests.csproj", "{25722931-4330-4692-953B-B8EE5CB1D893}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Repositories.Tests", "DateFinder.Repositories.Tests\DateFinder.Repositories.Tests.csproj", "{25722931-4330-4692-953B-B8EE5CB1D893}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Services", "DateFinder.Services\DateFinder.Services.csproj", "{1BEA23CC-EB7B-4E83-B63B-506509B18F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Services", "DateFinder.Services\DateFinder.Services.csproj", "{1BEA23CC-EB7B-4E83-B63B-506509B18F70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Services.Tests", "DateFinder.Services.Tests\DateFinder.Services.Tests.csproj", "{B3EB1C2E-A5C7-427B-8154-8823B8A52827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Services.Tests", "DateFinder.Services.Tests\DateFinder.Services.Tests.csproj", "{B3EB1C2E-A5C7-427B-8154-8823B8A52827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Storage", "DateFinder.Storage\DateFinder.Storage.csproj", "{038F1746-6783-4F61-BD5E-861EEC9E7F1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Storage", "DateFinder.Storage\DateFinder.Storage.csproj", "{038F1746-6783-4F61-BD5E-861EEC9E7F1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Storage.Tests", "DateFinder.Storage.Tests\DateFinder.Storage.Tests.csproj", "{F6D59E7E-909B-47B2-B383-66811F45BDE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Storage.Tests", "DateFinder.Storage.Tests\DateFinder.Storage.Tests.csproj", "{F6D59E7E-909B-47B2-B383-66811F45BDE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateFinder.Tests", "DateFinder.Tests\DateFinder.Tests.csproj", "{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateFinder.Tests", "DateFinder.Tests\DateFinder.Tests.csproj", "{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
