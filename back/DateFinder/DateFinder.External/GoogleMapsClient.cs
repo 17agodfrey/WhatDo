@@ -17,7 +17,7 @@ using Google.Maps.Places.V1;
 
 namespace DateFinder.External
 {
-    internal class GoogleMapsClient : IGoogleMapsClient
+    public class GoogleMapsClient : IGoogleMapsClient
     {
         private GoogleMapsSettings _googleMapsSettings;
 

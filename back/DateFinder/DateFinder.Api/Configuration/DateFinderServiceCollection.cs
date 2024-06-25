@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using DateFinder.Storage;
 using Microsoft.EntityFrameworkCore;
+using DateFinder.External;
+
+
 
 namespace DateFinder.Api.Configuration
 {
@@ -16,6 +19,9 @@ namespace DateFinder.Api.Configuration
         public void ConfigureServices(IServiceCollection services)
         {
             // Add services to the container.
+            services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
+
+            services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
 
             ConfigureJwtAuthentication(services);
             ConfigureMiddlewareServices(services);
@@ -28,7 +34,14 @@ namespace DateFinder.Api.Configuration
 
             services.AddDbContext<DateFinderDbContext>(options =>
             {
-                options.UseSqlServer(_configuration?.GetConnectionString("DateFinderConnectionString"));
+                if (_configuration.GetConnectionString("DateFinderConnectionString") != null)
+                {
+                    options.UseSqlServer(_configuration.GetConnectionString("DateFinderConnectionString"));
+                }
+                else
+                {
+                    options.UseInMemoryDatabase("DateFinderInMemoryDb");
+                }
             });
         }
 
