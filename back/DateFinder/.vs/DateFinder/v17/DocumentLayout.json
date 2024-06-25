@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external.tests\\datefinder.external.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\datefinder.external.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|solutionrelative:datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\configuration\\datefinderservicecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\datefinder.api\\configuration\\datefinderservicecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\configuration\\datefinderservicecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external\\googlemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\configuration\\idatefinderconfigurationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\configuration\\idatefinderconfigurationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\configuration\\datefinderconfigurationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\configuration\\datefinderconfigurationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\datefinder.external\\googlemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|solutionrelative:datefinder.external\\googlemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|solutionrelative:datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +42,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 591,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DateFinder.External.Tests",
-              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\DateFinder.External.Tests.csproj",
-              "RelativeDocumentMoniker": "DateFinder.External.Tests\\DateFinder.External.Tests.csproj",
-              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\DateFinder.External.Tests.csproj",
-              "RelativeToolTip": "DateFinder.External.Tests\\DateFinder.External.Tests.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-24T22:08:34.953Z",
+              "DocumentIndex": 1,
+              "Title": "IDateFinderConfigurationSettings.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\IDateFinderConfigurationSettings.cs",
+              "RelativeDocumentMoniker": "DateFinder.Api\\Configuration\\IDateFinderConfigurationSettings.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\IDateFinderConfigurationSettings.cs",
+              "RelativeToolTip": "DateFinder.Api\\Configuration\\IDateFinderConfigurationSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T17:51:11.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "DateFinderConfigurationSettings.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderConfigurationSettings.cs",
+              "RelativeDocumentMoniker": "DateFinder.Api\\Configuration\\DateFinderConfigurationSettings.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderConfigurationSettings.cs",
+              "RelativeToolTip": "DateFinder.Api\\Configuration\\DateFinderConfigurationSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAACUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T17:50:45.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Program.cs",
+              "RelativeDocumentMoniker": "DateFinder.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Program.cs",
+              "RelativeToolTip": "DateFinder.Api\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T17:39:50.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Startup.cs",
+              "RelativeDocumentMoniker": "DateFinder.Api\\Startup.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Startup.cs",
+              "RelativeToolTip": "DateFinder.Api\\Startup.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T17:33:42.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "DateFinderServiceCollection.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "RelativeDocumentMoniker": "DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "RelativeToolTip": "DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T22:27:23.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "DateFinderServiceProvider.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
               "RelativeDocumentMoniker": "DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
               "RelativeToolTip": "DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwCYAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T22:51:12.365Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "GoogleMapsClientTests.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "RelativeDocumentMoniker": "DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "RelativeToolTip": "DateFinder.External.Tests\\GoogleMapsClientTests.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAABjAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T22:47:56.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "GoogleMapsClient.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\GoogleMapsClient.cs",
               "RelativeDocumentMoniker": "DateFinder.External\\GoogleMapsClient.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\GoogleMapsClient.cs",
               "RelativeToolTip": "DateFinder.External\\GoogleMapsClient.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAA/AAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T20:10:50.731Z",
               "EditorCaption": ""

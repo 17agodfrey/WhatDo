@@ -19,6 +19,7 @@ namespace DateFinder.Tests.Helpers
         public IServiceProvider Create()
         {
             var container = new ServiceCollection();
+            var configuration = new ConfigurationBuilder().Build(); // Empty configuration for tests
             (new DateFinderServiceCollection()).ConfigureServices(container);
 
             RegisterAll(container);
