@@ -1,11 +1,11 @@
-﻿using DateFinder.Models.EnumAttributes;
+﻿using DateFinder.Domain.DataLayer.EnumAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DateFinder.Models
+namespace DateFinder.Domain.DataLayer
 {
     public class Date
     {

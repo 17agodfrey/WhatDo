@@ -1,4 +1,6 @@
-﻿namespace DateFinder.Api.Configuration
+﻿using DateFinder.Domain.Api.Configuration;
+
+namespace DateFinder.Api.Configuration
 {
     public class DateFinderConfigurationSettings: IDateFinderConfigurationSettings
     {
@@ -14,7 +16,8 @@
         }
 
         //public string AuthenticationPrivateKey => _configurationRoot.GetSection("AppSettings")["AuthenticationPrivateKey"];
-        public string ResumeRocketQueryDatabaseConnectionString => _configurationRoot.GetSection("ConnectionStrings")["DateFinderConnectionString"];
+        public string DateFinderConnectionString => _configurationRoot.GetSection("ConnectionStrings")["DateFinderConnectionString"];
+        public string GoogleMapsApiKey => _configurationRoot.GetSection("GoogleMaps")["ApiKey"];
     }
 
 }

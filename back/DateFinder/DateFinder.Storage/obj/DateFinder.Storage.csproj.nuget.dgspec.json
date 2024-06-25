@@ -4,12 +4,12 @@
     "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage\\DateFinder.Storage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj": {
+    "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj",
-        "projectName": "DateFinder.Models",
-        "projectPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj",
+        "projectUniqueName": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Domain.csproj",
+        "projectName": "DateFinder.Domain",
+        "projectPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Domain.csproj",
         "packagesPath": "C:\\Users\\17ago\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\obj\\",
         "projectStyle": "PackageReference",
@@ -96,8 +96,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj": {
-                "projectPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Models.csproj"
+              "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Domain.csproj": {
+                "projectPath": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DateFinder.Domain.csproj"
               }
             }
           }

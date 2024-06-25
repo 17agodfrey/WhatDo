@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DateFinder.Models;
-using DateFinder.Models.EnumAttributes;
+using DateFinder.Domain.DataLayer.EnumAttributes;
+using DateFinder.Domain.DataLayer;
 
 
 namespace DateFinder.Storage

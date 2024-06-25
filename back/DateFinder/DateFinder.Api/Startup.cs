@@ -8,16 +8,9 @@ namespace DateFinder.Api
 {
     public class Startup
     {
-        private readonly IConfiguration _configuration;
-
-        public Startup(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            (new DateFinderServiceCollection(_configuration)).ConfigureServices(services);
+            (new DateFinderServiceCollection()).ConfigureServices(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
