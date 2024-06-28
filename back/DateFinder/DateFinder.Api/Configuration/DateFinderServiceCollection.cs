@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using DateFinder.Domain.Api.Configuration;
 using DateFinder.External;
 using DateFinder.Domain.External;
+using DateFinder.Domain.Mappings;
+using DateFinder.Domain.Repositories;
+using DateFinder.Repositories;
 
 
 
@@ -11,17 +14,18 @@ namespace DateFinder.Api.Configuration
 {
     public class DateFinderServiceCollection
     {
-        private readonly IDateFinderConfigurationSettings _configuration;
+        private readonly bool? _isTest;
 
-        public DateFinderServiceCollection(IDateFinderConfigurationSettings dateFinderConfigurationSettings = null)
+        public DateFinderServiceCollection(bool? isTest = false)
         {
-            _configuration = dateFinderConfigurationSettings ?? new DateFinderConfigurationSettings();
+            _isTest = isTest;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             // Add services to the container.
             services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
+            services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
             services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
 
@@ -36,15 +40,19 @@ namespace DateFinder.Api.Configuration
 
             services.AddDbContext<DateFinderDbContext>(options =>
             {
-                if (_configuration.DateFinderConnectionString != null)
+                var configuration = services.BuildServiceProvider().GetRequiredService<IDateFinderConfigurationSettings>();
+
+                if (_isTest == false)
                 {
-                    options.UseSqlServer(_configuration.DateFinderConnectionString);
+                    options.UseSqlServer(configuration.DateFinderConnectionString);
                 }
                 else
                 {
                     options.UseInMemoryDatabase("DateFinderInMemoryDb");
                 }
             });
+
+            services.AddAutoMapper(typeof(AutoMapperProfiles));
 
             // Add Swagger services
             services.AddSwaggerGen(c =>

@@ -14,6 +14,8 @@ using DateFinder.Domain.External;
 using Xunit.Abstractions;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using System.Text.Json;
+using DateFinder.Domain.Storage;
+using DateFinder.Domain.Storage.EnumAttributes;
 
 
 
@@ -40,13 +42,23 @@ namespace DateFinder.External.Tests
             public TextSearchAsync(ITestOutputHelper output) : base(output) { }
 
             [Fact]
-            public async Task Basic()
+            public async Task WHEN_TextSearchAsync_is_called_THEN_results_not_empty()
             {
-                var response = await _systemUnderTest.TextSearchAsync("mini golf in Murray, Utah");
-                var responseJson = JsonSerializer.Serialize(response, new JsonSerializerOptions { WriteIndented = true });
+                var date = new Date
+                {
+                    Name = "mini golf",
+                    //Price = "$$",
+                    //Rating = "4",
+                    //IndoorOutdoor = IndoorOutdoor.Outdoor
+                };
+                var location = "Murray, Utah";
 
-                _output.WriteLine(responseJson);
-                Assert.True(response != null);
+                var response = await _systemUnderTest.TextSearchAsync(date, location);
+
+                _output.WriteLine(response.);
+
+                Assert.NotNull(response);
+                Assert.NotEmpty(response);
             }
 
             //[Fact]
