@@ -22,29 +22,23 @@ namespace DateFinder.Storage.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DateFinder.Models.Date", b =>
+            modelBuilder.Entity("DateFinder.Domain.Storage.Date", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ActivityLevel")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Duration")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double?>("Duration")
+                        .HasColumnType("float");
 
                     b.Property<string>("IndoorOutdoor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -58,440 +52,392 @@ namespace DateFinder.Storage.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Date");
+                    b.ToTable("Dates");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ac22767e-2b38-4c93-b5c8-d17a6e8ee6e1"),
+                            Id = new Guid("49aa8435-b305-42fb-b4e4-1fac1b21ce49"),
                             ActivityLevel = "High",
-                            Duration = "4",
+                            Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "rock climbing"
                         },
                         new
                         {
-                            Id = new Guid("12845b63-fa0e-4b23-813a-3d380ec3e485"),
+                            Id = new Guid("0e0a8c58-9080-474f-ad5e-2456a68ba451"),
                             ActivityLevel = "High",
-                            Duration = "2.5",
+                            Duration = 2.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "indoor rock climbing"
                         },
                         new
                         {
-                            Id = new Guid("d0d7e7e2-391d-4567-9ffd-e7f89a414b02"),
+                            Id = new Guid("febc60ec-32e5-4da9-a241-3d4cf24f35ea"),
                             ActivityLevel = "Medium",
-                            Duration = "5",
+                            Duration = 5.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "amusement park"
                         },
                         new
                         {
-                            Id = new Guid("f4e2ab78-5ecf-4b93-8b49-c646829ea885"),
+                            Id = new Guid("13f03c1f-f4ab-48c3-9a4f-3e6ed8aff629"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "bowling"
                         },
                         new
                         {
-                            Id = new Guid("87e12bda-c19d-46c1-8760-65723db72070"),
+                            Id = new Guid("09375188-bc7e-46f6-b79c-69973ed965ce"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "mini golf"
                         },
                         new
                         {
-                            Id = new Guid("b70d8c3f-d17e-45e3-8d2a-f24580730f5c"),
+                            Id = new Guid("6662013e-4ad8-48da-a7a7-3ce2919e88d8"),
                             ActivityLevel = "Medium",
-                            Duration = "4",
+                            Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "golf"
                         },
                         new
                         {
-                            Id = new Guid("9a010a9f-937e-4b3d-9f49-7978d84b329b"),
+                            Id = new Guid("47f4a54c-57e6-40cc-951e-ab60cd6a371d"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "driving range"
                         },
                         new
                         {
-                            Id = new Guid("2cd94e1c-40c2-4577-990d-67749ef1a92f"),
+                            Id = new Guid("6d8cc3dd-0a72-4848-89eb-9445927a3b9d"),
                             ActivityLevel = "High",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "trampoline park"
                         },
                         new
                         {
-                            Id = new Guid("67030e81-fbe2-4000-8a5b-fa559f740e58"),
+                            Id = new Guid("a12e5f6a-48d8-4ba8-9c61-dfe6f304fee6"),
                             ActivityLevel = "Low",
-                            Duration = "3.5",
+                            Duration = 3.5,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "live music"
                         },
                         new
                         {
-                            Id = new Guid("dfac533c-e79f-45fd-8dce-6d7157d6bded"),
+                            Id = new Guid("0ee32973-8e62-4d78-8f92-08c1c8812808"),
                             ActivityLevel = "Medium",
-                            Duration = "3.5",
+                            Duration = 3.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "zoo"
                         },
                         new
                         {
-                            Id = new Guid("38f5bedd-6fcd-4104-9612-24fac6e65ae1"),
+                            Id = new Guid("70559920-5d4f-4a73-b24c-8b39ad662ecd"),
                             ActivityLevel = "Medium",
-                            Duration = "2.5",
+                            Duration = 2.5,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "botanical garden"
                         },
                         new
                         {
-                            Id = new Guid("99b8d6af-1c34-4985-a0d8-d6d42ab21dc2"),
+                            Id = new Guid("a83606f9-a23b-4b47-bed0-d92676ab42df"),
                             ActivityLevel = "Medium",
-                            Duration = "3",
+                            Duration = 3.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "museum"
                         },
                         new
                         {
-                            Id = new Guid("a34ebccc-80c9-48f9-8fae-397f5d3eeb19"),
+                            Id = new Guid("6326fb39-983d-4ad1-b612-5b81ffe29ff7"),
                             ActivityLevel = "Medium",
-                            Duration = "2.5",
+                            Duration = 2.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "art museum"
                         },
                         new
                         {
-                            Id = new Guid("105c536f-8a19-4a6e-8cfa-58923bd90f5a"),
+                            Id = new Guid("6193ab6c-6d28-4581-bc2d-20fb9cf9bba5"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "mall"
                         },
                         new
                         {
-                            Id = new Guid("f70870b1-5ef2-4cc0-bc7a-7926a8bfc8b4"),
+                            Id = new Guid("a0c64e67-1885-4ee7-b658-29f389af8ae0"),
                             ActivityLevel = "Medium",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "laser tag"
                         },
                         new
                         {
-                            Id = new Guid("bbbdd4c2-ae88-4077-a229-5d71f2003338"),
+                            Id = new Guid("2f82285e-78a6-44d2-b364-9bbb85489731"),
                             ActivityLevel = "High",
-                            Duration = "2.5",
+                            Duration = 2.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "indoor scuba diving"
                         },
                         new
                         {
-                            Id = new Guid("36502af6-1d1f-462d-b82d-3c9f613291b2"),
+                            Id = new Guid("d5e1d6e7-eeb6-4ed2-a233-16a18f7381a3"),
                             ActivityLevel = "High",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "indoor skydiving"
                         },
                         new
                         {
-                            Id = new Guid("9155e81f-cffa-4163-a88f-1e946eef1893"),
+                            Id = new Guid("865da27f-a05a-4dfe-bbc2-02c7adb0f111"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "ice castle"
                         },
                         new
                         {
-                            Id = new Guid("b75be1ed-d65f-4e79-8cfc-08db4dbab62c"),
+                            Id = new Guid("01b6e4c6-721c-4bd9-8078-491ad1499015"),
                             ActivityLevel = "Low",
-                            Duration = "3",
+                            Duration = 3.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "play/musical"
                         },
                         new
                         {
-                            Id = new Guid("8ccbd251-da62-4477-a498-f191c7efc900"),
+                            Id = new Guid("61575de3-85bf-425e-ba8d-d0a90daf785b"),
                             ActivityLevel = "Medium",
-                            Duration = "4",
+                            Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "beach"
                         },
                         new
                         {
-                            Id = new Guid("f9d3d807-0707-4594-af18-dccf376d498e"),
+                            Id = new Guid("8b36a925-1c29-44ad-b6db-ccacd4ed98b9"),
                             ActivityLevel = "Medium",
-                            Duration = "2",
+                            Duration = 2.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "butterfly"
                         },
                         new
                         {
-                            Id = new Guid("e812751d-a952-40f2-bb0e-17216080e236"),
+                            Id = new Guid("a246ed1a-1b53-4c1b-b7ff-aa4cfd876bae"),
                             ActivityLevel = "Low",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "farmers market"
                         },
                         new
                         {
-                            Id = new Guid("436f7fac-2ba4-4448-84d0-ee60170860bb"),
+                            Id = new Guid("a329dde3-58dc-4c09-9c3b-75547f6a62c1"),
                             ActivityLevel = "Low",
-                            Duration = "3.5",
+                            Duration = 3.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "movie"
                         },
                         new
                         {
-                            Id = new Guid("c85d6c33-4782-4ad8-99be-bace4a80fee3"),
+                            Id = new Guid("120fe3fb-7d35-4443-b2a7-c18a335bfb93"),
                             ActivityLevel = "Low",
-                            Duration = "3.5",
+                            Duration = 3.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "drive in movie"
                         },
                         new
                         {
-                            Id = new Guid("7688da2f-353b-407b-81c1-d68c563e1ded"),
+                            Id = new Guid("528f28a6-eedc-4e79-b13f-23f4278b82b2"),
                             ActivityLevel = "Low",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "arcade"
                         },
                         new
                         {
-                            Id = new Guid("5de5544e-7493-4f5f-808c-d40026d220d7"),
+                            Id = new Guid("5741d76d-c752-4382-b790-c5685dcc3bef"),
                             ActivityLevel = "High",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "ice skating"
                         },
                         new
                         {
-                            Id = new Guid("f4007407-6a14-42d5-913b-25ba088ba232"),
+                            Id = new Guid("cd6ecef7-7764-44c1-9a52-c222423fdf7f"),
                             ActivityLevel = "High",
-                            Duration = "3",
+                            Duration = 3.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "mountain biking"
                         },
                         new
                         {
-                            Id = new Guid("dff9b5b5-9bc3-4fc4-b36c-d43c4b03417f"),
+                            Id = new Guid("0731f1f8-33f2-4cbb-bd27-689b4bb0dfdd"),
                             ActivityLevel = "Medium",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "axe throwing"
                         },
                         new
                         {
-                            Id = new Guid("c551e3c7-cd8a-475d-8951-4b6edaac6ec3"),
+                            Id = new Guid("748db71d-a136-42f8-9417-4970374dbd78"),
                             ActivityLevel = "Medium",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "archery"
                         },
                         new
                         {
-                            Id = new Guid("be6e1ff8-aaf6-4b39-8d6c-0610d4182594"),
+                            Id = new Guid("0d7f1045-ea6f-4e2d-af80-6eb72b020efa"),
                             ActivityLevel = "Low",
-                            Duration = "1",
+                            Duration = 1.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "boba"
                         },
                         new
                         {
-                            Id = new Guid("5dd4f244-6b34-4c34-8858-4b14e223a6f3"),
+                            Id = new Guid("289dc090-3a99-4bee-b75b-b7eec822d656"),
                             ActivityLevel = "Low",
-                            Duration = "1",
+                            Duration = 1.0,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "ice cream"
                         },
                         new
                         {
-                            Id = new Guid("5c8cd1a7-b032-434a-844b-6bb6f42b557b"),
+                            Id = new Guid("0a1bb980-2605-4aaa-aa6c-f7d0f7c8799a"),
                             ActivityLevel = "Medium",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "park"
                         },
                         new
                         {
-                            Id = new Guid("70d797b3-0362-4372-b082-c59de71ef49d"),
+                            Id = new Guid("44c075fb-9d44-450d-98e2-c7be6ff0f6d9"),
                             ActivityLevel = "Low",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "christmas lights/lights"
                         },
                         new
                         {
-                            Id = new Guid("d744d5db-235d-4978-b2c8-5233bc36ab52"),
+                            Id = new Guid("44dec13d-95b5-42f9-97c4-f15d06a997f1"),
                             ActivityLevel = "High",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Both",
-                            MyProperty = 0,
                             Name = "pickle ball"
                         },
                         new
                         {
-                            Id = new Guid("e7f5c0e6-8960-4fd9-8ac7-b51cb370b487"),
+                            Id = new Guid("a96e99d9-60eb-4f11-927a-7c578c95212d"),
                             ActivityLevel = "High",
-                            Duration = "1.5",
+                            Duration = 1.5,
                             IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
                             Name = "raquetball"
                         },
                         new
                         {
-                            Id = new Guid("a7017a4d-b86d-4350-98ad-058551bf1045"),
+                            Id = new Guid("fd12f861-87b4-4700-8a8d-051bbf7c409c"),
                             ActivityLevel = "Medium",
-                            Duration = "2.5",
+                            Duration = 2.5,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
                             Name = "horseback riding"
                         },
                         new
                         {
-                            Id = new Guid("2498dc33-6a8e-455a-8548-17e231a6c361"),
+                            Id = new Guid("8df752e8-d994-466b-81e5-13762e950567"),
                             ActivityLevel = "High",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "boxing class"
-                        },
-                        new
-                        {
-                            Id = new Guid("3c95dde6-2d54-40cc-ae0e-e581e99ef221"),
-                            ActivityLevel = "High",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "dance class"
-                        },
-                        new
-                        {
-                            Id = new Guid("ca16b378-cf25-4e8b-8fdc-8bb137555b59"),
-                            ActivityLevel = "High",
-                            Duration = "2",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "swing dancing"
-                        },
-                        new
-                        {
-                            Id = new Guid("b2990da4-e60f-4e42-b466-214927b583af"),
-                            ActivityLevel = "High",
-                            Duration = "2",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "cooking class"
-                        },
-                        new
-                        {
-                            Id = new Guid("28bd2630-21de-408d-abf7-12987037ad03"),
-                            ActivityLevel = "Low",
-                            Duration = "2",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "aquarium"
-                        },
-                        new
-                        {
-                            Id = new Guid("ec62a070-b65c-4d06-9a21-3ffb43dd0349"),
-                            ActivityLevel = "Low",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "thrift"
-                        },
-                        new
-                        {
-                            Id = new Guid("4397ca2c-7aeb-44a6-a1ff-d13b16243117"),
-                            ActivityLevel = "High",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "roller skating"
-                        },
-                        new
-                        {
-                            Id = new Guid("d5a66a77-c4ba-4edc-aec3-fce30483520d"),
-                            ActivityLevel = "Low",
-                            Duration = "2",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "karaoke"
-                        },
-                        new
-                        {
-                            Id = new Guid("ee7f8da9-08d4-4bac-8477-47cf4a09d5ec"),
-                            ActivityLevel = "Low",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Indoor",
-                            MyProperty = 0,
-                            Name = "nickelcade"
-                        },
-                        new
-                        {
-                            Id = new Guid("28974797-f54f-449a-abb5-24f6a8128a7f"),
-                            ActivityLevel = "High",
-                            Duration = "1.5",
-                            IndoorOutdoor = "Both",
-                            MyProperty = 0,
-                            Name = "swimming"
-                        },
-                        new
-                        {
-                            Id = new Guid("a609ab72-edce-4942-8931-e00b25b3c125"),
-                            ActivityLevel = "High",
-                            Duration = "5",
+                            Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
+                            Name = "jetskiing"
+                        },
+                        new
+                        {
+                            Id = new Guid("1b84cba9-8cc3-4e00-8d8b-2307043bffb6"),
+                            ActivityLevel = "High",
+                            Duration = 3.5,
+                            IndoorOutdoor = "Outdoor",
+                            Name = "kayaking"
+                        },
+                        new
+                        {
+                            Id = new Guid("c5f20399-f37d-482b-9f9f-351a71c2fab5"),
+                            ActivityLevel = "Low",
+                            Duration = 5.0,
+                            IndoorOutdoor = "Both",
+                            Name = "road trip"
+                        },
+                        new
+                        {
+                            Id = new Guid("15de9d4a-a980-40de-abde-cd4409267e99"),
+                            ActivityLevel = "High",
+                            Duration = 4.0,
+                            IndoorOutdoor = "Outdoor",
+                            Name = "snowboarding"
+                        },
+                        new
+                        {
+                            Id = new Guid("a9479af8-1195-4078-b533-4920387a4cc4"),
+                            ActivityLevel = "High",
+                            Duration = 4.0,
+                            IndoorOutdoor = "Outdoor",
                             Name = "skiing"
                         },
                         new
                         {
-                            Id = new Guid("bcc161d7-e999-4442-ba79-5c63365054f0"),
+                            Id = new Guid("13319364-6b92-4756-980f-8f1ff4a915fd"),
                             ActivityLevel = "High",
-                            Duration = "2",
+                            Duration = 3.0,
                             IndoorOutdoor = "Outdoor",
-                            MyProperty = 0,
-                            Name = "tubing hill"
+                            Name = "paintballing"
+                        },
+                        new
+                        {
+                            Id = new Guid("167d453c-b15d-42b0-85a2-78e74277041c"),
+                            ActivityLevel = "High",
+                            Duration = 2.5,
+                            IndoorOutdoor = "Outdoor",
+                            Name = "skydiving"
+                        },
+                        new
+                        {
+                            Id = new Guid("74e7a7a2-267f-43ff-8666-8337313aaea1"),
+                            ActivityLevel = "Low",
+                            Duration = 3.0,
+                            IndoorOutdoor = "Both",
+                            Name = "concert"
+                        },
+                        new
+                        {
+                            Id = new Guid("8010126d-3885-454f-ad5c-00a4ad400ec3"),
+                            ActivityLevel = "Medium",
+                            Duration = 5.0,
+                            IndoorOutdoor = "Outdoor",
+                            Name = "air show"
+                        },
+                        new
+                        {
+                            Id = new Guid("8a865142-da0d-4e3f-b46e-f84e6378c976"),
+                            ActivityLevel = "Low",
+                            Duration = 2.5,
+                            IndoorOutdoor = "Indoor",
+                            Name = "ballet"
+                        },
+                        new
+                        {
+                            Id = new Guid("5799c3f7-c0cc-4849-9b38-51144b999b3e"),
+                            ActivityLevel = "Low",
+                            Duration = 2.5,
+                            IndoorOutdoor = "Indoor",
+                            Name = "symphony"
+                        },
+                        new
+                        {
+                            Id = new Guid("5c0d93c7-25a1-4730-9544-1f4294a14f93"),
+                            ActivityLevel = "High",
+                            Duration = 3.5,
+                            IndoorOutdoor = "Outdoor",
+                            Name = "hiking"
                         });
                 });
 #pragma warning restore 612, 618

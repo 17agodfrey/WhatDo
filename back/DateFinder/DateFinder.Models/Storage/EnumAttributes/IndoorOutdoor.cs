@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DateFinder.Domain.DataLayer.EnumAttributes
+namespace DateFinder.Domain.Storage.EnumAttributes
 {
     public enum IndoorOutdoor
     {
