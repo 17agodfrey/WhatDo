@@ -7,6 +7,8 @@ using DateFinder.Domain.External;
 using DateFinder.Domain.Mappings;
 using DateFinder.Domain.Repositories;
 using DateFinder.Repositories;
+using DateFinder.Domain.Services;
+using DateFinder.Services;
 
 
 
@@ -28,6 +30,7 @@ namespace DateFinder.Api.Configuration
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
             services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
+            services.AddTransient<IDateService, DateService>();
 
             ConfigureJwtAuthentication(services);
             ConfigureMiddlewareServices(services);

@@ -3126,6 +3126,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Google.Api.Gax.Grpc": "4.8.0",
+          "Google.Maps.Places.V1": "1.0.0-beta08",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0"
         },

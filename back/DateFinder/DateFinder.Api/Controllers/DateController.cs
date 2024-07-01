@@ -25,14 +25,13 @@ namespace DateFinder.Api.Controllers
         // GET TEXT SEARCH RESULTS 
         // GET api/date
         [HttpGet]
-        public async Task<IActionResult> Get([FromBody] FindMapDatesRequestDto findMapDatesRequestDto)
+        public async Task<IActionResult> Get([FromQuery] FindMapDatesRequestDto findMapDatesRequestDto)
         {
             // call the service 
             var mapDatesResponse = await _dateService.GetDatesAsync(findMapDatesRequestDto);
-            // convert the list of strings to JSON
-            var jsonResult = JsonSerializer.Serialize(mapDatesResponse);
             // return the JSON result
-            return Ok(jsonResult);
+            //var jsonResult = JsonSerializer.Serialize(mapDatesResponse);
+            return Ok(mapDatesResponse);
         }
     }
 }

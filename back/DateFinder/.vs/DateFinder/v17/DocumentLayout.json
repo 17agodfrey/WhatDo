@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\controllers\\datecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\findmapdatesresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\findmapdatesresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BEA23CC-EB7B-4E83-B63B-506509B18F70}|DateFinder.Services\\DateFinder.Services.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.services\\dateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEA23CC-EB7B-4E83-B63B-506509B18F70}|DateFinder.Services\\DateFinder.Services.csproj|solutionrelative:datefinder.services\\dateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,36 +15,72 @@
       "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\services\\idateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\findmapdatesresponseitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\findmapdatesresponseitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\findmapdatesresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\findmapdatesresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\findmapdatesrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\findmapdatesrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.storage\\datefinderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|solutionrelative:datefinder.storage\\datefinderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external\\googlemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F01D42F4-1E7A-4957-A0BE-B7F24AA7C1DD}|DateFinder.External\\DateFinder.External.csproj|solutionrelative:datefinder.external\\googlemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\storage\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\storage\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\external\\igooglemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\external\\igooglemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\datedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\datedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\api\\filters\\validatemodelattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\api\\filters\\validatemodelattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\storage\\enumattributes\\activitylevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\storage\\enumattributes\\activitylevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\storage\\enumattributes\\indooroutdoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\storage\\enumattributes\\indooroutdoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.repositories\\datesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|solutionrelative:datefinder.repositories\\datesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{25722931-4330-4692-953B-B8EE5CB1D893}|DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.repositories.tests\\datesrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25722931-4330-4692-953B-B8EE5CB1D893}|DateFinder.Repositories.Tests\\DateFinder.Repositories.Tests.csproj|solutionrelative:datefinder.repositories.tests\\datesrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|solutionrelative:datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{254F89BE-4AF7-45B5-9B7C-4AC5B83C4A86}|DateFinder.External.Tests\\DateFinder.External.Tests.csproj|solutionrelative:datefinder.external.tests\\googlemapsclienttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\configuration\\datefinderservicecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\configuration\\datefinderservicecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.storage\\datefinderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{038F1746-6783-4F61-BD5E-861EEC9E7F1C}|DateFinder.Storage\\DateFinder.Storage.csproj|solutionrelative:datefinder.storage\\datefinderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\storage\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\storage\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2AABB71-C959-4F67-8C6B-D2A0E68AD650}|DateFinder.Tests\\DateFinder.Tests.csproj|solutionrelative:datefinder.tests\\helpers\\datefinderserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,28 +91,8 @@
       "RelativeMoniker": "D:0:0:{CF47DAFD-23F3-4AF1-B7E0-61F8756B83ED}|DateFinder.Api\\DateFinder.Api.csproj|solutionrelative:datefinder.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.repositories\\datesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4FA5A104-415A-4CC0-BC6C-99DECB534108}|DateFinder.Repositories\\DateFinder.Repositories.csproj|solutionrelative:datefinder.repositories\\datesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\dto\\datedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\dto\\datedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\repositories\\idatesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\repositories\\idatesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\external\\igooglemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\external\\igooglemapsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|c:\\users\\17ago\\source\\repos\\dateideas\\back\\datefinder\\datefinder.models\\api\\filters\\validatemodelattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18FDCF42-0B0A-4F31-9FBF-9A67141F04BE}|DateFinder.Models\\DateFinder.Domain.csproj|solutionrelative:datefinder.models\\api\\filters\\validatemodelattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -89,7 +101,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 598,
+          "DockedWidth": 626,
           "SelectedChildIndex": 15,
           "Children": [
             {
@@ -98,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "DatesRepositoryTests.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Repositories.Tests\\DatesRepositoryTests.cs",
               "RelativeDocumentMoniker": "DateFinder.Repositories.Tests\\DatesRepositoryTests.cs",
@@ -111,20 +123,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "GoogleMapsClientTests.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "RelativeDocumentMoniker": "DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External.Tests\\GoogleMapsClientTests.cs",
               "RelativeToolTip": "DateFinder.External.Tests\\GoogleMapsClientTests.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAxwDcAAABWAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAtwDsAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-27T23:27:40.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "Startup.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Startup.cs",
               "RelativeDocumentMoniker": "DateFinder.Api\\Startup.cs",
@@ -137,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Program.cs",
               "RelativeDocumentMoniker": "DateFinder.Api\\Program.cs",
@@ -150,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 19,
               "Title": "DateFinderServiceProvider.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
               "RelativeDocumentMoniker": "DateFinder.Tests\\Helpers\\DateFinderServiceProvider.cs",
@@ -163,46 +175,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
               "Title": "IGoogleMapsClient.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\External\\IGoogleMapsClient.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\External\\IGoogleMapsClient.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\External\\IGoogleMapsClient.cs",
               "RelativeToolTip": "DateFinder.Models\\External\\IGoogleMapsClient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-27T18:58:41.258Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "GoogleMapsClient.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\GoogleMapsClient.cs",
               "RelativeDocumentMoniker": "DateFinder.External\\GoogleMapsClient.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.External\\GoogleMapsClient.cs",
               "RelativeToolTip": "DateFinder.External\\GoogleMapsClient.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAswBoAAABPAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwCAAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-27T01:25:06.884Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "DateFinderDbContext.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage\\DateFinderDbContext.cs",
               "RelativeDocumentMoniker": "DateFinder.Storage\\DateFinderDbContext.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Storage\\DateFinderDbContext.cs",
               "RelativeToolTip": "DateFinder.Storage\\DateFinderDbContext.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAmwD8AAABTAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAowBAAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-27T01:11:53.881Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "IDatesRepository.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Repositories\\IDatesRepository.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\Repositories\\IDatesRepository.cs",
@@ -228,54 +240,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 5,
               "Title": "AutoMapperProfiles.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Mappings\\AutoMapperProfiles.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\Mappings\\AutoMapperProfiles.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Mappings\\AutoMapperProfiles.cs",
               "RelativeToolTip": "DateFinder.Models\\Mappings\\AutoMapperProfiles.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T22:56:39.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "DateFinderServiceCollection.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "RelativeDocumentMoniker": "DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
               "RelativeToolTip": "DateFinder.Api\\Configuration\\DateFinderServiceCollection.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAABAAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAA1wCMAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T22:53:57.695Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "IDateService.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Services\\IDateService.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\Services\\IDateService.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Services\\IDateService.cs",
               "RelativeToolTip": "DateFinder.Models\\Services\\IDateService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T21:35:11.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DateService.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services\\DateService.cs",
               "RelativeDocumentMoniker": "DateFinder.Services\\DateService.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Services\\DateService.cs",
               "RelativeToolTip": "DateFinder.Services\\DateService.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAgwCsAAABUAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAiwCEAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T21:34:23.598Z",
+              "WhenOpened": "2024-06-28T15:46:03.377Z",
               "EditorCaption": ""
             },
             {
@@ -286,7 +298,7 @@
               "RelativeDocumentMoniker": "DateFinder.Api\\Controllers\\DateController.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Api\\Controllers\\DateController.cs",
               "RelativeToolTip": "DateFinder.Api\\Controllers\\DateController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwCIAAAAiAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAIwCEAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T21:33:39.619Z",
               "EditorCaption": ""
@@ -294,8 +306,8 @@
           ]
         },
         {
-          "DockedWidth": 584,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 556,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -303,20 +315,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FindMapDatesResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResponseDto.cs",
-              "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\FindMapDatesResponseDto.cs",
-              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResponseDto.cs",
-              "RelativeToolTip": "DateFinder.Models\\DTO\\FindMapDatesResponseDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "DocumentIndex": 13,
+              "Title": "IndoorOutdoor.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Storage\\EnumAttributes\\IndoorOutdoor.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\Storage\\EnumAttributes\\IndoorOutdoor.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Storage\\EnumAttributes\\IndoorOutdoor.cs",
+              "RelativeToolTip": "DateFinder.Models\\Storage\\EnumAttributes\\IndoorOutdoor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T23:53:19.695Z",
+              "WhenOpened": "2024-06-28T15:32:14.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 12,
+              "Title": "ActivityLevel.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Storage\\EnumAttributes\\ActivityLevel.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\Storage\\EnumAttributes\\ActivityLevel.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Storage\\EnumAttributes\\ActivityLevel.cs",
+              "RelativeToolTip": "DateFinder.Models\\Storage\\EnumAttributes\\ActivityLevel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T15:32:12.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ValidateModelAttributes.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Api\\Filters\\ValidateModelAttributes.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\Api\\Filters\\ValidateModelAttributes.cs",
@@ -329,33 +354,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 10,
               "Title": "DateDto.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\DateDto.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\DateDto.cs",
               "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\DateDto.cs",
               "RelativeToolTip": "DateFinder.Models\\DTO\\DateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAfAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T21:56:15.987Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FindMapDatesRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
-              "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
-              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
-              "RelativeToolTip": "DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T22:00:06.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 18,
               "Title": "Date.cs",
               "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\Storage\\Date.cs",
               "RelativeDocumentMoniker": "DateFinder.Models\\Storage\\Date.cs",
@@ -364,6 +376,45 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-26T22:08:49.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FindMapDatesRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
+              "RelativeToolTip": "DateFinder.Models\\DTO\\FindMapDatesRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T22:00:06.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FindMapDatesResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResultDto.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\FindMapDatesResultDto.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResultDto.cs",
+              "RelativeToolTip": "DateFinder.Models\\DTO\\FindMapDatesResultDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:53:19.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FindMapDatesResponseItemDto.cs",
+              "DocumentMoniker": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResponseItemDto.cs",
+              "RelativeDocumentMoniker": "DateFinder.Models\\DTO\\FindMapDatesResponseItemDto.cs",
+              "ToolTip": "C:\\Users\\17ago\\source\\repos\\DateIdeas\\back\\DateFinder\\DateFinder.Models\\DTO\\FindMapDatesResponseItemDto.cs",
+              "RelativeToolTip": "DateFinder.Models\\DTO\\FindMapDatesResponseItemDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T18:52:08.235Z",
               "EditorCaption": ""
             }
           ]
