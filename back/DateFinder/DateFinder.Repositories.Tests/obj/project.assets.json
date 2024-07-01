@@ -4471,6 +4471,7 @@
           "DateFinder.Domain": "1.0.0",
           "DateFinder.External": "1.0.0",
           "DateFinder.Repositories": "1.0.0",
+          "DateFinder.Services": "1.0.0",
           "DateFinder.Storage": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.6",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.6",
@@ -4493,6 +4494,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Google.Api.Gax.Grpc": "4.8.0",
+          "Google.Maps.Places.V1": "1.0.0-beta08",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0"
         },
@@ -4533,6 +4536,20 @@
         },
         "runtime": {
           "bin/placeholder/DateFinder.Repositories.dll": {}
+        }
+      },
+      "DateFinder.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DateFinder.Domain": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DateFinder.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DateFinder.Services.dll": {}
         }
       },
       "DateFinder.Storage/1.0.0": {
@@ -12379,6 +12396,11 @@
       "type": "project",
       "path": "../DateFinder.Repositories/DateFinder.Repositories.csproj",
       "msbuildProject": "../DateFinder.Repositories/DateFinder.Repositories.csproj"
+    },
+    "DateFinder.Services/1.0.0": {
+      "type": "project",
+      "path": "../DateFinder.Services/DateFinder.Services.csproj",
+      "msbuildProject": "../DateFinder.Services/DateFinder.Services.csproj"
     },
     "DateFinder.Storage/1.0.0": {
       "type": "project",

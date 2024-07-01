@@ -50,6 +50,14 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Google.Api.Gax.Grpc": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
+            "Google.Maps.Places.V1": {
+              "target": "Package",
+              "version": "[1.0.0-beta08, )"
+            },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
               "version": "[2.2.0, )"

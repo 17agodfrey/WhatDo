@@ -15,6 +15,9 @@ using Google.Maps.Places.V1;
 using DateFinder.Domain.External;
 using DateFinder.Domain.Api.Configuration;
 using DateFinder.Domain.Storage;
+using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace DateFinder.External
@@ -27,32 +30,32 @@ namespace DateFinder.External
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
         }
 
-        public async Task<string> TextSearchAsync(Date date, string location)
+        // the base response from the places API, returning a list of places
+        public async Task<SearchTextResponse> TextSearchAsync(Date date, string location)
         {
             PlacesClient client = PlacesClient.Create();
 
             // create query from date object
-            string query = $"{date} in {location}";
+            string query = $"{date.Name} in {location}";
 
             CallSettings callSettings = CallSettings.FromHeader("X-Goog-Api-Key", _dateFinderConfigurationSettings.GoogleMapsApiKey)
                 .WithHeader("Content-Type", "applications/json")
-                .WithHeader("X-Goog-FieldMask", "places.displayName,places.formattedAddress,places.priceLevel");
+                .WithHeader("X-Goog-FieldMask", "places.id,places.displayName.text"); // when adding more fields use commas 
+
             SearchTextRequest request = new SearchTextRequest
             {
-                TextQuery = query
+                TextQuery = query,
+                MaxResultCount = 5
             };
             SearchTextResponse response = await client.SearchTextAsync(request, callSettings);
-            Console.WriteLine(response);
 
-            var displayNames = response.Places
-                .Where(place => !string.IsNullOrEmpty(place.DisplayName.ToString()))
-                .Select(place => place.DisplayName)
-                .Take(5) // Return only the first 5 results
-                .ToList().ToString();
+            // Extract display names
+            //var displayNames = response.Places
+            //    .Where(place => !string.IsNullOrEmpty(place.DisplayName.ToString()))
+            //    .Select(place => place.DisplayName.ToString())
+            //    .ToList();
 
-            // need to return whatever data the front end needs to render the map (id's and whatnot probably)
-            // but for now lets just get the display names
-            return displayNames;
+            return response;
         }
     }
 }

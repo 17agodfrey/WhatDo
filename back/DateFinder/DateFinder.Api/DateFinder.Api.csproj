@@ -23,6 +23,7 @@
     <ProjectReference Include="..\DateFinder.External\DateFinder.External.csproj" />
     <ProjectReference Include="..\DateFinder.Models\DateFinder.Domain.csproj" />
     <ProjectReference Include="..\DateFinder.Repositories\DateFinder.Repositories.csproj" />
+    <ProjectReference Include="..\DateFinder.Services\DateFinder.Services.csproj" />
     <ProjectReference Include="..\DateFinder.Storage\DateFinder.Storage.csproj" />
   </ItemGroup>
 

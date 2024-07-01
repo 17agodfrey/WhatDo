@@ -55,10 +55,9 @@ namespace DateFinder.External.Tests
 
                 var response = await _systemUnderTest.TextSearchAsync(date, location);
 
-                _output.WriteLine(response.);
+                _output.WriteLine(response.ToString());
 
                 Assert.NotNull(response);
-                Assert.NotEmpty(response);
             }
 
             //[Fact]
