@@ -1,0 +1,29 @@
+#LandingPageBody {
+    height: 100vh;
+    background-color: #F4F7F3;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr; /* Added 2 more columns */
+}
+
+#LandingPageMainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row: 2 / 3; /* Span from 2nd row to 3rd row */
+    height: fit-content;
+}
+
+#LandingPageMainContent h1 {
+    font-size: 2.5rem;
+    color: #2E2E2E;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.MapSearchEntrySection {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
