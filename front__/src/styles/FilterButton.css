@@ -1,0 +1,44 @@
+.filter-button-container {
+    position: relative;
+    display: inline-block;
+    /* max-height: 100%; */
+}
+
+#caret {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 4rem; /* Adjust as needed */
+}
+
+.popup-menu {
+    position: absolute;
+    top: 100%; /* Places the popup directly below the button */
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.list-popup {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.slider-container {
+    padding: 1rem;
+}

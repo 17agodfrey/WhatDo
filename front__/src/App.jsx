@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthProvider.jsx';
 import PrivateRoute  from './routes/PrivateRoute.jsx';
 import Navbar from './components/Navbar.jsx';
 import LandingPage from './components/pages/LandingPage.jsx';
+import MapSearchPage from './components/pages/MapSearchPage.jsx';
 import NotFoundPage from './components/pages/NotFoundPage.jsx';
 
 import './App.css'
@@ -19,6 +20,7 @@ function App() {
             {/* Layout route for pages that include the Navbar, wrapped with PrivateRoute */}
             <Route element={<LayoutWithNavbar />}>
               <Route path="/landing" element={<LandingPage />} />
+              <Route path="/map-search" element={<MapSearchPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>

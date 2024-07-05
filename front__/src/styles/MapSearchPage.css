@@ -1,0 +1,23 @@
+#map-search-page-root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#msp-options-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+#msp-options-section .hz-close img{
+    height: 1em;
+}
+
+#msp-main-content {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,38 @@
+#navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: fit-content;
+    padding: .5rem 0;
+    background-color: #C3D1DC;
+}
+
+#navbar img {
+    height: 2.5rem;
+}
+
+#navbar-middle {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 1;
+}
+
+.middle-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #000;
+}
+
+#navbar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding-right: .5rem;
+}
