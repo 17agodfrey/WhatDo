@@ -3,3 +3,23 @@ body {
     background: #F1F1F1;
     margin: 0;
 }
+
+.filters-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.hz-close { /* horizontal close together */
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
