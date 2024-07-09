@@ -30,10 +30,10 @@ function App() {
 }
 
 const LayoutWithNavbar = () => (
-  <>
+  <div id='page-content'>
     <Navbar />
     <Outlet />
-  </>
+  </div>
 );
 
 export default App;
