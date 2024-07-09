@@ -1,16 +1,5 @@
-.filter-button-container {
-    position: relative;
-    display: inline-block;
-    /* max-height: 100%; */
-}
-
-#caret {
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
 .filter-button {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #f0f0f0;
@@ -18,27 +7,28 @@
     padding: 0.5rem;
     border-radius: 12px;
     cursor: pointer;
-    width: 4rem; /* Adjust as needed */
+    width: 4rem; */
 }
 
-.popup-menu {
-    position: absolute;
-    top: 100%; /* Places the popup directly below the button */
-    left: 0;
-    z-index: 1000;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 0.5rem;
-    width: 100%;
+/*/////// MUI stuff ///////*/
+
+.filter-button .MuiInputBase-root {
+    position: relative;
+    background-color: #A1D7F5;
+    border-radius: 16px; /* Increase the border radius value for more rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    /* min-width: 120px; */
+    margin-top: 0;
 }
 
-.list-popup {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
+.filter-button .MuiInputBase-root:focus {
+    border-color: yellow;
+    /* box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25); */
+    border-radius: 16px; /* Increase the border radius value for more rounded corners */
 }
 
-.slider-container {
-    padding: 1rem;
+.filter-button .MuiSelect-icon {
+    color: #F69EA3;
+    font-size: 2rem;
 }

@@ -8,6 +8,7 @@ import queryString from 'query-string';
 import TextField from '@mui/material/TextField';
 import '../../styles/MapSearchPage.css';
 import Chip from '@mui/material/Chip';
+import GoogleMap from '../GoogleMap';
 
 
 const MapSearchPage = () => {
@@ -49,6 +50,9 @@ const MapSearchPage = () => {
                     variant="outlined" 
                     value={location} 
                     onChange={(e) => setLocation(e.target.value)}
+                    InputLabelProps={{shrink: false}}
+                    size="small"
+                    sx={{minWidth: 'fit-content'}}
                 />
                 <div className='filters-container'>
                     <FilterButton 
@@ -72,6 +76,15 @@ const MapSearchPage = () => {
                         selectedValues={selectedIndoorOutdoor}
                         setSelectedValues={setSelectedIndoorOutdoor}
                     />
+                    <FilterButton 
+                        label='Duration' 
+                        variant='slider' 
+                        value={duration} 
+                        setValue={setDuration}
+                    />
+                    {/* <SimpleSelect/>
+                    <SimpleSelect/> */}
+
                 </div>
                 <div className='hz-close'>
                     <p>Sort</p>
@@ -79,9 +92,14 @@ const MapSearchPage = () => {
                 </div>
             </div>
             <div id='msp-main-content'>
-                <p>Selected prices: {selectedPrices}</p>
-                <p>Selected ratings: {selectedRatings}</p>
-                <p>Selected indoor/outdoor: {selectedIndoorOutdoor}</p>
+                <div id='map'>
+                    <GoogleMap/>
+                </div>
+                <div id='map-results'>
+                    <p>Selected prices: {selectedPrices}</p>
+                    <p>Selected ratings: {selectedRatings}</p>
+                    <p>Selected indoor/outdoor: {selectedIndoorOutdoor}</p>
+                </div>
             </div>
         </div>
     );
