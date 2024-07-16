@@ -34,7 +34,7 @@ namespace DateFinder.Storage.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Duration")
+                    b.Property<double>("Duration")
                         .HasColumnType("float");
 
                     b.Property<string>("IndoorOutdoor")
@@ -57,7 +57,7 @@ namespace DateFinder.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("49aa8435-b305-42fb-b4e4-1fac1b21ce49"),
+                            Id = new Guid("c56085b3-07bf-45c9-983c-14c665c70c8e"),
                             ActivityLevel = "High",
                             Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
@@ -65,7 +65,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0e0a8c58-9080-474f-ad5e-2456a68ba451"),
+                            Id = new Guid("0de41b5b-23f7-4ff2-bec4-36d0be2f4254"),
                             ActivityLevel = "High",
                             Duration = 2.5,
                             IndoorOutdoor = "Indoor",
@@ -73,7 +73,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("febc60ec-32e5-4da9-a241-3d4cf24f35ea"),
+                            Id = new Guid("e700c095-9c68-40ca-aab5-f6bddf67cc27"),
                             ActivityLevel = "Medium",
                             Duration = 5.0,
                             IndoorOutdoor = "Outdoor",
@@ -81,7 +81,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("13f03c1f-f4ab-48c3-9a4f-3e6ed8aff629"),
+                            Id = new Guid("8c2f6944-1254-4e1c-a5f2-944a5699e8ed"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Indoor",
@@ -89,7 +89,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("09375188-bc7e-46f6-b79c-69973ed965ce"),
+                            Id = new Guid("794b0952-58a3-429d-97ac-1a932c61a708"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Both",
@@ -97,7 +97,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6662013e-4ad8-48da-a7a7-3ce2919e88d8"),
+                            Id = new Guid("332d5194-e2d7-47ab-ad2a-6f4f86d229ed"),
                             ActivityLevel = "Medium",
                             Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
@@ -105,7 +105,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("47f4a54c-57e6-40cc-951e-ab60cd6a371d"),
+                            Id = new Guid("ebefa09e-e438-48cc-a58b-bd4232339540"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
@@ -113,7 +113,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6d8cc3dd-0a72-4848-89eb-9445927a3b9d"),
+                            Id = new Guid("b277a378-424d-4add-8481-9d2f9061781a"),
                             ActivityLevel = "High",
                             Duration = 2.0,
                             IndoorOutdoor = "Indoor",
@@ -121,7 +121,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a12e5f6a-48d8-4ba8-9c61-dfe6f304fee6"),
+                            Id = new Guid("4c12d731-6b4e-4a2c-8133-a0d5c36311aa"),
                             ActivityLevel = "Low",
                             Duration = 3.5,
                             IndoorOutdoor = "Both",
@@ -129,7 +129,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0ee32973-8e62-4d78-8f92-08c1c8812808"),
+                            Id = new Guid("1d67a826-7282-4a85-90bd-9b4201660a6d"),
                             ActivityLevel = "Medium",
                             Duration = 3.5,
                             IndoorOutdoor = "Outdoor",
@@ -137,7 +137,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("70559920-5d4f-4a73-b24c-8b39ad662ecd"),
+                            Id = new Guid("3858c4c3-f5b7-47d6-b18e-2e62435b45c9"),
                             ActivityLevel = "Medium",
                             Duration = 2.5,
                             IndoorOutdoor = "Both",
@@ -145,7 +145,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a83606f9-a23b-4b47-bed0-d92676ab42df"),
+                            Id = new Guid("89c94ed8-2064-4fca-b3a0-ad2e5dd8a089"),
                             ActivityLevel = "Medium",
                             Duration = 3.0,
                             IndoorOutdoor = "Indoor",
@@ -153,7 +153,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6326fb39-983d-4ad1-b612-5b81ffe29ff7"),
+                            Id = new Guid("67e8e03e-06c9-46d0-85d8-a02284a445c4"),
                             ActivityLevel = "Medium",
                             Duration = 2.5,
                             IndoorOutdoor = "Indoor",
@@ -161,7 +161,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6193ab6c-6d28-4581-bc2d-20fb9cf9bba5"),
+                            Id = new Guid("78bda27d-2da0-407f-9c45-a5d3400afccc"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Indoor",
@@ -169,7 +169,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a0c64e67-1885-4ee7-b658-29f389af8ae0"),
+                            Id = new Guid("3f8333f0-22ce-4875-8206-d47c20ea50f6"),
                             ActivityLevel = "Medium",
                             Duration = 1.5,
                             IndoorOutdoor = "Indoor",
@@ -177,7 +177,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2f82285e-78a6-44d2-b364-9bbb85489731"),
+                            Id = new Guid("6f975300-4319-45c0-af07-53212fbda88d"),
                             ActivityLevel = "High",
                             Duration = 2.5,
                             IndoorOutdoor = "Indoor",
@@ -185,7 +185,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d5e1d6e7-eeb6-4ed2-a233-16a18f7381a3"),
+                            Id = new Guid("dc21cd2c-bfeb-4293-b231-574f29cdb727"),
                             ActivityLevel = "High",
                             Duration = 1.5,
                             IndoorOutdoor = "Indoor",
@@ -193,7 +193,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("865da27f-a05a-4dfe-bbc2-02c7adb0f111"),
+                            Id = new Guid("e6167230-7b15-4a12-886f-54f4358c5334"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
@@ -201,7 +201,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("01b6e4c6-721c-4bd9-8078-491ad1499015"),
+                            Id = new Guid("19203e56-548c-42a9-9dc4-33bc1374048c"),
                             ActivityLevel = "Low",
                             Duration = 3.0,
                             IndoorOutdoor = "Indoor",
@@ -209,7 +209,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("61575de3-85bf-425e-ba8d-d0a90daf785b"),
+                            Id = new Guid("be0b8369-2d04-4873-9627-34fbbf4f5f4f"),
                             ActivityLevel = "Medium",
                             Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
@@ -217,7 +217,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8b36a925-1c29-44ad-b6db-ccacd4ed98b9"),
+                            Id = new Guid("40370dc2-96ea-4f14-a589-877ad811dd26"),
                             ActivityLevel = "Medium",
                             Duration = 2.0,
                             IndoorOutdoor = "Indoor",
@@ -225,7 +225,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a246ed1a-1b53-4c1b-b7ff-aa4cfd876bae"),
+                            Id = new Guid("d0bf7427-1112-4270-b782-d092573172a0"),
                             ActivityLevel = "Low",
                             Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
@@ -233,7 +233,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a329dde3-58dc-4c09-9c3b-75547f6a62c1"),
+                            Id = new Guid("ed5bbfb0-32ff-4762-9728-a72969fae2b2"),
                             ActivityLevel = "Low",
                             Duration = 3.5,
                             IndoorOutdoor = "Indoor",
@@ -241,7 +241,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("120fe3fb-7d35-4443-b2a7-c18a335bfb93"),
+                            Id = new Guid("801460d4-3926-4e98-ab1a-cdcedf9d2233"),
                             ActivityLevel = "Low",
                             Duration = 3.5,
                             IndoorOutdoor = "Outdoor",
@@ -249,7 +249,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("528f28a6-eedc-4e79-b13f-23f4278b82b2"),
+                            Id = new Guid("a13e72d8-7ab2-4269-bea7-f4987fb5485a"),
                             ActivityLevel = "Low",
                             Duration = 1.5,
                             IndoorOutdoor = "Indoor",
@@ -257,7 +257,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5741d76d-c752-4382-b790-c5685dcc3bef"),
+                            Id = new Guid("6532fd4b-2c0f-463a-9973-78450f800042"),
                             ActivityLevel = "High",
                             Duration = 1.5,
                             IndoorOutdoor = "Both",
@@ -265,7 +265,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cd6ecef7-7764-44c1-9a52-c222423fdf7f"),
+                            Id = new Guid("ec8545c8-648a-4da0-9550-59bf7088851d"),
                             ActivityLevel = "High",
                             Duration = 3.0,
                             IndoorOutdoor = "Outdoor",
@@ -273,7 +273,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0731f1f8-33f2-4cbb-bd27-689b4bb0dfdd"),
+                            Id = new Guid("55fff685-fc6e-4ebd-9936-2c6875b64f6e"),
                             ActivityLevel = "Medium",
                             Duration = 1.5,
                             IndoorOutdoor = "Indoor",
@@ -281,7 +281,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("748db71d-a136-42f8-9417-4970374dbd78"),
+                            Id = new Guid("01e9e7cd-6b28-4edc-b5f3-850ec8ec8dd3"),
                             ActivityLevel = "Medium",
                             Duration = 1.5,
                             IndoorOutdoor = "Both",
@@ -289,7 +289,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0d7f1045-ea6f-4e2d-af80-6eb72b020efa"),
+                            Id = new Guid("d43c14ac-6b1c-4a64-9571-6e1a077dd54d"),
                             ActivityLevel = "Low",
                             Duration = 1.0,
                             IndoorOutdoor = "Indoor",
@@ -297,7 +297,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("289dc090-3a99-4bee-b75b-b7eec822d656"),
+                            Id = new Guid("f5a609d7-4f0c-472e-926a-d05b047020b9"),
                             ActivityLevel = "Low",
                             Duration = 1.0,
                             IndoorOutdoor = "Indoor",
@@ -305,7 +305,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0a1bb980-2605-4aaa-aa6c-f7d0f7c8799a"),
+                            Id = new Guid("64053731-0d85-43bd-82d4-5b0fd6955831"),
                             ActivityLevel = "Medium",
                             Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
@@ -313,15 +313,15 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("44c075fb-9d44-450d-98e2-c7be6ff0f6d9"),
+                            Id = new Guid("8891b4ac-a15c-47d4-be94-7c43c2ff7fd9"),
                             ActivityLevel = "Low",
                             Duration = 1.5,
                             IndoorOutdoor = "Outdoor",
-                            Name = "christmas lights/lights"
+                            Name = "christmas lights"
                         },
                         new
                         {
-                            Id = new Guid("44dec13d-95b5-42f9-97c4-f15d06a997f1"),
+                            Id = new Guid("a64b9a42-6cdd-4531-9542-1a9319b56066"),
                             ActivityLevel = "High",
                             Duration = 1.5,
                             IndoorOutdoor = "Both",
@@ -329,7 +329,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a96e99d9-60eb-4f11-927a-7c578c95212d"),
+                            Id = new Guid("697fe27d-7f9c-4ae1-93bc-d204026d4385"),
                             ActivityLevel = "High",
                             Duration = 1.5,
                             IndoorOutdoor = "Indoor",
@@ -337,7 +337,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fd12f861-87b4-4700-8a8d-051bbf7c409c"),
+                            Id = new Guid("4d234db2-f188-4c23-9f94-f29c91747806"),
                             ActivityLevel = "Medium",
                             Duration = 2.5,
                             IndoorOutdoor = "Outdoor",
@@ -345,7 +345,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8df752e8-d994-466b-81e5-13762e950567"),
+                            Id = new Guid("6f56b52f-dcd8-4148-b1f0-b1770d9d6f98"),
                             ActivityLevel = "High",
                             Duration = 2.0,
                             IndoorOutdoor = "Outdoor",
@@ -353,7 +353,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1b84cba9-8cc3-4e00-8d8b-2307043bffb6"),
+                            Id = new Guid("e18f93f0-e190-44dc-9fda-700e225d19cc"),
                             ActivityLevel = "High",
                             Duration = 3.5,
                             IndoorOutdoor = "Outdoor",
@@ -361,7 +361,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c5f20399-f37d-482b-9f9f-351a71c2fab5"),
+                            Id = new Guid("68aa7622-d0fe-4e57-a8c4-d625b7190fca"),
                             ActivityLevel = "Low",
                             Duration = 5.0,
                             IndoorOutdoor = "Both",
@@ -369,15 +369,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15de9d4a-a980-40de-abde-cd4409267e99"),
-                            ActivityLevel = "High",
-                            Duration = 4.0,
-                            IndoorOutdoor = "Outdoor",
-                            Name = "snowboarding"
-                        },
-                        new
-                        {
-                            Id = new Guid("a9479af8-1195-4078-b533-4920387a4cc4"),
+                            Id = new Guid("2c474e15-d3e4-4146-8efb-50948e0eab32"),
                             ActivityLevel = "High",
                             Duration = 4.0,
                             IndoorOutdoor = "Outdoor",
@@ -385,7 +377,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("13319364-6b92-4756-980f-8f1ff4a915fd"),
+                            Id = new Guid("4d7cf3a2-cc57-4fec-8226-d5b17a5c5937"),
                             ActivityLevel = "High",
                             Duration = 3.0,
                             IndoorOutdoor = "Outdoor",
@@ -393,7 +385,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("167d453c-b15d-42b0-85a2-78e74277041c"),
+                            Id = new Guid("201a8429-e356-4839-bc84-d2b030c8bc67"),
                             ActivityLevel = "High",
                             Duration = 2.5,
                             IndoorOutdoor = "Outdoor",
@@ -401,7 +393,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("74e7a7a2-267f-43ff-8666-8337313aaea1"),
+                            Id = new Guid("549cfed1-853a-42cb-ab58-39df89d329ae"),
                             ActivityLevel = "Low",
                             Duration = 3.0,
                             IndoorOutdoor = "Both",
@@ -409,7 +401,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8010126d-3885-454f-ad5c-00a4ad400ec3"),
+                            Id = new Guid("6aaf8d45-66d7-4340-96bd-fa57e6ff31c4"),
                             ActivityLevel = "Medium",
                             Duration = 5.0,
                             IndoorOutdoor = "Outdoor",
@@ -417,15 +409,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8a865142-da0d-4e3f-b46e-f84e6378c976"),
-                            ActivityLevel = "Low",
-                            Duration = 2.5,
-                            IndoorOutdoor = "Indoor",
-                            Name = "ballet"
-                        },
-                        new
-                        {
-                            Id = new Guid("5799c3f7-c0cc-4849-9b38-51144b999b3e"),
+                            Id = new Guid("a962c555-9e71-4f8b-8f6e-374c419ff0d1"),
                             ActivityLevel = "Low",
                             Duration = 2.5,
                             IndoorOutdoor = "Indoor",
@@ -433,7 +417,7 @@ namespace DateFinder.Storage.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5c0d93c7-25a1-4730-9544-1f4294a14f93"),
+                            Id = new Guid("f04e418e-241a-4359-8ad1-ebd3289bb240"),
                             ActivityLevel = "High",
                             Duration = 3.5,
                             IndoorOutdoor = "Outdoor",

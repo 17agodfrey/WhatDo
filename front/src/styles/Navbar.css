@@ -1,8 +1,13 @@
+#navbar-flex {
+    display: flex;
+    width: 100%;
+    flex-shrink: fit-content;
+}
+
 #navbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
-    height: fit-content;
     padding: .5rem 0;
     background-color: #C3D1DC;
 }

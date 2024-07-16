@@ -31,6 +31,8 @@ namespace DateFinder.Api.Controllers
             var mapDatesResponse = await _dateService.GetDatesAsync(findMapDatesRequestDto);
             // return the JSON result
             //var jsonResult = JsonSerializer.Serialize(mapDatesResponse);
+
+            //Console.WriteLine("u called api/date, good job. Here's the result:\n", map);
             return Ok(mapDatesResponse);
         }
     }
