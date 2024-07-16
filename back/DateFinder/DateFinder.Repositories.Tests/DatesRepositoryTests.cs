@@ -44,10 +44,10 @@ namespace DateFinder.Repositories.Tests
                     //IndoorOutdoor = IndoorOutdoor.Outdoor
                 };
 
-                Tuple<double, double> durationRange = new Tuple<double, double>(1.0, 5.0);
+                (double, double) duration = (1.0, 5.0);
 
                 // Act
-                var result = await _systemUnderTest.GetAllAsync(date, durationRange);
+                var result = await _systemUnderTest.GetAllAsync(date, duration);
 
                 foreach (var dateResult in result)
                 {

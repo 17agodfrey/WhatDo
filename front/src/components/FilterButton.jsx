@@ -36,6 +36,7 @@ const MenuProps = {
     },
   },
   disableAutoFocusItem: true,
+  // autoFocus: false,
 };
 
 function valuetext(value) {
@@ -51,8 +52,13 @@ const calculateLabelWidth = (label) => {
 };
 
 const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelectedValues }) => {
-  const [value, setValue] = useState([20, 37]);
   const labelWidth = calculateLabelWidth(label);
+  const marks = variant === 'slider' 
+  ? possibleValues.map((value) => ({
+      value,           // The value is a number from the possibleValues array
+      label: String(value) // The label is a string representation of the value
+    }))
+  : [];
 
   const handleChange = (event) => {
     const { target: { value } } = event;
@@ -60,7 +66,7 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
   };
 
   const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
+    setSelectedValues(newValue);
   };
 
   return (
@@ -96,10 +102,14 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
               <MenuItem sx={{width: '200px'}}>
                 <Slider
                   getAriaLabel={() => 'Temperature range'}
-                  value={value}
+                  value={selectedValues}
                   onChange={handleSliderChange}
                   valueLabelDisplay="off"
                   getAriaValueText={valuetext}
+                  min={possibleValues[0]}
+                  max={possibleValues[1]}
+                  marks={marks}
+                  step={.5}
                 />            
               </MenuItem>
             </Select>

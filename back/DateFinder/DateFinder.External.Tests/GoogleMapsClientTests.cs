@@ -16,6 +16,7 @@ using Microsoft.VisualStudio.TestPlatform.Utilities;
 using System.Text.Json;
 using DateFinder.Domain.Storage;
 using DateFinder.Domain.Storage.EnumAttributes;
+using DateFinder.Domain.DTO;
 
 
 
@@ -44,6 +45,12 @@ namespace DateFinder.External.Tests
             [Fact]
             public async Task WHEN_TextSearchAsync_is_called_THEN_results_not_empty()
             {
+                var request = new FindMapDatesRequestDto
+                {
+                    // all other fields are optional
+                    Location = "Murray, Utah"
+                };
+
                 var date = new Date
                 {
                     Name = "mini golf",
@@ -53,7 +60,7 @@ namespace DateFinder.External.Tests
                 };
                 var location = "Murray, Utah";
 
-                var response = await _systemUnderTest.TextSearchAsync(date, location);
+                var response = await _systemUnderTest.TextSearchAsync(date, request);
 
                 _output.WriteLine(response.ToString());
 

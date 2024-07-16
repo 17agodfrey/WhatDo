@@ -10,6 +10,7 @@ using DateFinder.Domain.Repositories;
 using AutoMapper;
 using DateFinder.Domain.External;
 using Microsoft.AspNetCore.Mvc;
+using DateFinder.Domain.Storage.EnumAttributes;
 
 
 namespace DateFinder.Services
@@ -28,9 +29,14 @@ namespace DateFinder.Services
         }
         public async Task<List<FindMapDatesResponseItemDto>> GetDatesAsync (FindMapDatesRequestDto findMapDatesRequestDto)
         {
-            var dateDomainModel = _mapper.Map<Date>(findMapDatesRequestDto);
             // call the database - get dates (Date objects) according to the request
-            var suggestedDates = await _datesRepository.GetAllAsync(dateDomainModel, findMapDatesRequestDto.DurationRange);
+            var suggestedDates = await _datesRepository.GetAllFromRequestAsync(findMapDatesRequestDto);
+
+            foreach (Date date in suggestedDates)
+            {
+                Console.WriteLine("Date: " + date.Name);
+            }
+
             // call the external API - using the dates (Date objects) from the database
             var dateResultsResponseItems = new List<FindMapDatesResponseItemDto>();
 
@@ -41,22 +47,50 @@ namespace DateFinder.Services
                 {
                     Date = _mapper.Map<DateDto>(suggestedDate)
                 };
-                var googleMapsResponse = await _googleMapsClient.TextSearchAsync(suggestedDate, findMapDatesRequestDto.Location);
+                var googleMapsResponse = await _googleMapsClient.TextSearchAsync(suggestedDate, findMapDatesRequestDto);
+                
+                Console.WriteLine("Google Maps Response: " + googleMapsResponse);
+
                 // Extract relevant fields from the Google response
                 var findMapDatesResults = new List<FindMapDatesResultDto>();
                 foreach (var place in googleMapsResponse.Places)
                 {
-                    if (!string.IsNullOrEmpty(place.DisplayName.ToString()))
+                    if (place.DisplayName != null)
                     {
+                        if ((findMapDatesRequestDto.PriceLevels != null && !findMapDatesRequestDto.PriceLevels.Contains((Price)place.PriceLevel))
+                            || (findMapDatesRequestDto.Rating != null && !(findMapDatesRequestDto.Rating >= place.Rating))
+                        )
+                        {
+                            continue;
+                        }
                         var findMapDatesResultDto = new FindMapDatesResultDto
                         {
                             GoogleMapsId = place.Id,
-                            DisplayName = place.DisplayName.Text
-                        };
+                            DisplayName = place.DisplayName.Text,
+                            Description = place.EditorialSummary?.Text,
+                            PriceLevel = place.PriceLevel.ToString() != null ? place.PriceLevel.ToString() : null,
+                            Rating = place.Rating.ToString() != null ? place.Rating : null,
+                            LatLng = new LatLngDto
+                            {
+                                Latitude = place.Location.Latitude,
+                                Longitude = place.Location.Longitude
+                            },
+                            Photos = place.Photos?.Select(p => new Photo
+                            {
+                                Name = p.Name,
+                                WidthPx = p.WidthPx,
+                                HeightPx = p.HeightPx
+                            }).ToArray()
+                        };  
+
+                        if (findMapDatesResultDto.Photos != null)
+                        {
+                            var photos = await _googleMapsClient.GetPlacePhotos(findMapDatesResultDto.Photos);
+                            findMapDatesResultDto.PhotosUris = photos;
+                        }
                         findMapDatesResults.Add(findMapDatesResultDto);
                     }
                 }
-
                 findMapDatesResponseItemDto.Results = findMapDatesResults;
                 dateResultsResponseItems.Add(findMapDatesResponseItemDto);
             }
