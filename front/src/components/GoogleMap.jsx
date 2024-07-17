@@ -8,6 +8,7 @@ import {
 } from '@vis.gl/react-google-maps';
 import {MarkerClusterer} from '@googlemaps/markerclusterer';
 import {Circle} from './Circle';
+import {Poi} from '../models/Poi';
 
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
@@ -29,7 +30,7 @@ const poi = [
     { key: 'barangaroo', location: { lat: -33.8605523, lng: 151.1972205 } },
   ];
 
-  const PoiMarkers = (props) => {
+  const PoiMarkers = ({pois}) => {
     const map = useMap();
     const [markers, setMarkers] = useState({});
     const clusterer = useRef(null);      
@@ -84,7 +85,7 @@ const poi = [
           fillColor={'#3b82f6'}
           fillOpacity={0.3}
         />      
-        {props.pois.map((poi) => (
+        {pois.map((poi) => (
           <AdvancedMarker
             key={poi.key}
             position={poi.location}
@@ -100,7 +101,17 @@ const poi = [
   };
   
 
-const GoogleMap = () => {
+const GoogleMap = ({mapResults}) => {
+  console.log("mapResults > 0", mapResults && mapResults.length > 0);
+  const pois_ = mapResults && mapResults.length > 0 ? 
+    mapResults.map(result => new Poi(result.displayName, result.latLng.latitude, result.latLng.longitude))
+    : [];
+  console.log("pois_", pois_);
+
+  const [pois, setPois] = useState(pois_);    
+
+  console.log("mapResults", mapResults);
+  console.log("pois", pois);
 
     return (
         <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
@@ -115,7 +126,7 @@ const GoogleMap = () => {
                 gestureHandling={'greedy'}
                 disableDefaultUI={true}
             >
-                <PoiMarkers pois={poi} />
+                <PoiMarkers pois={pois} />
             </Map>
         </APIProvider>
     );

@@ -1,32 +1,30 @@
 // Date class
-class Date {
-    constructor(id, name, description = null, duration = null, price = null, rating = null, activityLevel = null, indoorOutdoor = null) {
+export class Date {
+    constructor(id, name, duration, activityLevel, indoorOutdoor) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.duration = duration;
-        this.price = price;
-        this.rating = rating;
         this.activityLevel = activityLevel;
         this.indoorOutdoor = indoorOutdoor;
     }
 }
 
 // FindMapDatesResult class
-class FindMapDatesResult {
-    constructor(googleMapsId, displayName, location, description = null, price = null, rating = null, photos = null) {
+export class FindMapDatesResult {
+    constructor(googleMapsId, displayName, latLng, description, priceLevel, rating, photos, photosUris) {
         this.googleMapsId = googleMapsId;
         this.displayName = displayName;
-        this.location = location;
-        this.description = description;
-        this.price = price;
-        this.rating = rating;
+        this.latLng = latLng;
+        this.description = description !== null ? description : "no description provided";
+        this.price = priceLevel !== null ? priceLevel : "no price level";
+        this.rating = rating !== null ? rating : "no rating";
         this.photos = photos;
+        this.photosUris = photosUris;
     }
 }
 
 // FindMapDatesResponseItem class - contains a Date and an array of FindMapDatesResult
-class FindMapDatesResponse {
+export class FindMapDatesResponseItem {
     constructor(date, results = []) {
         if (!(date instanceof Date)) {
             throw new Error("date must be an instance of Date");
@@ -69,10 +67,8 @@ const result2 = new FindMapDatesResult(
     '4.7 stars'
 );
 
-const responseItem = new FindMapDatesResponse(date, [result1, result2]);
+const responseItem = new FindMapDatesResponseItem(date, [result1]);
 
 // console.log(responseItem.date.name); // Date Name
-
-export default responseItem;
 
 // console.log(responseItem);
