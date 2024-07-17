@@ -2,14 +2,14 @@ import FilterButton from "../FilterButton";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Slider from '@mui/material/Slider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import sortIcon from '../../assets/sort-aqua.svg';
 import queryString from 'query-string';
 import TextField from '@mui/material/TextField';
 import '../../styles/MapSearchPage.css';
 import Chip from '@mui/material/Chip';
 import GoogleMap from '../GoogleMap';
-import responseItem from '../../models/MapDatesResponse';
+import {FindMapDatesResponseItem, FindMapDatesResult, Date} from '../../models/MapDatesResponse';
 import { useApiWithoutToken } from "../../hooks";
 import MapDatesResponseBox from '../MapDatesResponseBox';
 
@@ -17,40 +17,114 @@ import MapDatesResponseBox from '../MapDatesResponseBox';
 const MapSearchPage = () => {
     const queryParams = queryString.parse(window.location.search);
     // if location is in query params, set it as the default value
-    const [location, setLocation] = useState(queryParams.location ? queryParams.location : ''); 
+    const [location, setLocation] = useState(queryParams.location ? queryParams.location : localStorage.getItem('location') || '');
 
-    const prices = ['$', '$$', '$$$', '$$$$'];
-    const [selectedPrices, setSelectedPrices] = useState([]);
-    const ratings = ['Any rating', 2, 2.5, 3, 3.5, 4, 4.5, 5];
-    const [selectedRatings, setSelectedRatings] = useState([]);
     const indoorOutdoor = ['Indoor', 'Outdoor', 'Any'];
-    const [selectedIndoorOutdoor, setSelectedIndoorOutdoor] = useState([]);
-    const [selectedDuration, setSelectedDuration] = useState([1,5]);
-    const duration = [1,5];
-    const [selectedRadius, setSelectedRadius] = useState(15);
-    const radius = [5,25];
+    const [selectedIndoorOutdoor, setSelectedIndoorOutdoor] = useState(JSON.parse(localStorage.getItem('selectedIndoorOutdoor')) || []);
+    const duration = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+    const [selectedDuration, setSelectedDuration] = useState(JSON.parse(localStorage.getItem('selectedDuration')) || [1, 5]);
+    const activityLevels = ["Low", "Medium", "High"];
+    const [selectedActivityLevels, setSelectedActivityLevels] = useState(JSON.parse(localStorage.getItem('selectedActivityLevels')) || []);
+    const prices = ['$', '$$', '$$$', '$$$$'];
+    const [selectedPrices, setSelectedPrices] = useState(JSON.parse(localStorage.getItem('selectedPrices')) || []);
+    const ratings = ['Any rating', 2, 2.5, 3, 3.5, 4, 4.5, 5];
+    const [selectedRating, setSelectedRating] = useState(JSON.parse(localStorage.getItem('selectedRating')) || []);
 
     const api = useApiWithoutToken();
-    const [mapResponseItems, setMapResponseItems] = useState(Array(4).fill(responseItem));
+    const [mapResponseItems, setMapResponseItems] = useState(JSON.parse(localStorage.getItem('mapResponseItems')) || []);
+    const [mapResults, setMapResults] = useState(JSON.parse(localStorage.getItem('mapResults')) || []);
+    console.log("mapResults: ", mapResults);
+    
+    // Save state variables to localStorage whenever they change
+    useEffect(() => {
+        localStorage.setItem('location', location);
+    }, [location]);
 
-    const handleSubmit = () => {
-        const query = {
-            location: location,
-            prices: selectedPrices,
-            ratings: selectedRatings,
-            indoorOutdoor: selectedIndoorOutdoor,
-            duration: selectedDuration,
-            radius: selectedRadius
+    useEffect(() => {
+        localStorage.setItem('selectedIndoorOutdoor', JSON.stringify(selectedIndoorOutdoor));
+    }, [selectedIndoorOutdoor]);
+
+    useEffect(() => {
+        localStorage.setItem('selectedDuration', JSON.stringify(selectedDuration));
+    }, [selectedDuration]);
+
+    useEffect(() => {
+        localStorage.setItem('selectedActivityLevels', JSON.stringify(selectedActivityLevels));
+    }, [selectedActivityLevels]);
+
+    useEffect(() => {
+        localStorage.setItem('selectedPrices', JSON.stringify(selectedPrices));
+    }, [selectedPrices]);
+
+    useEffect(() => {
+        localStorage.setItem('selectedRating', JSON.stringify(selectedRating));
+    }, [selectedRating]);
+
+    useEffect(() => {
+        localStorage.setItem('mapResponseItems', JSON.stringify(mapResponseItems));
+    }, [mapResponseItems]);
+
+    useEffect(() => {
+        localStorage.setItem('mapResults', JSON.stringify(mapResults));
+    }, [mapResults]);
+
+    const handleSubmit = async () => {
+        const queryParams = {
+            'DurationRange.Min': selectedDuration.length > 0 ? selectedDuration[0] : undefined,
+            'DurationRange.Max': selectedDuration.length > 1 ? selectedDuration[1] : undefined,
+            'PriceLevels': selectedPrices.length > 0 ? selectedPrices : undefined,
+            'Rating': selectedRating.length > 0 ? selectedRating : undefined,
+            'ActivityLevels': selectedActivityLevels.length > 0 ? selectedActivityLevels : undefined,
+            'IndoorOutdoor': selectedIndoorOutdoor.length > 0 ? selectedIndoorOutdoor : undefined,
+            'Location': location,
         }
-        console.log(query);
-        api.get('/date', query)
-            .then(res => {
-                console.log(res);
-                setMapResponseItems(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+
+        // Remove undefined values
+        const filteredQueryParams = Object.fromEntries(
+            Object.entries(queryParams).filter(([key, value]) => value !== undefined)
+        );
+
+        const queryStringified = queryString.stringify(filteredQueryParams);
+        // console.log(filteredQueryParams);
+
+        try {
+            const response = await api.get(`/date?${queryStringified}`)
+            if(response.ok){
+                response.json().then(data => {
+                    console.log("api called");
+                    console.log(data);
+                    const mapResultsReturned = [];
+                    const items = data.map(item => {
+                        const date = new Date(
+                            item.date.id, 
+                            item.date.name, 
+                            item.date.duration, 
+                            item.date.activityLevel, 
+                            item.date.indoorOutdoor
+                        );
+                        const results = item.results.map(result => {
+                            return new FindMapDatesResult(
+                                result.googleMapsId,
+                                result.displayName,
+                                result.latLng, 
+                                result.description, 
+                                result.priceLevel,
+                                result.rating, 
+                                "remove this:: photos ", 
+                                result.photosUris
+                            );
+                        });
+                        mapResultsReturned.push(...results);
+                        return new FindMapDatesResponseItem(date, results);
+                    });
+                    setMapResults(mapResultsReturned);
+                    setMapResponseItems(items);
+                });
+            }
+
+        } catch (error){
+            console.log(error);
+        }
     }
 
 
@@ -72,20 +146,6 @@ const MapSearchPage = () => {
                     />
                     <div className='filters-container'>
                         <FilterButton 
-                            label='Price' 
-                            variant='list' 
-                            possibleValues={prices} 
-                            selectedValues={selectedPrices}
-                            setSelectedValues={setSelectedPrices}
-                        />
-                        <FilterButton 
-                            label='Rating' 
-                            variant='list' 
-                            possibleValues={ratings} 
-                            selectedValues={selectedRatings}
-                            setSelectedValues={setSelectedRatings}
-                        />
-                        <FilterButton 
                             label='Indoor/Outdoor' 
                             variant='list' 
                             possibleValues={indoorOutdoor} 
@@ -98,6 +158,27 @@ const MapSearchPage = () => {
                             possibleValues={duration}
                             selectedValues={selectedDuration} 
                             setSelectedValues={setSelectedDuration}
+                        />              
+                        <FilterButton 
+                            label='Activity Level' 
+                            variant='list' 
+                            possibleValues={activityLevels}
+                            selectedValues={selectedActivityLevels} 
+                            setSelectedValues={setSelectedActivityLevels}
+                        />                                 
+                        <FilterButton 
+                            label='Price' 
+                            variant='list' 
+                            possibleValues={prices} 
+                            selectedValues={selectedPrices}
+                            setSelectedValues={setSelectedPrices}
+                        />
+                        <FilterButton 
+                            label='Rating' 
+                            variant='list' 
+                            possibleValues={ratings} 
+                            selectedValues={selectedRating}
+                            setSelectedValues={setSelectedRating}
                         />
                         {/* <FilterButton 
                             label='Radius' 
@@ -118,7 +199,7 @@ const MapSearchPage = () => {
             </div>
             <div id='msp-main-content'>
                 <div id='map'>
-                    <GoogleMap/>
+                    <GoogleMap mapResults={mapResults} />
                 </div>
                 <div id='map-results'>
                     {mapResponseItems.map((mapResponseItem, index1) => (

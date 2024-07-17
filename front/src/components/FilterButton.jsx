@@ -54,7 +54,7 @@ const calculateLabelWidth = (label) => {
 const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelectedValues }) => {
   const labelWidth = calculateLabelWidth(label);
   const marks = variant === 'slider' 
-  ? possibleValues.map((value) => ({
+  ? possibleValues.filter(value => Number.isInteger(value)).map((value) => ({
       value,           // The value is a number from the possibleValues array
       label: String(value) // The label is a string representation of the value
     }))
@@ -107,7 +107,7 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
                   valueLabelDisplay="off"
                   getAriaValueText={valuetext}
                   min={possibleValues[0]}
-                  max={possibleValues[1]}
+                  max={possibleValues[possibleValues.length - 1]}
                   marks={marks}
                   step={.5}
                 />            
