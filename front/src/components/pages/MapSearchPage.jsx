@@ -8,7 +8,7 @@ import queryString from 'query-string';
 import TextField from '@mui/material/TextField';
 import '../../styles/MapSearchPage.css';
 import Chip from '@mui/material/Chip';
-import GoogleMap from '../GoogleMap';
+import GoogleMap from '../GoogleMaps/GoogleMap';
 import {FindMapDatesResponseItem, FindMapDatesResult, Date} from '../../models/MapDatesResponse';
 import { useApiWithoutToken } from "../../hooks";
 import MapDatesResponseBox from '../MapDatesResponseBox';
@@ -34,6 +34,8 @@ const MapSearchPage = () => {
     const [mapResponseItems, setMapResponseItems] = useState(JSON.parse(localStorage.getItem('mapResponseItems')) || []);
     const [mapResults, setMapResults] = useState(JSON.parse(localStorage.getItem('mapResults')) || []);
     console.log("mapResults: ", mapResults);
+
+    const [hoveredMapResultId, setHoveredMapResultId] = useState(null);
     
     // Save state variables to localStorage whenever they change
     useEffect(() => {
@@ -199,7 +201,11 @@ const MapSearchPage = () => {
             </div>
             <div id='msp-main-content'>
                 <div id='map'>
-                    <GoogleMap mapResults={mapResults} />
+                    <GoogleMap 
+                        mapResults={mapResults} 
+                        hoveredMapResultId={hoveredMapResultId} 
+                        setHoveredMapResultId={setHoveredMapResultId}  
+                    />
                 </div>
                 <div id='map-results'>
                     {mapResponseItems.map((mapResponseItem, index1) => (
