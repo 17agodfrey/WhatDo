@@ -41,3 +41,12 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+.marker-wrapper {
+    pointer-events: all;
+}
+
+.map-popup-image {
+    height: 10rem;
+    width: 14rem;
+}
