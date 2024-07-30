@@ -1,12 +1,14 @@
 import shrek from '../assets/shrek.jpg';
 import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
 
-const mapDatesResponseBox = ({ mapResult }) => {
+
+const MapDatesResponseBox = forwardRef(({ mapResult, isSelected }, ref) => {
     // console.log(mapResult);
     const image = mapResult.photosUris && mapResult.photosUris.length > 0 ? mapResult.photosUris[0] : shrek;
 
     return (
-        <div className='map-dates-response-box'>
+        <div ref={ref} className={`map-dates-response-box ${isSelected ? 'highlighted' : ''}`}>
             <img src={image} alt="date image" />
             <div className='date-response-info'>
                 <h3>Name: {mapResult.displayName}</h3>
@@ -17,7 +19,7 @@ const mapDatesResponseBox = ({ mapResult }) => {
             </div>
         </div>
     );
-}
+});
 
 // mapDatesResponseBox.propTypes = {
 //     mapResult: PropTypes.shape({
@@ -29,4 +31,7 @@ const mapDatesResponseBox = ({ mapResult }) => {
 //     }).isRequired,
 // };
 
-export default mapDatesResponseBox;
+MapDatesResponseBox.displayName = 'AdvancedMarkerElement';
+
+
+export default MapDatesResponseBox;

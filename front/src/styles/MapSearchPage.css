@@ -88,6 +88,10 @@
     width: 14rem;
 }
 
+.map-dates-response-box.highlighted {
+    border: 2px solid blue;
+}
+
 .date-response-info {
     display: flex;
     flex-direction: column;

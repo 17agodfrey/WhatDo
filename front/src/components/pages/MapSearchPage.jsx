@@ -11,7 +11,9 @@ import Chip from '@mui/material/Chip';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import {FindMapDatesResponseItem, FindMapDatesResult, Date} from '../../models/MapDatesResponse';
 import { useApiWithoutToken } from "../../hooks";
-import MapDatesResponseBox from '../MapDatesResponseBox';
+// import MapDatesResponseBox from '../MapDatesResponseBox';
+import MapDatesResponseBoxesContainer from '../MapDatesResponseBoxesContainer';
+
 
 
 const MapSearchPage = () => {
@@ -35,7 +37,8 @@ const MapSearchPage = () => {
     const [mapResults, setMapResults] = useState(JSON.parse(localStorage.getItem('mapResults')) || []);
     console.log("mapResults: ", mapResults);
 
-    const [hoveredMapResultId, setHoveredMapResultId] = useState(null);
+    const [selectedItemId, setSelectedItemId] = useState(null);
+
     
     // Save state variables to localStorage whenever they change
     useEffect(() => {
@@ -95,8 +98,9 @@ const MapSearchPage = () => {
                 response.json().then(data => {
                     console.log("api called");
                     console.log(data);
-                    const mapResultsReturned = [];
-                    const items = data.map(item => {
+                    // const mapResultsReturned = [];
+                    const responseItemsDict = {};
+                    const responseItems = data.map(item => {
                         const date = new Date(
                             item.date.id, 
                             item.date.name, 
@@ -116,11 +120,12 @@ const MapSearchPage = () => {
                                 result.photosUris
                             );
                         });
-                        mapResultsReturned.push(...results);
-                        return new FindMapDatesResponseItem(date, results);
+                        // mapResultsReturned.push(...results);
+                        responseItemsDict[date.name] = new FindMapDatesResponseItem(date, results);
                     });
-                    setMapResults(mapResultsReturned);
-                    setMapResponseItems(items);
+                    // setMapResults(mapResultsReturned);
+                    // setMapResponseItems(responseItems);
+                    setMapResponseItems(responseItemsDict);
                 });
             }
 
@@ -203,20 +208,14 @@ const MapSearchPage = () => {
                 <div id='map'>
                     <GoogleMap 
                         mapResults={mapResults} 
-                        hoveredMapResultId={hoveredMapResultId} 
-                        setHoveredMapResultId={setHoveredMapResultId}  
+                        mapResponseItems={mapResponseItems}
+                        setSelectedItemId={setSelectedItemId}
                     />
                 </div>
-                <div id='map-results'>
-                    {mapResponseItems.map((mapResponseItem, index1) => (
-                        <div key={index1}>
-                            <p>{mapResponseItem.date.name}</p>
-                            {mapResponseItem.results.map((mapResult, index2) => (
-                                <MapDatesResponseBox key={index2} mapResult={mapResult} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
+                <MapDatesResponseBoxesContainer 
+                    mapResponseItems={mapResponseItems}
+                    selectedItemId={selectedItemId}
+                />
             </div>
         </div>
     );
