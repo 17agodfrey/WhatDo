@@ -95,7 +95,7 @@ const AdvancedMarkerElementWrapper = forwardRef(({ position, map, onClick, onHov
 //     { key: 'barangaroo', location: { lat: -33.8605523, lng: 151.1972205 } },
 //   ];
 
-const PoiMarkers = ({ pois, hoveredMapResultId, setHoveredMapResultId }) => {
+const PoiMarkers = ({ pois, setSelectedItemId}) => {
   const map = useMap();
   const [markers, setMarkers] = useState({});
   const clusterer = useRef(null);
@@ -138,21 +138,22 @@ const PoiMarkers = ({ pois, hoveredMapResultId, setHoveredMapResultId }) => {
     });
   };
 
-  const handleClick = useCallback(
+  const handleMarkerClick = useCallback(
     (ev, markerId) => {
       if (!map) return;
       if (!ev.latLng) return;
       console.log('marker clicked:', markerId, ev.latLng.toString());
       map.panTo(ev.latLng);
       setCircleCenter(ev.latLng);
+      setSelectedItemId(markerId);
     },
     [map]
   );
 
-  const handleHover = useCallback(
+  const handleMarkerHover = useCallback(
       (ev, marker, markerId, popupPicture, isHovered) => {
         // console.log('infoWindow:', infoWindow);
-        console.log('markers[markerId]: ', markers[markerId]);
+        // console.log('markers[markerId]: ', markers[markerId]);
         // console.log('pois: ', pois[0]);
           if (!map) return;
           if (isHovered) {
@@ -176,13 +177,13 @@ const PoiMarkers = ({ pois, hoveredMapResultId, setHoveredMapResultId }) => {
         fillColor={'#3b82f6'}
         fillOpacity={0.3}
       />
-      {pois.map((poi) => (
+      {Object.values(pois).map((poi) => (
         <AdvancedMarkerElementWrapper
           key={poi.key}
           position={poi.location}
           map={map}
-          onClick={handleClick}
-          onHover={handleHover}
+          onClick={handleMarkerClick}
+          onHover={handleMarkerHover}
           id={poi.key}
           popupPicture={poi.picture}
           ref={marker => setMarkerRef(marker, poi.key)}
@@ -193,15 +194,30 @@ const PoiMarkers = ({ pois, hoveredMapResultId, setHoveredMapResultId }) => {
 };
   
 
-const GoogleMap = ({mapResults, hoveredMapResultId, setHoveredMapResultId}) => {
-  const pois_ = mapResults && mapResults.length > 0 ? 
-    mapResults.map(result => new Poi(
-      result.displayName,
-      result.latLng.latitude,
-      result.latLng.longitude, 
-      result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
-    ))
-    : [];
+const GoogleMap = ({mapResults, mapResponseItems, setSelectedItemId}) => {
+  // const pois_ = mapResults && mapResults.length > 0 ? 
+  //   mapResults.map(result => new Poi(
+  //     result.displayName,
+  //     result.latLng.latitude,
+  //     result.latLng.longitude, 
+  //     result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
+  //   ))
+  //   : [];
+
+  const pois_ = {};
+  for (const responseItem of mapResponseItems) {
+    for (const result of responseItem.results) {
+      pois_[result.displayName] = new Poi(
+        result.displayName,
+        result.latLng.latitude,
+        result.latLng.longitude,
+        responseItem.date.name,
+        result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
+      );
+    }
+  }
+    
+    
 
   const [pois, setPois] = useState(pois_);    
 
@@ -220,8 +236,7 @@ const GoogleMap = ({mapResults, hoveredMapResultId, setHoveredMapResultId}) => {
             >
                 <PoiMarkers 
                     pois={pois} 
-                    hoveredMapResultId={hoveredMapResultId} 
-                    setHoveredMapResultId={setHoveredMapResultId}
+                    setSelectedItemId={setSelectedItemId}
                 />
             </Map>
         </APIProvider>
