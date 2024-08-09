@@ -8,7 +8,8 @@ body {
 #root {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 
 /* #page-content {
@@ -32,6 +33,7 @@ p {
 .hz-close { /* horizontal close together */
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: .5rem;
 }
 
@@ -42,10 +44,26 @@ p {
     align-items: center;
 }
 
+.hz-space-btwn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
 .marker-wrapper {
     pointer-events: all;
 }
 
+/* WARNING: if you change this, currently you MUST change popupWidth and popupHeight 
+in src/components/GoogleMaps/GoogleMap. Otherwise, the popup will not display correctly. */
 .map-popup-image {
     height: 10rem;
     width: 14rem;

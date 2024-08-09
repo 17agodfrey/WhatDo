@@ -1,29 +1,73 @@
-#LandingPageBody {
-    height: 100vh;
+/* #LandingPageBody {
+    height: 100%;
     background-color: #F4F7F3;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr; /* Added 2 more columns */
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+} */
+#LandingPageBody {
+    height: 100%;
+    background-color: #F4F7F3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allow it to grow to fill remaining space */
+    min-height: 0; /* Prevent overflow */
 }
-
 #LandingPageMainContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-row: 2 / 3; /* Span from 2nd row to 3rd row */
-    height: fit-content;
+    height: 100%;
 }
-
 #LandingPageMainContent h1 {
     font-size: 2.5rem;
     color: #2E2E2E;
     margin-top: 0;
     margin-bottom: 2rem;
 }
-
 .MapSearchEntrySection {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
+#criteria-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid black;
+    min-width: 25rem;
+    margin-bottom: 2rem;
+}
+.criteria-box-selector {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.criteria-box-selector-label {
+    margin-left: .5rem;
+}
+#landing-date-display-selector {
+    height: 30rem; 
+    border: 2px solid black;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
+#date-display {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+}
+
+#date-display-scrollable-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    overflow-y: scroll;
+}

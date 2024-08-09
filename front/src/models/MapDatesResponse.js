@@ -67,7 +67,7 @@ const result2 = new FindMapDatesResult(
     '4.7 stars'
 );
 
-const responseItem = new FindMapDatesResponseItem(date, [result1]);
+export const ex_responseItem = new FindMapDatesResponseItem(date, [result1]);
 
 // console.log(responseItem.date.name); // Date Name
 
