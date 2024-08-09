@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useCallback, forwardRef} from 'react';
+import React, {useEffect, useState, useRef, useCallback, forwardRef, useContext} from 'react';
 import {
     APIProvider,
     Map,
@@ -11,9 +11,15 @@ import {Circle} from '../Circle';
 import {Poi} from '../../models/Poi';
 import { Loader } from "@googlemaps/js-api-loader"
 import shrek from '../../assets/shrek.jpg';
+import {AppStateContext} from "../../context/AppStateProvider";
+
+
 
 
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+// const { Map } = await google.maps.importLibrary("maps");
+// let map;
+
 
 const loader = new Loader({
   apiKey: apiKey,
@@ -21,7 +27,7 @@ const loader = new Loader({
 });
 
 
-const AdvancedMarkerElementWrapper = forwardRef(({ position, map, onClick, onHover, id, popupPicture }, ref) => {
+const AdvancedMarkerElementWrapper = forwardRef(({ position, map, onClick, onHover, id, popupPicture, color }, ref) => {
   useEffect(() => {
     let marker;
 
@@ -44,9 +50,11 @@ const AdvancedMarkerElementWrapper = forwardRef(({ position, map, onClick, onHov
         });
 
         const pin = new PinElement({
-          background: 'blue',
+          background: color || 'blue',
           scale: 2.0,
         });
+
+        console.log('pin color:', pin.background);
 
         marker.appendChild(pin.element);
 
@@ -107,6 +115,7 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
     infoWindow = new InfoWindow({
       content: "dababy",
       ariaLabel: "Uluru",
+      disableAutoPan: true,
     });
   });
 
@@ -143,27 +152,115 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
       if (!map) return;
       if (!ev.latLng) return;
       console.log('marker clicked:', markerId, ev.latLng.toString());
-      map.panTo(ev.latLng);
-      setCircleCenter(ev.latLng);
+      // map.panTo(ev.latLng);
+      // setCircleCenter(ev.latLng);
       setSelectedItemId(markerId);
     },
     [map]
   );
 
   const handleMarkerHover = useCallback(
-      (ev, marker, markerId, popupPicture, isHovered) => {
-        // console.log('infoWindow:', infoWindow);
-        // console.log('markers[markerId]: ', markers[markerId]);
-        // console.log('pois: ', pois[0]);
-          if (!map) return;
-          if (isHovered) {
-              infoWindow.setHeaderContent(`Marker ID: ${markerId}`);
-              infoWindow.setContent(`<img src="${popupPicture}" alt="Popup Picture" class="map-popup-image"/>`);
-              infoWindow.open(map, marker);
-          } else {
-              infoWindow.close();
+    (ev, marker, markerId, popupPicture, isHovered) => {
+        if (!map) return;
+
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    
+        // Convert rem to pixels
+        const popupWidth = 14 * rootFontSize; // 14rem to pixels
+        const popupHeight = 10 * rootFontSize; // 10rem to pixels
+        const offset = 3 * rootFontSize; // 3rem to pixels
+  
+        const projection = map.getProjection();
+        const position = marker.position;
+        const topRight = projection.fromLatLngToPoint(map.getBounds().getNorthEast()); 
+        const bottomLeft = projection.fromLatLngToPoint(map.getBounds().getSouthWest());
+        
+        const scale = Math.pow(2, map.getZoom());
+        const pixelOffset = {
+          x: offset / scale,
+          y: offset / scale,
+        };
+
+        const point = projection.fromLatLngToPoint(position);
+        var posLeft = (point.x - bottomLeft.x) * scale;
+        var posTop = (point.y - topRight.y) * scale;
+        var pointPixCoord = { x: posLeft, y: posTop };
+
+        
+        const mapDiv = map.getDiv();
+        const mapBounds = mapDiv.getBoundingClientRect();
+    
+        let popupPosition = 'above';
+    
+        const checkPopupFitTop = (pointPixCoord, popupHeight, offset, mapBounds) => {
+          return pointPixCoord.y - popupHeight - offset > mapBounds.top;
+        };
+
+        const checkPopupFitRight = (pointPixCoord, popupWidth, offset, mapBounds) => {
+          return pointPixCoord.x + popupWidth + offset <= mapBounds.right;
+        };
+
+        const checkPopupFitBottom = (pointPixCoord, popupHeight, offset, mapBounds) => {
+          return pointPixCoord.y + popupHeight + offset <= mapBounds.bottom;
+        };
+
+        const checkPopupFitLeft = (pointPixCoord, popupWidth, offset, mapBounds) => {
+          return pointPixCoord.x - popupWidth - offset >= mapBounds.left;
+        };
+
+        if (
+          checkPopupFitTop(pointPixCoord, popupHeight, offset, mapBounds) &&
+          checkPopupFitRight(pointPixCoord, popupWidth, offset, mapBounds) &&
+          checkPopupFitLeft(pointPixCoord, popupWidth, offset, mapBounds)
+        ) {
+          popupPosition = 'above';
+        } else if (
+          checkPopupFitRight(pointPixCoord, popupWidth, offset, mapBounds) &&
+          checkPopupFitBottom(pointPixCoord, popupHeight, offset, mapBounds) &&
+          checkPopupFitTop(pointPixCoord, popupHeight, offset, mapBounds)
+        ) {
+          popupPosition = 'right';
+        } else if (
+          checkPopupFitBottom(pointPixCoord, popupHeight, offset, mapBounds) &&
+          checkPopupFitRight(pointPixCoord, popupWidth, offset, mapBounds) &&
+          checkPopupFitLeft(pointPixCoord, popupWidth, offset, mapBounds)
+        ) {
+          popupPosition = 'below';
+        } else if (
+          checkPopupFitLeft(pointPixCoord, popupWidth, offset, mapBounds) &&
+          checkPopupFitBottom(pointPixCoord, popupHeight, offset, mapBounds) &&
+          checkPopupFitTop(pointPixCoord, popupHeight, offset, mapBounds)
+        ) {
+          popupPosition = 'left';
+        }
+  
+        if (isHovered) {
+          infoWindow.setHeaderContent(`Marker ID: ${markerId}`);
+          infoWindow.setContent(`<img src="${popupPicture}" alt="Popup Picture" class="map-popup-image"/>`);
+
+          let newPosition;
+          switch (popupPosition) {
+            case 'above':
+                newPosition = projection.fromPointToLatLng(new google.maps.Point(point.x, point.y - pixelOffset.y));
+                break;
+              case 'below':
+                newPosition = projection.fromPointToLatLng(new google.maps.Point(point.x, point.y + pixelOffset.y*5));
+                break;
+              case 'left':
+                newPosition = projection.fromPointToLatLng(new google.maps.Point(point.x - pixelOffset.x*3.5, point.y));
+                break;
+              case 'right':
+                newPosition = projection.fromPointToLatLng(new google.maps.Point(point.x + pixelOffset.x*3.5, point.y));
+              break;
           }
-      }, [map, infoWindow, markers]
+
+          infoWindow.setPosition(newPosition);
+          infoWindow.open(map);
+        } else {
+            infoWindow.close();
+        }
+    }, 
+    [map, infoWindow]
   );
 
   return (
@@ -186,15 +283,32 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
           onHover={handleMarkerHover}
           id={poi.key}
           popupPicture={poi.picture}
+          color={poi.color}
           ref={marker => setMarkerRef(marker, poi.key)}
         />
       ))}
     </>
   );
 };
+
+// const MapWrapper = ({children}) => {
+//   map = new Map(document.getElementById("map"), {
+//     zoom: 4,
+//     center: position,
+//     mapId: "DEMO_MAP_ID",
+//   });
+
+//   return (
+//     <>
+//       {children}
+//     </>
+//   );
+// }
   
 
-const GoogleMap = ({mapResults, mapResponseItems, setSelectedItemId}) => {
+const GoogleMap = ({mapResponseItems, setSelectedItemId}) => {
+  const {selectedDates} = useContext(AppStateContext);
+
   // const pois_ = mapResults && mapResults.length > 0 ? 
   //   mapResults.map(result => new Poi(
   //     result.displayName,
@@ -204,16 +318,23 @@ const GoogleMap = ({mapResults, mapResponseItems, setSelectedItemId}) => {
   //   ))
   //   : [];
 
+  console.log('from GoogleMap', mapResponseItems);
+
+  const colors = ['#D72638', '#3F88C5', '#F49D37', '#9842f5', '#1aba1a'];
+  let i = 0;
   const pois_ = {};
-  for (const responseItem of mapResponseItems) {
-    for (const result of responseItem.results) {
-      pois_[result.displayName] = new Poi(
-        result.displayName,
-        result.latLng.latitude,
-        result.latLng.longitude,
-        responseItem.date.name,
-        result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
-      );
+  for (const responseItem of Object.values(mapResponseItems)) {
+    if (selectedDates.includes(responseItem.date.name)) {
+      for (const result of responseItem.results) {
+        pois_[result.displayName] = new Poi(
+          result.displayName,
+          result.latLng.latitude,
+          result.latLng.longitude,
+          responseItem.date.name,
+          colors[i++], 
+          result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
+        );
+      }
     }
   }
     

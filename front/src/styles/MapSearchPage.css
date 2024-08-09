@@ -19,11 +19,19 @@
     padding: .5rem 1rem .5rem 1rem;
 }
 
-#msp-main-content {
+.msp-main-content {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     overflow: hidden; /* Add overflow property */
+
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.msp-main-content.loading {
+    justify-content: center;
+    align-items: center;
 }
 
 #map-results {
@@ -31,9 +39,11 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    width: 50rem;
+    min-width: fit-content;
+    max-width: fit-content;
     flex-grow: 1;
-    overflow: auto; /* Add overflow property */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #msp-options-section > *:nth-child(1) {
@@ -53,23 +63,12 @@
 }
 
 #map {
-    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    /* width: 50rem; */
     /* height: 100%; */
     /* max-height: 100%; */
     background-color: red;
-}
-
-#map-results {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    min-width: fit-content;
-    max-width: fit-content;
-    /* height: 100%; */
-    flex-grow: 1;
-    overflow-y: auto;
-    /* position: relative; */
 }
 
 .map-dates-response-box {
@@ -80,7 +79,7 @@
     /* gap: .5rem; */
     flex-grow: 1;
     width: 100%;
-    /* border: 1px solid black; */
+    border: 2px solid beige;
 }
 
 .map-dates-response-box img {
@@ -101,6 +100,27 @@
     width: 18rem;
     padding: .5rem 0 0 .5rem;
     box-sizing: border-box;
+}
+
+#load-img {
+    /* width: fit-content;
+    height: fit-content; */
+    width: 15rem;
+    height: 10rem;
+}
+
+#sort-text {
+    margin-left: 1.5rem;
+    font-size: 16px;
+}
+
+.dateType-result {
+    width: 100%;
+}
+
+#map-search-dialog-content {
+    max-height: 30rem;
+    overflow-y: auto;
 }
 
 

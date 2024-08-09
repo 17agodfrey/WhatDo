@@ -32,3 +32,16 @@
     color: #F69EA3;
     font-size: 2rem;
 }
+
+.internal-menu-item {
+    /* other styles */
+  }
+  
+.internal-menu-item:hover {
+    background-color: lightgreen; /* or you can use the hex code #90EE90 */
+}
+  
+
+/* .radio-menu-item .Mui-focusVisible{
+
+} */

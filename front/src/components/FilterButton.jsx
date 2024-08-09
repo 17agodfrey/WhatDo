@@ -12,6 +12,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
 
 
 const fontFamily = [
@@ -36,8 +40,74 @@ const MenuProps = {
     },
   },
   disableAutoFocusItem: true,
-  // autoFocus: false,
+  sx: {
+    "&& .Mui-selected": {
+      backgroundColor: "white"
+    },
+    "&& .MuiList-root": {
+      paddingTop: '0px',
+      paddingBottom: '0px',
+    },
+    "&& .MuiButtonBase-root": {
+      // paddingTop: '0px',
+      // paddingBottom: '0px',
+      // paddingLeft: '0px',
+    }
+  }
 };
+
+const MenuPropsRadio = {
+  PaperProps: {
+    style: {
+      // maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      // height: 'fit-content',
+      // width: 'fit-content',
+    },
+  },
+  disableAutoFocusItem: true,
+  sx: {
+    "&& .Mui-selected": {
+      backgroundColor: "white"
+    },
+    "&& .MuiList-root": {
+      paddingTop: '0px',
+      paddingBottom: '0px',
+    },
+    "&& .MuiButtonBase-root": {
+      // paddingTop: '0px',
+      // paddingBottom: '0px',
+      paddingLeft: '0px',
+    },
+    "&& .MuiMenuItem-root": {
+      paddingRight: '0px',
+      paddingBottom: '0px',
+      minWidth: '100%',
+    },
+    "&& .MuiPaper-root": {
+      maxWidth: '100%',
+    },
+  }
+};
+
+const NonHighlightedMenuItemStyles = {  
+  '&&:hover': {
+    backgroundColor: 'white',
+  },
+  '&& .MuiButtonBase-root': {
+    // minWidth: '100%',
+  },
+  '&& .MuiFormGroup-root': {
+    width: '100%',
+  },
+  padding: '0px',
+}
+
+const MenuItemProps = {
+  '&&:hover': {
+    backgroundColor: 'lightgreen',
+  },
+  padding: '0px',
+}
 
 function valuetext(value) {
   return `${value}`;
@@ -60,6 +130,7 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
     }))
   : [];
 
+
   const handleChange = (event) => {
     const { target: { value } } = event;
     setSelectedValues(typeof value === 'string' ? value.split(',') : value);
@@ -67,6 +138,10 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
 
   const handleSliderChange = (event, newValue) => {
     setSelectedValues(newValue);
+  };
+
+  const handleRadioChange = (event) => {
+    setSelectedValues(event.target.value);
   };
 
   return (
@@ -78,28 +153,35 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
         >
           {label}
         </InputLabel>
-        {variant === 'list' ? (
-            <Select
-              autoWidth
-              multiple
-              value={selectedValues}
-              renderValue={()=> ''}
-              onChange={handleChange}
-              MenuProps={MenuProps}
-            >
-            {possibleValues.map((value) => (
-                <MenuItem key={value} value={value}>
-                    <Checkbox  checked={selectedValues.indexOf(value) > -1}/>
-                    <ListItemText primary={value} />
-                </MenuItem>
-            ))}
-            </Select>
-        ) : (
+        {variant === 'list' && (
+          <Select
+            autoWidth
+            multiple
+            value={selectedValues}
+            renderValue={()=> ''}
+            onChange={handleChange}
+            MenuProps={MenuProps}
+          >
+          {possibleValues.map((value) => (
+              <MenuItem 
+                key={value} 
+                value={value} 
+                // MenuListProps={MenuItemProps} 
+                className='internal-menu-item'
+                sx={{'&&:hover': {backgroundColor: 'lightgreen'},}}
+              >
+                  <Checkbox  checked={selectedValues.indexOf(value) > -1}/>
+                  <ListItemText primary={value} />
+              </MenuItem>
+          ))}
+          </Select>
+        )}
+        {variant === 'slider' && (
             <Select
               fullWidth={true}
               MenuProps={MenuProps}
             >
-              <MenuItem sx={{width: '200px'}}>
+              <MenuItem className={'slider-menu-item'} sx={{width: '200px', '&&:hover': {backgroundColor: 'white'}, }}>
                 <Slider
                   getAriaLabel={() => 'Temperature range'}
                   value={selectedValues}
@@ -114,6 +196,36 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
               </MenuItem>
             </Select>
          )} 
+         {variant === 'radio' && (
+            <Select MenuProps={MenuProps}>
+              <MenuItem 
+                className={'radio-menu-item'} 
+                sx={NonHighlightedMenuItemStyles} 
+                selected={false}
+                // MenuListProps={{ sx: { py: 0 } }
+                // disableGutters={true}
+              >
+                <RadioGroup
+                column="true"
+                aria-labelledby="criteria-box-setting-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                value={selectedValues}
+                onChange={handleRadioChange} // Update state on change
+                >
+                  {possibleValues.map((value) => (
+                    <FormControlLabel
+                    key={value}
+                    value={value}
+                    control={<Radio />}
+                    label={value}
+                    sx={{ padding: '0px', margin: '0px' }}
+                    className='internal-menu-item'
+                  />
+                  ))}
+                </RadioGroup>
+              </MenuItem>
+            </Select>
+         )}       
         </FormControl>
     </div>
   );
@@ -121,9 +233,8 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
 
 FilterButton.propTypes = {
   label: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['list', 'slider']).isRequired,
+  variant: PropTypes.oneOf(['list', 'slider', 'radio']).isRequired,
   possibleValues: PropTypes.array.isRequired,
-  selectedValues: PropTypes.array.isRequired,
   setSelectedValues: PropTypes.func.isRequired,
   children: PropTypes.node
 };

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.jsx';
 import LandingPage from './components/pages/LandingPage.jsx';
 import MapSearchPage from './components/pages/MapSearchPage.jsx';
 import NotFoundPage from './components/pages/NotFoundPage.jsx';
+import AppStateProvider from './context/AppStateProvider.jsx';
 
 import './App.css'
 
@@ -14,12 +15,12 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
           <Routes>
-            {/* The index route is the Login page which will not render the Navbar */}
-            <Route path="/" element={<LandingPage />} /> 
+            {/* There should be a login page without the navbar */}
+            {/* <Route path="/Login" element={<Login/>} />  */}
             
             {/* Layout route for pages that include the Navbar, wrapped with PrivateRoute */}
-            <Route element={<LayoutWithNavbar />}>
-              <Route path="/landing" element={<LandingPage />} />
+            <Route element={<AppStateProvider><LayoutWithNavbar /></AppStateProvider>}>
+              <Route path="/" element={<LandingPage />} />
               <Route path="/map-search" element={<MapSearchPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
