@@ -9,7 +9,7 @@ namespace DateFinder.Domain.DTO
 {
     public class DateDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         //public string? Description { get; set; }
         public double? Duration { get; set; } // Duration (1.0 to 5.0 by .5 intervals)

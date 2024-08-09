@@ -12,6 +12,6 @@ namespace DateFinder.Domain.Storage.EnumAttributes
     {
         Indoor,
         Outdoor,
-        Both
+        Any
     }
 }

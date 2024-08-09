@@ -10,6 +10,8 @@ namespace DateFinder.Domain.Services
 {
     public interface IDateService
     {
-        Task<List<FindMapDatesResponseItemDto>> GetDatesAsync(FindMapDatesRequestDto findMapDatesRequestDto);
+        Task<List<FindMapDatesResponseItemDto>> GetMapResultsAsync(FindMapDatesRequestDto findMapDatesRequestDto);
+        Task<IEnumerable<Date>> GetDateIdeasAsync(DateRequestDto dateRequestDto);
+
     }
 }

@@ -27,10 +27,21 @@ namespace DateFinder.Services
             _datesRepository = datesRepository;
             _googleMapsClient = googleMapsClient;
         }
-        public async Task<List<FindMapDatesResponseItemDto>> GetDatesAsync (FindMapDatesRequestDto findMapDatesRequestDto)
+
+        public async Task<List<FindMapDatesResponseItemDto>> GetMapResultsAsync(FindMapDatesRequestDto findMapDatesRequestDto)
         {
             // call the database - get dates (Date objects) according to the request
-            var suggestedDates = await _datesRepository.GetAllFromRequestAsync(findMapDatesRequestDto);
+            //var suggestedDates = await _datesRepository.GetAllFromRequestAsync(findMapDatesRequestDto);
+            var suggestedDates = new List<Date>();
+            foreach (int dateId in findMapDatesRequestDto.DateIds)
+            {
+                var date = await _datesRepository.GetByIdAsync(dateId);
+                if (date != null)
+                {
+                    suggestedDates.Add(date);
+                }
+            }
+            Console.WriteLine("Suggested Dates: " + suggestedDates);   
 
             foreach (Date date in suggestedDates)
             {
@@ -48,7 +59,7 @@ namespace DateFinder.Services
                     Date = _mapper.Map<DateDto>(suggestedDate)
                 };
                 var googleMapsResponse = await _googleMapsClient.TextSearchAsync(suggestedDate, findMapDatesRequestDto);
-                
+
                 Console.WriteLine("Google Maps Response: " + googleMapsResponse);
 
                 // Extract relevant fields from the Google response
@@ -57,12 +68,12 @@ namespace DateFinder.Services
                 {
                     if (place.DisplayName != null)
                     {
-                        if ((findMapDatesRequestDto.PriceLevels != null && !findMapDatesRequestDto.PriceLevels.Contains((Price)place.PriceLevel))
-                            || (findMapDatesRequestDto.Rating != null && !(findMapDatesRequestDto.Rating >= place.Rating))
-                        )
-                        {
-                            continue;
-                        }
+                        //if ((findMapDatesRequestDto.PriceLevels != null && !findMapDatesRequestDto.PriceLevels.Contains((Price)place.PriceLevel))
+                        //    || (findMapDatesRequestDto.Rating != null && !(findMapDatesRequestDto.Rating >= place.Rating))
+                        //)
+                        //{
+                        //    continue;
+                        //}
                         var findMapDatesResultDto = new FindMapDatesResultDto
                         {
                             GoogleMapsId = place.Id,
@@ -96,7 +107,15 @@ namespace DateFinder.Services
             }
             // return the results (the remaining dates - findMapDatesResponse objects -
             // which will be what the front uses to do things - render stuff on map)
+            Console.WriteLine("from service: ", dateResultsResponseItems);
             return dateResultsResponseItems;
+        }
+
+        public async Task<IEnumerable<Date>> GetDateIdeasAsync(DateRequestDto dateRequestDto)
+        {
+            var suggestedDates = await _datesRepository.GetAllFromRequestAsync(dateRequestDto);
+
+            return suggestedDates;
         }
     }
 }

@@ -25,15 +25,35 @@ namespace DateFinder.Api.Controllers
         // GET TEXT SEARCH RESULTS 
         // GET api/date
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] FindMapDatesRequestDto findMapDatesRequestDto)
+        [Route("map-dates")]
+        public async Task<IActionResult> GetMapResults([FromQuery] FindMapDatesRequestDto findMapDatesRequestDto)
         {
+            Console.WriteLine("\n\n\n\n\n\n\napi/map-dates hit\n\n\n\n\n\n\nrequest: ", findMapDatesRequestDto);
+            //Console.WriteLine("\n\n\n\n\n\n\napi/map-dates hit\n\n\n\n\n\n\nrequest date ideas: ", findMapDatesRequestDto.DateIdeas[0]);
+            Console.WriteLine("\n\n\n\n\n\n\napi/map-dates hit\n\n\n\n\n\n\ndate ideas number: ", findMapDatesRequestDto.DateIds.Length);
+
             // call the service 
-            var mapDatesResponse = await _dateService.GetDatesAsync(findMapDatesRequestDto);
+            var mapDatesResponse = await _dateService.GetMapResultsAsync(findMapDatesRequestDto);
             // return the JSON result
             //var jsonResult = JsonSerializer.Serialize(mapDatesResponse);
 
-            //Console.WriteLine("u called api/date, good job. Here's the result:\n", map);
+            Console.WriteLine("\n\n\n\n\n\n\napi/map-dates hit\n\n\n\n\n\n\nresponse: ", mapDatesResponse);
             return Ok(mapDatesResponse);
         }
+
+        [HttpGet]
+        [Route("date-ideas")]
+        public async Task<IActionResult> GetDateIdeas([FromQuery] DateRequestDto dateRequestDto)
+        {
+            Console.WriteLine("\n\n\n\n\n\n\napi/date-ideas hit\n\n\n\n\n\n\nrequest: ", dateRequestDto);
+
+            // Call the service to get the date ideas
+            var dateIdeasResponse = await _dateService.GetDateIdeasAsync(dateRequestDto);
+
+            // Return the JSON result
+            return Ok(dateIdeasResponse);
+        }
+
     }
+
 }

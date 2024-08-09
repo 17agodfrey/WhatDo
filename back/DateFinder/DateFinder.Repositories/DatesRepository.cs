@@ -9,6 +9,7 @@ using DateFinder.Domain.Repositories;
 using DateFinder.Storage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using DateFinder.Domain.Storage.EnumAttributes;
 
 namespace DateFinder.Repositories
 {
@@ -53,14 +54,26 @@ namespace DateFinder.Repositories
             return await query.ToListAsync();
         }
 
-        public async Task<IEnumerable<Date>> GetAllFromRequestAsync(FindMapDatesRequestDto findMapDatesRequestDto)
+        public async Task<IEnumerable<Date>> GetAllFromRequestAsync(DateRequestDto dateRequestDto)
         {
             var query = _context.Dates.AsQueryable();
 
-            if (findMapDatesRequestDto.DurationRange != null) // Start and End required in DurationRange
+            if (dateRequestDto.IndoorOutdoor != null && dateRequestDto.IndoorOutdoor.Any())
             {
-                var minDuration = findMapDatesRequestDto.DurationRange.Min;
-                var maxDuration = findMapDatesRequestDto.DurationRange.Max;
+                if (dateRequestDto.IndoorOutdoor.Contains(IndoorOutdoor.Any))
+                {
+                    query = query.Where(d => d.IndoorOutdoor != null); // dates where Indoor or Outdoor is not null (all)
+                }else
+                {
+                    query = query.Where(d => dateRequestDto.IndoorOutdoor.Contains(d.IndoorOutdoor.Value) || (d.IndoorOutdoor.Value == IndoorOutdoor.Any));
+                }
+
+            }
+
+            if (dateRequestDto.DurationRange != null) // Start and End required in DurationRange
+            {
+                var minDuration = dateRequestDto.DurationRange.Min;
+                var maxDuration = dateRequestDto.DurationRange.Max;
                 query = query.Where(d => d.Duration >= minDuration && d.Duration <= maxDuration);
             }
 
@@ -74,22 +87,18 @@ namespace DateFinder.Repositories
             //    query = query.Where(d => findMapDatesRequestDto.Ratings.Contains(d.Rating));
             //}
 
-            if (findMapDatesRequestDto.ActivityLevels != null && findMapDatesRequestDto.ActivityLevels.Any())
+            if (dateRequestDto.ActivityLevels != null && dateRequestDto.ActivityLevels.Any())
             {
-                query = query.Where(d => findMapDatesRequestDto.ActivityLevels.Contains(d.ActivityLevel.Value));
-            }
-
-            if (findMapDatesRequestDto.IndoorOutdoor != null && findMapDatesRequestDto.IndoorOutdoor.Any())
-            {
-                query = query.Where(d => findMapDatesRequestDto.IndoorOutdoor.Contains(d.IndoorOutdoor.Value));
+                query = query.Where(d => dateRequestDto.ActivityLevels.Contains(d.ActivityLevel.Value));
             }
 
             return await query.ToListAsync();
         }
 
-        public Task<Date> GetByIdAsync(int id)
+        public async Task<Date?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Dates.FirstOrDefaultAsync(d => d.Id == id);
+
         }
 
         public Task UpdateAsync(Date entity)

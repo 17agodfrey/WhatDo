@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DateFinder.External.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6cefc2615b9f1e2c901e48e1eb236eedd8f164c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b64bb8b0c200688cbba64588691ae980d3952934")]
 [assembly: System.Reflection.AssemblyProductAttribute("DateFinder.External.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DateFinder.External.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
