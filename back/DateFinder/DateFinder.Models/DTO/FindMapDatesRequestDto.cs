@@ -11,11 +11,15 @@ namespace DateFinder.Domain.DTO
 {
     public class FindMapDatesRequestDto
     {
-        public DurationRange? DurationRange { get; set; } // Date
-        public Price[]? PriceLevels { get; set; } 
-        public double? Rating { get; set; } // needs to be between 1.0 and 5.0
-        public ActivityLevel[]? ActivityLevels { get; set; } // Date
-        public IndoorOutdoor[]? IndoorOutdoor { get; set; } // Date
+        //public DurationRange? DurationRange { get; set; } // Date
+        //public ActivityLevel[]? ActivityLevels { get; set; } // Date
+        //public IndoorOutdoor[]? IndoorOutdoor { get; set; } // Date
+        //public Price[]? PriceLevels { get; set; }
+        //public double? Rating { get; set; } // needs to be between 1.0 and 5.0
+
+        [Required(ErrorMessage = "Dates is required.")]
+        public int[] DateIds { get; set; }
+
 
         [Required(ErrorMessage = "Location is required.")]
         public string Location { get; set; }

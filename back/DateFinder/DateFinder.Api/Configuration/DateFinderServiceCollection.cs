@@ -39,6 +39,17 @@ namespace DateFinder.Api.Configuration
         // NOTE: might want to rename/change this eventually... look at how NZ does middleware... RR doesn't put this here 
         private void ConfigureMiddlewareServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
 
             services.AddDbContext<DateFinderDbContext>(options =>

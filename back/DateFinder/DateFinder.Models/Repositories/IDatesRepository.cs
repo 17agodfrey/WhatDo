@@ -12,8 +12,8 @@ namespace DateFinder.Domain.Repositories
     public interface IDatesRepository
     {
         Task<IEnumerable<Date>> GetAllAsync(Date date, (double, double)? duration);
-        Task<IEnumerable<Date>> GetAllFromRequestAsync(FindMapDatesRequestDto findMapDatesRequestDto);
-        Task<Date> GetByIdAsync(int id);
+        Task<IEnumerable<Date>> GetAllFromRequestAsync(DateRequestDto dateRequestDto);
+        Task<Date?> GetByIdAsync(int id);
         Task AddAsync(Date entity);
         Task UpdateAsync(Date entity);
         Task DeleteAsync(int id);   
