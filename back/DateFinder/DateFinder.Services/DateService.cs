@@ -41,7 +41,6 @@ namespace DateFinder.Services
                     suggestedDates.Add(date);
                 }
             }
-            Console.WriteLine("Suggested Dates: " + suggestedDates);   
 
             foreach (Date date in suggestedDates)
             {
@@ -78,6 +77,7 @@ namespace DateFinder.Services
                         {
                             GoogleMapsId = place.Id,
                             DisplayName = place.DisplayName.Text,
+                            DateType = suggestedDate.Name,
                             Description = place.EditorialSummary?.Text,
                             PriceLevel = place.PriceLevel.ToString() != null ? place.PriceLevel.ToString() : null,
                             Rating = place.Rating.ToString() != null ? place.Rating : null,
@@ -90,15 +90,17 @@ namespace DateFinder.Services
                             {
                                 Name = p.Name,
                                 WidthPx = p.WidthPx,
-                                HeightPx = p.HeightPx
+                                HeightPx = p.HeightPx,
+                                //PhotoUri = p.getURI().ToString()
                             }).ToArray()
-                        };  
+                        };
 
-                        if (findMapDatesResultDto.Photos != null)
-                        {
-                            var photos = await _googleMapsClient.GetPlacePhotos(findMapDatesResultDto.Photos);
-                            findMapDatesResultDto.PhotosUris = photos;
-                        }
+                        /// soooo... bascialyl 
+                        //if (findMapDatesResultDto.Photos != null)
+                        //{
+                        //    var photos = await _googleMapsClient.GetPlacePhotos(findMapDatesResultDto.Photos);
+                        //    findMapDatesResultDto.PhotosUris = photos;
+                        //}
                         findMapDatesResults.Add(findMapDatesResultDto);
                     }
                 }

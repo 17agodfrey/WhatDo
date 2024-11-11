@@ -88,7 +88,7 @@
 }
 
 .map-dates-response-box.highlighted {
-    border: 2px solid blue;
+    border: 2px solid  lightGreen;
 }
 
 .date-response-info {
@@ -118,11 +118,26 @@
     width: 100%;
 }
 
-#map-search-dialog-content {
-    max-height: 30rem;
-    overflow-y: auto;
+#msp-dates-selected-dialog-content {
+    max-height: 20rem;
+    /* display: flex;
+    flex-direction: column; */
+    /* width: fit-content; */
 }
 
+.map-infoWindow-header {
+    text-wrap: wrap; 
+}
+
+#msp-new-search-dialog-bottom-section {
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+#msp-new-search-dialog-new-dates-bottom-section {
+    margin-top: 1rem;
+    gap: 1rem;
+}
 
 /* //// MUI stuff //// */
 

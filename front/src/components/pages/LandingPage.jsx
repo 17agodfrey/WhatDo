@@ -14,154 +14,13 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Checkbox from '@mui/material/Checkbox';
 import ListItemText from '@mui/material/ListItemText';
-import { mapSearch, dateIdeas } from '../../utils/apiCalls';
+import { mapSearch, dateIdeasSearch } from '../../utils/apiCalls';
 import { useApiWithoutToken } from '../../hooks';
 import SkeletonDance from '../../assets/skeleton-dance.gif'
+import CriteriaBox from '../CriteriaBox';
+import Switch from '@mui/material/Switch';
 
 
-
-const DurationSlider = ({ selectedDuration, handleDurationSliderChange, valuetext, duration, marks }) => {
-    return (
-        <Slider
-            getAriaLabel={() => 'Duration'}
-            value={selectedDuration}
-            onChange={handleDurationSliderChange}
-            valueLabelDisplay="off"
-            getAriaValueText={valuetext}
-            min={duration[0]}
-            max={duration[duration.length - 1]}
-            marks={marks}
-            step={0.5}
-        />
-    );
-};
-
-const CriteriaBox = () => {
-    const { 
-        indoorOutdoor, selectedIndoorOutdoor, setSelectedIndoorOutdoor, 
-        duration, selectedDuration, setSelectedDuration, 
-        activityLevels, selectedActivityLevels, setSelectedActivityLevels, 
-        prices, selectedPrices, setSelectedPrices, 
-        ratings, selectedRating, setSelectedRating 
-    } = useContext(AppStateContext);
-    
-    const handleSettingChange = (event) => {
-        setSelectedIndoorOutdoor(event.target.value);
-    };
-
-    const handleDurationSliderChange = (event, newValue) => {
-        setSelectedDuration(newValue);
-    };
-    
-    function valuetext(value) {
-    return `${value}`;
-    }    
-
-    const marks = duration.filter(value => Number.isInteger(value)).map((value) => ({
-    value,          
-    label: String(value) 
-    }));
-    
-    const CheckBoxSelector = ({label, possibleValues, selectedValues, setSelectedValues}) => {
-        const handleChange = (event) => {
-            const { target: { value } } = event;
-            const newSelectedValues = selectedValues.includes(value)
-                ? selectedValues.filter((selectedValue) => selectedValue !== value)
-                : [...selectedValues, value];
-            setSelectedValues(newSelectedValues);
-        };
-
-        return (
-            <>
-                {possibleValues.map((value) => (
-                    <FormControlLabel
-                        key={value}
-                        value={selectedValues}
-                        control={
-                            <Checkbox
-                                checked={selectedValues.includes(value)}
-                                onChange={handleChange}
-                                value={value}
-                            />
-                        }                        
-                        label={value}
-                    />
-                ))}            
-            </>
-        );
-    };
-
-    return (
-        <div id='criteria-box'>
-            <h3 className='criteria-box-selector-label'>Setting</h3>
-            <div className='criteria-box-selector'>
-                <FormControl>
-                    <RadioGroup
-                        row
-                        aria-labelledby="criteria-box-setting-radio-buttons-group-label"
-                        name="row-radio-buttons-group"
-                        value={selectedIndoorOutdoor}
-                        onChange={handleSettingChange} // Update state on change
-                    >
-                        {indoorOutdoor.map((value) => (
-                            <FormControlLabel
-                                key={value}
-                                value={value}
-                                control={<Radio />}
-                                label={value}
-                            />
-                        ))}
-                    </RadioGroup>
-                </FormControl>
-            </div>
-            <h3 className='criteria-box-selector-label'>Duration</h3>
-            <div className='criteria-box-selector'>
-                <FormControl style={{ width: '80%' }}>
-                    <DurationSlider
-                        selectedDuration={selectedDuration}
-                        handleDurationSliderChange={handleDurationSliderChange}
-                        valuetext={valuetext}
-                        duration={duration}
-                        marks={marks}
-                    />
-                </FormControl>
-            </div>
-            <h3 className='criteria-box-selector-label'>Activity Level</h3>
-            <div className='criteria-box-selector'>
-                <FormControl style={{display: 'flex', flexDirection: 'row'}}>
-                    <CheckBoxSelector 
-                        label='Activity Level' 
-                        possibleValues={activityLevels}
-                        selectedValues={selectedActivityLevels} 
-                        setSelectedValues={setSelectedActivityLevels}
-                    />
-                </FormControl>
-            </div>
-            <h3 className='criteria-box-selector-label'>Price</h3>
-            <div className='criteria-box-selector'>
-                <FormControl style={{display: 'flex', flexDirection: 'row'}}>
-                    <CheckBoxSelector 
-                        label='Price' 
-                        possibleValues={prices}
-                        selectedValues={selectedPrices} 
-                        setSelectedValues={setSelectedPrices}
-                    />
-                </FormControl>
-            </div>
-            <h3 className='criteria-box-selector-label'>Rating</h3>
-            <div className='criteria-box-selector'>
-                <FormControl style={{display: 'flex', flexDirection: 'row'}}>
-                    <CheckBoxSelector 
-                        label='Rating' 
-                        possibleValues={ratings.map(value => value.toString()).filter(value => Number.isInteger(Number(value)))}
-                        selectedValues={selectedRating} 
-                        setSelectedValues={setSelectedRating}
-                    />
-                </FormControl>
-            </div>
-        </div>
-    );
-}
 
 const LandingPage = () => {
     const { 
@@ -173,7 +32,10 @@ const LandingPage = () => {
         ratings, selectedRating, setSelectedRating, 
         mapResponseItems, setMapResponseItems, 
         isLoading, setIsLoading,
-        selectedDates, setSelectedDates
+        selectedDates, setSelectedDates,
+        setMapDateResults,
+        setSelectedMapDateResults, 
+        setMapResponseDateObjects,
     } = useContext(AppStateContext);
 
     const [returnedDateIdeas, setReturnedDateIdeas] = useState([]);
@@ -189,7 +51,7 @@ const LandingPage = () => {
     const onSearchButtonClicked = async () => {    
         setSelectedDates([]);    
         setIsLoading(true);
-        const ideas = await dateIdeas(
+        const ideas = await dateIdeasSearch(
             api, 
             selectedIndoorOutdoor, 
             selectedDuration, 
@@ -198,6 +60,7 @@ const LandingPage = () => {
         );
         console.log('ideas: ', ideas);
         setReturnedDateIdeas(ideas);
+        setSelectedDates([]);
         setIsLoading(false);
         setShowDates(true);
     }
@@ -222,6 +85,16 @@ const LandingPage = () => {
             location,
         );
         setMapResponseItems(response);
+        const results = Object.values(response).map(responseItem => responseItem.results).flat();
+        setSelectedMapDateResults(results);
+        setMapDateResults(results);
+        let tempMapResponseDateObjects = {};    
+        for(const returnedDateIdea of returnedDateIdeas) {
+            if(selectedDates.includes(returnedDateIdea.name)) {
+                tempMapResponseDateObjects[returnedDateIdea.name] = returnedDateIdea;
+            }
+        }
+        setMapResponseDateObjects(tempMapResponseDateObjects);
         setIsLoading(false);
         navigate('/map-search');
     }
@@ -256,8 +129,9 @@ const LandingPage = () => {
     }, [pageLocation]); // Add this useEffect to reset showDates on location change
 
 
+
     return (
-        <div id='LandingPageBody'>
+        <div id='LandingPageBody'>         
             <div id='LandingPageMainContent'>
                 {!showDates && 
                 <>
@@ -265,18 +139,17 @@ const LandingPage = () => {
                     <div className='hz-center'>
                         <CriteriaBox/>  
                         <div className='v-center'>
-                            <p>Setting: {selectedIndoorOutdoor}</p>
+                            {/* <p>Setting: {selectedIndoorOutdoor}</p>
                             <p>Duration: {selectedDuration}</p>
                             <p>Activity Level: {selectedActivityLevels}</p>
                             <p>Price: {selectedPrices}</p>
                             <p>Rating: {selectedRating}</p>
-                            <p>Location: {location}</p>
+                            <p>Location: {location}</p> */}
                         </div>
                     </div>
 
                     <div className="MapSearchEntrySection">
                             <TextField 
-                                id="outlined-basic" 
                                 label="Enter location" 
                                 variant="outlined" 
                                 value={location} 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/FilterButton.css';
 import '../styles/index.css';
@@ -15,6 +15,8 @@ import Slider from '@mui/material/Slider';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+// import {AppStateContext} from "../../context/AppStateProvider";
+
 
 
 
@@ -122,6 +124,11 @@ const calculateLabelWidth = (label) => {
 };
 
 const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelectedValues }) => {
+  // const {
+  //   selectedDates,
+  //   setSelectedDates
+  // } = useContext(AppStateContext);
+
   const labelWidth = calculateLabelWidth(label);
   const marks = variant === 'slider' 
   ? possibleValues.filter(value => Number.isInteger(value)).map((value) => ({
@@ -217,7 +224,7 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
                     key={value}
                     value={value}
                     control={<Radio />}
-                    label={value}
+                    label={label === 'Rating' ? value + '+' : value}
                     sx={{ padding: '0px', margin: '0px' }}
                     className='internal-menu-item'
                   />
