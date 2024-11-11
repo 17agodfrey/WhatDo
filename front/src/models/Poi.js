@@ -1,10 +1,11 @@
 
 export class Poi {
-    constructor(key, lat, lng, dateType, color, picture = null) {
+    constructor(key, lat, lng, dateType, color, secondaryColor, picture = null) {
         this.key = key;
         this.location = { lat, lng };
         this.dateType = dateType;
         this.color = color; 
+        this.secondaryColor = secondaryColor;
         this.picture = picture;
     }
 }

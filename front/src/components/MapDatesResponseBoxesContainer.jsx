@@ -3,12 +3,12 @@ import MapDatesResponseBox from './MapDatesResponseBox';
 import {AppStateContext} from "../context/AppStateProvider";
 
 
-const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId}) => {
-    const { selectedDates } = useContext(AppStateContext);
+const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setSelectedItemId}) => {
+    const { selectedDates, selectedMapDateResults } = useContext(AppStateContext);
 
     const selectedRef = useRef(null);
 
-    console.log('from MapDatesResponseBoxesContainer', mapResponseItems);
+    // console.log('from MapDatesResponseBoxesContainer', mapResponseItems);
 
     useEffect(() => {
         if (selectedRef.current) {
@@ -16,19 +16,24 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId}) => 
         }
     }, [selectedItemId]);
 
+
+
+
     return (
         <div id='map-results'>
-            {Object.values(mapResponseItems)
-                .filter(mapResponseItem => selectedDates.includes(mapResponseItem.date.name))
-                .map((mapResponseItem, index1) => (
+            {selectedDates
+                .map((date, index1) => (
                 <div key={index1}>
-                    <p>{mapResponseItem.date.name}</p>
-                    {mapResponseItem.results.map((mapResult, index2) => (
+                    <p>{date}</p>
+                    {selectedMapDateResults
+                        .filter(mapDateResult => mapDateResult.dateType === date)
+                        .map((mapDateResult) => (
                         <MapDatesResponseBox
-                            key={index2}
-                            mapResult={mapResult}
-                            isSelected={selectedItemId === mapResult.displayName}
-                            ref={selectedItemId === mapResult.displayName ? selectedRef : null}
+                            key={mapDateResult.displayName}
+                            mapResult={mapDateResult}
+                            isSelected={selectedItemId === mapDateResult.displayName}
+                            onClick={() => setSelectedItemId(mapDateResult.displayName)}
+                            ref={selectedItemId === mapDateResult.displayName ? selectedRef : null}
                         />
                     ))}
                 </div>

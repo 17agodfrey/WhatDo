@@ -11,7 +11,17 @@ export class Date {
 
 // FindMapDatesResult class
 export class FindMapDatesResult {
-    constructor(googleMapsId, displayName, latLng, description, priceLevel, rating, photos, photosUris) {
+    constructor(
+        googleMapsId, 
+        displayName, 
+        latLng, 
+        description, 
+        priceLevel, 
+        rating, 
+        photos, 
+        // photosUris, 
+        dateType
+    ) {
         this.googleMapsId = googleMapsId;
         this.displayName = displayName;
         this.latLng = latLng;
@@ -19,7 +29,8 @@ export class FindMapDatesResult {
         this.price = priceLevel !== null ? priceLevel : "no price level";
         this.rating = rating !== null ? rating : "no rating";
         this.photos = photos;
-        this.photosUris = photosUris;
+        // this.photosUris = photosUris;
+        this.dateType = dateType;
     }
 }
 

@@ -27,6 +27,11 @@ const AppStateProvider = ({ children }) => {
 
   const [selectedDates, setSelectedDates] = useState(JSON.parse(localStorage.getItem('selectedDates')) || []);
 
+  const [mapDateResults, setMapDateResults] = useState(JSON.parse(localStorage.getItem('mapDateResults')) || []);
+  const [selectedMapDateResults, setSelectedMapDateResults] = useState(JSON.parse(localStorage.getItem('selectedMapDateResults')) || '');
+
+  const [mapResponseDateObjects, setMapResponseDateObjects] = useState(JSON.parse(localStorage.getItem('mapResponseDateObjects')) || []);
+
   // Save state variables to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('location', location);
@@ -63,6 +68,18 @@ const AppStateProvider = ({ children }) => {
     localStorage.setItem('selectedDates', JSON.stringify(selectedDates));
   }, [selectedDates]);
 
+  useEffect(() => {
+    localStorage.setItem('mapDateResults', JSON.stringify(mapDateResults));
+  }, [mapDateResults]);
+
+  useEffect(() => {
+    localStorage.setItem('selectedMapDateResults', JSON.stringify(selectedMapDateResults));
+  }, [selectedMapDateResults]);
+
+  useEffect(() => {
+    localStorage.setItem('mapResponseDateObjects', JSON.stringify(mapResponseDateObjects));
+  }, [mapResponseDateObjects]);
+
   return (
     <AppStateContext.Provider
       value={{
@@ -89,6 +106,12 @@ const AppStateProvider = ({ children }) => {
         setIsLoading, 
         selectedDates,
         setSelectedDates,
+        mapDateResults,
+        setMapDateResults,
+        selectedMapDateResults,
+        setSelectedMapDateResults,
+        mapResponseDateObjects,
+        setMapResponseDateObjects,
       }}
     >
       {children}

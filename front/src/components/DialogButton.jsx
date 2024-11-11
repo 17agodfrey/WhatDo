@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,33 +10,42 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import {AppStateContext} from "../context/AppStateProvider";
 
 
-const DialogButton = ({text,}) => {
+const DialogButton = ({text, content, title=null, onClose=null, isOpen=null, setIsOpen=null}) => {
     const {
         mapResponseItems, 
         selectedDates, setSelectedDates,
     } = useContext(AppStateContext);
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(isOpen !== null ? isOpen : false);
 
-    const handleDialogChange = () => {
+    const toggleDialogOpen = () => {
         setOpen(!open);
-    }
+        if(open && onClose){
+            onClose();
+        }
 
-    const handleChange = (event) => {
-        const date = event.target.value;
-        if (selectedDates.includes(date)) {
-            setSelectedDates(selectedDates.filter((selectedDate) => selectedDate !== date));
-        } else {
-            setSelectedDates([...selectedDates, date]);
+        if(setIsOpen){
+            setIsOpen(!open);
         }
     }
+
+    useEffect(() => {
+        if(isOpen){
+            setOpen(isOpen);
+        } else {
+            setOpen(false);
+            if(onClose){
+                onClose();
+            }
+        }
+    }, [isOpen])
 
 
     return (
         <>
             <Button 
                 variant="outlined" 
-                onClick={handleDialogChange}
+                onClick={toggleDialogOpen}
                 sx={{
                     minWidth: 'fit-content', 
                     backgroundColor: '#A1D7F5',
@@ -48,38 +57,22 @@ const DialogButton = ({text,}) => {
             </Button>
             <Dialog
             open={open}
-            onClose={handleDialogChange}
+            onClose={toggleDialogOpen}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
             >
-            <div id='map-search-dialog-content'>
-            <DialogTitle id="alert-dialog-title">
-                {"Date types used: "}
-            </DialogTitle>
+            {title && <DialogTitle id="alert-dialog-title">{title}</DialogTitle>}
             <DialogContent 
                 // sx={{'&& .MuiDialogContent-root': {display: 'flex', flexDirection: 'column', alignItems: 'center'}}}
+                sx={{maxHeight: 'fit-content'}}
             >
                 {/* <DialogContentText id="alert-dialog-description">
                 Let Google help apps determine location. This means sending anonymous
                 location data to Google, even when no apps are running.
                 </DialogContentText> */}
-                <div className='v-center'> 
-                    {Object.values(mapResponseItems).map((mapResponseItem, index1) => (
-                            <FormControlLabel
-                                key={mapResponseItem.date.name}
-                                value={mapResponseItem.date.name}
-                                control={
-                                    <Checkbox
-                                        checked={selectedDates.includes(mapResponseItem.date.name)}
-                                        onChange={handleChange}
-                                        value={mapResponseItem.date.name}
-                                    />
-                                }                        
-                                label={mapResponseItem.date.name}
-                            />
-                        ))}  
-                </div>
-               
+                {/* <div className='v-center'>  */}
+                    {content}
+                {/* </div> */}
             </DialogContent>
             {/* <DialogActions>
                 <Button onClick={handleDialogChange}>Disagree</Button>
@@ -87,7 +80,6 @@ const DialogButton = ({text,}) => {
                 Agree
                 </Button>
             </DialogActions> */}
-            </div>
             </Dialog>          
       </>
     );

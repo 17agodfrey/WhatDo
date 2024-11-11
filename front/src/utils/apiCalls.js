@@ -63,8 +63,9 @@ const mapSearch = async (
                         result.description, 
                         result.priceLevel,
                         result.rating, 
-                        "remove this:: photos ", 
-                        result.photosUris
+                        result.photos,
+                        // result.photosUris,
+                        result.dateType
                     );
                 });
                 // mapResultsReturned.push(...results);
@@ -84,7 +85,7 @@ const mapSearch = async (
     }
 }
 
-const dateIdeas = async (
+const dateIdeasSearch = async (
     api,
     selectedIndoorOutdoor, 
     selectedDuration, 
@@ -131,4 +132,4 @@ const dateIdeas = async (
     }
 }
 
-export { mapSearch, dateIdeas };
+export { mapSearch, dateIdeasSearch };

@@ -1,154 +1,288 @@
 import React, {useEffect, useState, useRef, useCallback, forwardRef, useContext} from 'react';
-import {
-    APIProvider,
-    Map,
-    AdvancedMarker,
-    useMap,
-    Pin,
-} from '@vis.gl/react-google-maps';
+// import {
+//     APIProvider,
+//     Map,
+//     AdvancedMarker,
+//     useMap,
+//     Pin,
+// } from '@vis.gl/react-google-maps';
 import {MarkerClusterer} from '@googlemaps/markerclusterer';
 import {Circle} from '../Circle';
 import {Poi} from '../../models/Poi';
-import { Loader } from "@googlemaps/js-api-loader"
 import shrek from '../../assets/shrek.jpg';
 import {AppStateContext} from "../../context/AppStateProvider";
+import {
+  mapI,
+  AdvancedMarkerElementWrapper,
+  pinElement, 
+  infoWindow,
+ } from '../../utils/GoogleMapsObjects';
+//  import PinElement from '../PinElement';
+
+
+// const infoWindow = async () => {
+//   try {
+//     let infoWindow = null;
+//     loader.importLibrary('maps').then(({ InfoWindow }) => {
+//       infoWindow = new InfoWindow({
+//         content: "dababy",
+//         ariaLabel: "Uluru",
+//         disableAutoPan: true,
+//       });
+//     })
+//     return infoWindow;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
 
 
 
-const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-// const { Map } = await google.maps.importLibrary("maps");
-// let map;
+
+// const AdvancedMarkerElementWrapper = forwardRef(({marker, position, map, onClick, onHover, id, popupPicture, color, secondaryColor }, ref) => {
+//   // const {selectedDates} = useContext(AppStateContext);
+//   // const [marker, setMarker] = useState(null);
+
+//   // const removeMarker = () => {
+//   //   if (marker) {
+//   //     marker.setMap(null);
+//   //   }
+//   // };
+
+//   useEffect(() => {
+//     // let marker;
+//     // let pin; 
+
+//     // loader
+//     //   .importLibrary('marker')
+//     //   .then(({ AdvancedMarkerElement, PinElement }) => {
+//     //     pin = new PinElement({
+//     //       background: color || 'blue',
+//     //       borderColor: secondaryColor || 'white',
+//     //       glyphColor: secondaryColor || 'white',
+//     //     });
+//     //     marker = new AdvancedMarkerElement({
+//     //       position: position,
+//     //       gmpClickable: true,
+//     //       content: pin.element,
+//     //     });
+
+//         // if(selectedDates.includes(dateType)) {
+//         //   marker.setMap(map);
+//         // } else {
+//         //   marker.setMap(null);
+//         // }
+
+//         // setMarker(newMarker);
+
+//         // marker.appendChild(pin.element);
+
+//         // marker.content = pin.element; 
+
+//         if (onClick) {
+//           marker.addListener('click', (ev) => onClick(ev, id));
+//         }
+
+//         if (onHover) {
+//           marker.content.addEventListener('mouseover', (ev) => onHover(ev, marker, id, popupPicture, true));
+//           marker.content.addEventListener('mouseout', (ev) => onHover(ev, marker, id, popupPicture, false));
+//         }
+
+//         if (ref) {
+//           ref(marker);
+//         }
+
+//       // })
+//       // .catch((err) => {
+//       //   console.error(err);
+//       // });
+
+//     return () => {
+//       if (marker) {
+//         marker.setMap(null);
+//       }
+//     };
+//   }, [position, map, onClick, onHover, ref]);
+
+//   return null;
+// });
+
+// const PoiMarkers = ({ pois, setSelectedItemId}) => {
+//   const {selectedDates} = useContext(AppStateContext);
+
+//   const map = useMap('the friggin map');
+//   const [markers, setMarkers] = useState([]);
+//   const clusterer = useRef(null);
+//   const [circleCenter, setCircleCenter] = useState(null);
+//   const [infoWindowOpen, setInfoWindowOpen] = useState(false);
 
 
-const loader = new Loader({
-  apiKey: apiKey,
-  version: "weekly",
-});
+//   useEffect(() => {
+//     if (!map) return;
+    
+//     //create markers for each poi
+//     const updateMarkers = async () => {
+//       // Remove existing markers
+//       // for (const marker of markers) {
+//       //   marker.setMap(null);
+//       // }
+  
+//       const newMarkers = [];
+//       for (const poi of Object.values(pois)) {
+//         // const pin = await pinElement(poi.color, poi.secondaryColor, poi.secondaryColor);
+//         // const marker = await advMarkerElement(poi.location, map);
+//         const marker = new google.maps.Marker({
+//           position: poi.location,
+//           map: map,
+//         });
+//         newMarkers.push(marker);
+//       }
+  
+//       setMarkers(newMarkers);
+//     };
+  
+//     updateMarkers();
+
+//   }, []);  
 
 
-const AdvancedMarkerElementWrapper = forwardRef(({ position, map, onClick, onHover, id, popupPicture, color }, ref) => {
-  useEffect(() => {
-    let marker;
+//   // let infoWindow = null;
+//   // loader.importLibrary('maps').then(({ InfoWindow }) => {
+//   //   infoWindow = new InfoWindow({
+//   //     content: "dababy",
+//   //     ariaLabel: "Uluru",
+//   //     disableAutoPan: true,
+//   //   });
+//   // });
 
-    // const instance = {
-    //   position,
-    //   map,
-    //   onClick,
-    //   onHover,
-    //   id,
-    //   popupPicture,
-    // };
+//   // useEffect(() => {
+//   //   if (!map) return;
+//   //   if (!clusterer.current) {
+//   //     clusterer.current = new MarkerClusterer({ map });
+//   //   }
+//   // }, [map]);
 
-    loader
-      .importLibrary('marker')
-      .then(({ AdvancedMarkerElement, PinElement }) => {
-        marker = new AdvancedMarkerElement({
-          position: position,
-          map: map,
-          gmpClickable: true,
-        });
+//   // useEffect(() => {
+//   //   clusterer.current?.clearMarkers();
+//   //   clusterer.current?.addMarkers(Object.values(markers));
+//   // }, [markers]);    
 
-        const pin = new PinElement({
-          background: color || 'blue',
-          scale: 2.0,
-        });
+//   const setMarkerRef = (marker, key) => {
+//     // console.log('setMarkerRef hit');
+//     if (marker && markers[key]) return;
+//     if (!marker && !markers[key]) return;
 
-        console.log('pin color:', pin.background);
+//     setMarkers((prev) => {
+//       if (marker) {
+//         return { ...prev, [key]: marker };
+//       } else {
+//         const newMarkers = { ...prev };
+//         delete newMarkers[key];
+//         return newMarkers;
+//       }
+//     });
+//   };
 
-        marker.appendChild(pin.element);
+//     //iterate through pois and create markers
+//   useEffect(() => {
+//   if (!map) return;
 
-        if (onClick) {
-          marker.addListener('click', (ev) => onClick(ev, id));
-        }
+//   // const updateMarkers = async () => {
+//     // Remove existing markers
+//     for (const marker of markers) {
+//       console.log('marker.map: ', marker.map);
+//       marker.setMap(null);
+//       // setMapOnAll(null);
+//       // clearMarkers();
+//       console.log('after set map, marker.map: ', marker.map);
+//     }
+//     console.log('markers removed');
 
-        if (onHover) {
-          marker.content.addEventListener('mouseover', (ev) => onHover(ev, marker, id, popupPicture, true));
-          marker.content.addEventListener('mouseout', (ev) => onHover(ev, marker, id, popupPicture, false));
-        }
+//   //   // const newMarkers = [];
+//   //   // for (const poi of Object.values(pois)) {
+//   //   //   const pin = await pinElement(poi.color, poi.secondaryColor, poi.secondaryColor);
+//   //   //   const marker = await advMarkerElement(poi.location, map, pin.element);
+//   //   //   newMarkers.push(marker);
+//   //   // }
 
-        if (ref) {
-          ref(marker);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+//   //   // setMarkers(newMarkers);
+//   // };
 
-    return () => {
-      if (marker) {
-        marker.setMap(null);
-      }
-    };
-  }, [position, map, onClick, onHover, ref]);
+//   // updateMarkers();
 
-  return null;
-});
+//   // const newMarkers = Object.values(pois).map((poi) => (
+//   //     <AdvancedMarkerElementWrapper
+//   //       key={poi.key}
+//   //       position={poi.location}
+//   //       map={map}
+//   //       onClick={handleMarkerClick}
+//   //       onHover={handleMarkerHover}  
+//   //       id={poi.key}
+//   //       popupPicture={poi.picture}
+//   //       color={poi.color}
+//   //       secondaryColor={poi.secondaryColor}
+//   //     />
+//     // ));
 
-// const poi = [
-//     { key: 'operaHouse', location: { lat: -33.8567844, lng: 151.213108 } },
-//     { key: 'tarongaZoo', location: { lat: -33.8472767, lng: 151.2188164 } },
-//     { key: 'manlyBeach', location: { lat: -33.8209738, lng: 151.2563253 } },
-//     { key: 'hyderPark', location: { lat: -33.8690081, lng: 151.2052393 } },
-//     { key: 'theRocks', location: { lat: -33.8587568, lng: 151.2058246 } },
-//     { key: 'circularQuay', location: { lat: -33.858761, lng: 151.2055688 } },
-//     { key: 'harbourBridge', location: { lat: -33.852228, lng: 151.2038374 } },
-//     { key: 'kingsCross', location: { lat: -33.8737375, lng: 151.222569 } },
-//     { key: 'botanicGardens', location: { lat: -33.864167, lng: 151.216387 } },
-//     { key: 'museumOfSydney', location: { lat: -33.8636005, lng: 151.2092542 } },
-//     { key: 'maritimeMuseum', location: { lat: -33.869395, lng: 151.198648 } },
-//     { key: 'kingStreetWharf', location: { lat: -33.8665445, lng: 151.1989808 } },
-//     { key: 'aquarium', location: { lat: -33.869627, lng: 151.202146 } },
-//     { key: 'darlingHarbour', location: { lat: -33.87488, lng: 151.1987113 } },
-//     { key: 'barangaroo', location: { lat: -33.8605523, lng: 151.1972205 } },
-//   ];
+//   // setMarkers(newMarkers);
+//   } , [map, pois, selectedDates, markers, handleMarkerClick, handleMarkerHover]);
 
-const PoiMarkers = ({ pois, setSelectedItemId}) => {
-  const map = useMap();
-  const [markers, setMarkers] = useState({});
-  const clusterer = useRef(null);
-  const [circleCenter, setCircleCenter] = useState(null);
-  const [infoWindowOpen, setInfoWindowOpen] = useState(false);
+//   console.log('markers', markers); 
+//   // console.log('markersValues')
+//   // console.log('markersLen', markers.length);
 
-  let infoWindow = null;
-  loader.importLibrary('maps').then(({ InfoWindow }) => {
-    infoWindow = new InfoWindow({
-      content: "dababy",
-      ariaLabel: "Uluru",
-      disableAutoPan: true,
-    });
-  });
+//   return (
+//     <>
+//       {/* <Circle
+//         radius={800}
+//         center={circleCenter}
+//         strokeColor={'#0c4cb3'}
+//         strokeOpacity={1}
+//         strokeWeight={3}
+//         fillColor={'#3b82f6'}
+//         fillOpacity={0.3}
+//       /> */}
+//       {/* <MarkerClusterer map={map} markers={Object.values(markers)} /> */}
+//       {/* {markers.length > 0 && Object.values(markers)} */}
+//       {/* {Object.values(pois)
+//         .map((poi) => (
+//           <AdvancedMarkerElementWrapper
+//             key={poi.key}
+//             position={poi.location}
+//             map={map}
+//             onClick={handleMarkerClick}
+//             onHover={handleMarkerHover}
+//             id={poi.key}
+//             popupPicture={poi.picture}
+//             color={poi.color}
+//             secondaryColor={poi.secondaryColor}
+//             ref={marker => setMarkerRef(marker, poi.key)}
+//           />
+//       ))} */}
+//     </>
+//   );
+// };
+  
 
-  // useEffect(() => {
-  //   if (!map) return;
-  //   if (!clusterer.current) {
-  //     clusterer.current = new MarkerClusterer({ map });
-  //   }
-  // }, [map]);
+const GoogleMap = ({mapResponseItems, selectedItemId, setSelectedItemId}) => {
+  const {
+    selectedDates,
+    selectedMapDateResults,
+    // map, 
+    // setMap,
+  } = useContext(AppStateContext);
 
-  // useEffect(() => {
-  //   clusterer.current?.clearMarkers();
-  //   clusterer.current?.addMarkers(Object.values(markers));
-  // }, [markers]);
+  const colors = ['#D72638', '#3F88C5', '#F49D37', '#9842f5', '#1aba1a'];
+  const secondaryColors = ['#9E1A2B', '#2B6390', '#C27A2D', '#752EB2', '#148114'];
 
-  const setMarkerRef = (marker, key) => {
-    // console.log('setMarkerRef hit');
-    if (marker && markers[key]) return;
-    if (!marker && !markers[key]) return;
-
-    setMarkers((prev) => {
-      if (marker) {
-        return { ...prev, [key]: marker };
-      } else {
-        const newMarkers = { ...prev };
-        delete newMarkers[key];
-        return newMarkers;
-      }
-    });
-  };
+  const [pois, setPois] = useState({});  
+  const [map, setMap] = useState(null);
+  const [markers, setMarkers] = useState([]);
 
   const handleMarkerClick = useCallback(
     (ev, markerId) => {
+      console.log('marker clicked:', markerId);
       if (!map) return;
       if (!ev.latLng) return;
       console.log('marker clicked:', markerId, ev.latLng.toString());
@@ -156,12 +290,13 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
       // setCircleCenter(ev.latLng);
       setSelectedItemId(markerId);
     },
-    [map]
+    [map, setSelectedItemId]
   );
 
   const handleMarkerHover = useCallback(
     (ev, marker, markerId, popupPicture, isHovered) => {
-        if (!map) return;
+        // console.log('marker hovered:', markerId);
+        // if (!map) return;
 
         const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     
@@ -235,7 +370,9 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
         }
   
         if (isHovered) {
-          infoWindow.setHeaderContent(`Marker ID: ${markerId}`);
+          const headerDiv = document.createElement('div');
+          headerDiv.innerHTML = `${markerId}`;
+          infoWindow.setHeaderContent(headerDiv);
           infoWindow.setContent(`<img src="${popupPicture}" alt="Popup Picture" class="map-popup-image"/>`);
 
           let newPosition;
@@ -263,108 +400,131 @@ const PoiMarkers = ({ pois, setSelectedItemId}) => {
     [map, infoWindow]
   );
 
-  return (
-    <>
-      <Circle
-        radius={800}
-        center={circleCenter}
-        strokeColor={'#0c4cb3'}
-        strokeOpacity={1}
-        strokeWeight={3}
-        fillColor={'#3b82f6'}
-        fillOpacity={0.3}
-      />
-      {Object.values(pois).map((poi) => (
-        <AdvancedMarkerElementWrapper
-          key={poi.key}
-          position={poi.location}
-          map={map}
-          onClick={handleMarkerClick}
-          onHover={handleMarkerHover}
-          id={poi.key}
-          popupPicture={poi.picture}
-          color={poi.color}
-          ref={marker => setMarkerRef(marker, poi.key)}
-        />
-      ))}
-    </>
-  );
-};
+  // initialize map on mount
+  useEffect(() => {
+    const initializeMap = async () => {
+      const center = {lat: 40.701119399999996, lng: -111}; // Example center
+      const mapId = 'the friggin map';
+      const zoom = 8;
+      const gestureHandling = 'greedy';
+      const disableDefaultUI = true;
 
-// const MapWrapper = ({children}) => {
-//   map = new Map(document.getElementById("map"), {
-//     zoom: 4,
-//     center: position,
-//     mapId: "DEMO_MAP_ID",
-//   });
+      const map = await mapI(center, mapId, zoom, gestureHandling, disableDefaultUI);
+      setMap(map);
+    };
 
-//   return (
-//     <>
-//       {children}
-//     </>
-//   );
-// }
-  
+    if (document.getElementById('map_yeet')) {
+      initializeMap();
+      // console.log('initilize map hit');
+    }
+  }, []);
 
-const GoogleMap = ({mapResponseItems, setSelectedItemId}) => {
-  const {selectedDates} = useContext(AppStateContext);
-
-  // const pois_ = mapResults && mapResults.length > 0 ? 
-  //   mapResults.map(result => new Poi(
-  //     result.displayName,
-  //     result.latLng.latitude,
-  //     result.latLng.longitude, 
-  //     result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
-  //   ))
-  //   : [];
-
-  console.log('from GoogleMap', mapResponseItems);
-
-  const colors = ['#D72638', '#3F88C5', '#F49D37', '#9842f5', '#1aba1a'];
-  let i = 0;
-  const pois_ = {};
-  for (const responseItem of Object.values(mapResponseItems)) {
-    if (selectedDates.includes(responseItem.date.name)) {
+  //initialize pois on mount 
+  useEffect(() => {    
+    const pois_ = {};
+    let i = 0;
+    for (const responseItem of Object.values(mapResponseItems)) {
+      // if (!selectedDates.includes(responseItem.date.name)) {
+      //   i++;
+      //   continue;
+      // }
       for (const result of responseItem.results) {
         pois_[result.displayName] = new Poi(
           result.displayName,
           result.latLng.latitude,
           result.latLng.longitude,
           responseItem.date.name,
-          colors[i++], 
-          result.photosUris && result.photosUris.length > 0 ? result.photosUris[0] : shrek
+          colors[i], 
+          secondaryColors[i],
+          result.photos && result.photos.length > 0 ? result.photos[0].photoUri : shrek
         );
       }
+      i++;
     }
-  }
-    
-    
 
-  const [pois, setPois] = useState(pois_);    
+    setPois(pois_);
+    // console.log('initilize pois hit');
+  }, []);
 
+  // inititialize markers on mount, and update markers when pois changes
+  useEffect(() => {
+    if (!map || markers.length != 0) return;
+    // Create markers for each poi
+    const updateMarkers = async () => {
+      const newMarkers = [];
+      for (const poi of Object.values(pois)) {
+        // if (!selectedDates.includes(poi.dateType)) {
+        //   continue;
+        // }
+        const pin = await pinElement(
+          poi.color, 
+          poi.secondaryColor, 
+          poi.secondaryColor, 
+        );
+        const marker = await new AdvancedMarkerElementWrapper(
+          poi.location, 
+          map, 
+          poi.key, 
+          poi.dateType,
+          pin.element, 
+          handleMarkerClick,
+          handleMarkerHover,
+          poi.picture,
+          poi.color,
+          poi.secondaryColor
+        );
+        newMarkers.push(marker);
+      }
+      setMarkers(newMarkers);
+    };
+
+    updateMarkers();
+    // console.log('initilize markers hit');
+  }, [map, pois, selectedItemId]);
+
+  // Update markers when selectedDates or selectedMapDateResults changes 
+  useEffect(() => {
+    if (!map) return;
+
+    for (const marker of markers) {
+      if (selectedDates.includes(marker.dateType) 
+      && selectedMapDateResults.some(result => result.displayName === marker.id)
+    ) {
+        marker.marker.setMap(map);
+      } else {
+        marker.marker.setMap(null);
+      }
+    }
+    // console.log('update markers hit');
+
+  }, [map, selectedDates, selectedMapDateResults, pois, markers]);
+
+  useEffect(() => {
+    if (!map) return;
+
+    for (const marker of markers) {
+      if (marker.id === selectedItemId) {
+        marker.highlightMarker();
+      } else if(marker.highlighted) {
+        marker.unhighlightMarker();
+      }
+    }
+  }, [selectedItemId]);
+
+
+
+  // const poiMarkers = PoiMarkers(pois_, setSelectedItemId);
+  // console.log('pois', pois);
+  // console.log('selectedDates', selectedDates);  
+  // console.log('mapResponseItems', mapResponseItems);
+  // console.log('map', map);
+  // console.log('markers', markers);
     return (
-        <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
-            <Map
-                // style={{width: '100vw', height: '100vh'}}
-                defaultCenter={{lat: 40.701119399999996, lng: -111}}
-                mapId='DEMO_MAP_ID'
-                // onCameraChanged={ (ev) =>
-                //     console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
-                //   }
-                defaultZoom={8}
-                gestureHandling={'greedy'}
-                disableDefaultUI={true}
-            >
-                <PoiMarkers 
-                    pois={pois} 
-                    setSelectedItemId={setSelectedItemId}
-                />
-            </Map>
-        </APIProvider>
+      <div id="map_yeet" style={{height: '100vh', width: '100%'}}/>
     );
-}
+};
 
-AdvancedMarkerElementWrapper.displayName = 'AdvancedMarkerElement';
+// AdvancedMarkerElementWrapper.displayName = 'AdvancedMarkerElement';
 
 
 

@@ -11,5 +11,6 @@ namespace DateFinder.Domain.Storage
         public string Name { get; set; }
         public int WidthPx { get; set; }
         public int HeightPx { get; set; }
+        public string? PhotoUri { get; set; }
     }
 }
