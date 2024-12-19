@@ -21,7 +21,7 @@ namespace DateFinder.Domain.DTO
         public int[] DateIds { get; set; }
 
 
-        [Required(ErrorMessage = "Location is required.")]
-        public string Location { get; set; }
+        [Required(ErrorMessage = "LatLng is required.")]
+        public LatLngDto LatLng { get; set; }
     }
 }

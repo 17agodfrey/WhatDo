@@ -18,7 +18,7 @@ namespace DateFinder.Domain.Mappings
             CreateMap<FindMapDatesRequestDto, Date>()
                 .ForMember(dest => dest.Duration, opt => opt.Ignore())
                 .ReverseMap();
-            CreateMap<FindMapDatesResultDto, Date>().ReverseMap();
+            CreateMap<PlaceSearchResultDto, Date>().ReverseMap();
         }
     }
 }

@@ -26,14 +26,14 @@ namespace DateFinder.External.Tests
     public class GoogleMapsClientTests
     {
         private readonly ITestOutputHelper _output;
-        private IGoogleMapsClient _systemUnderTest;
+        private Domain.External.IFourSquareClient _systemUnderTest;
         public GoogleMapsClientTests(ITestOutputHelper output)
         {
             _output = output;
 
             var serviceProvider = (new DateFinderServiceProvider()).Create();
 
-            _systemUnderTest = serviceProvider.GetService<IGoogleMapsClient>()
+            _systemUnderTest = serviceProvider.GetService<Domain.External.IFourSquareClient>()
                 ?? throw new InvalidOperationException("IGoogleMapsClient service not registered.");
             
         }

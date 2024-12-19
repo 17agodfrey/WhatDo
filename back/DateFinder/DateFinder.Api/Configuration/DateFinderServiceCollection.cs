@@ -29,7 +29,7 @@ namespace DateFinder.Api.Configuration
             services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
-            services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
+            services.AddTransient<IFourSquareClient, FourSquareClient>(); // transient means a new instance is created every time it is requested
             services.AddTransient<IDateService, DateService>();
 
             ConfigureJwtAuthentication(services);

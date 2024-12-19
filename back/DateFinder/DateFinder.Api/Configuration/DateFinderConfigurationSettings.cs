@@ -17,7 +17,7 @@ namespace DateFinder.Api.Configuration
 
         //public string AuthenticationPrivateKey => _configurationRoot.GetSection("AppSettings")["AuthenticationPrivateKey"];
         public string DateFinderConnectionString => _configurationRoot.GetSection("ConnectionStrings")["DateFinderConnectionString"];
-        public string GoogleMapsApiKey => _configurationRoot.GetSection("GoogleMaps")["ApiKey"];
+        public string FourSquareApiKey => _configurationRoot.GetSection("FourSquare")["ApiKey"];
     }
 
 }

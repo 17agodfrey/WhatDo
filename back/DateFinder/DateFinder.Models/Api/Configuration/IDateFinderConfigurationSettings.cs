@@ -4,6 +4,6 @@
     {
         //string AuthenticationPrivateKey { get; }
         string DateFinderConnectionString { get; }
-        string GoogleMapsApiKey { get; }
+        string FourSquareApiKey { get; }
     }
 }

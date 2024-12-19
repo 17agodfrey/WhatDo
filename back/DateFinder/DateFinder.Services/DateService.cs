@@ -19,13 +19,13 @@ namespace DateFinder.Services
     {
         private readonly IMapper _mapper;
         private readonly IDatesRepository _datesRepository;
-        private readonly IGoogleMapsClient _googleMapsClient;
+        private readonly IFourSquareClient _fourSquareClient;
 
-        public DateService(IMapper mapper, IDatesRepository datesRepository, IGoogleMapsClient googleMapsClient)
+        public DateService(IMapper mapper, IDatesRepository datesRepository, IFourSquareClient googleMapsClient)
         {
             _mapper = mapper;
             _datesRepository = datesRepository;
-            _googleMapsClient = googleMapsClient;
+            _fourSquareClient = googleMapsClient;
         }
 
         public async Task<List<FindMapDatesResponseItemDto>> GetMapResultsAsync(FindMapDatesRequestDto findMapDatesRequestDto)
@@ -57,54 +57,13 @@ namespace DateFinder.Services
                 {
                     Date = _mapper.Map<DateDto>(suggestedDate)
                 };
-                var googleMapsResponse = await _googleMapsClient.TextSearchAsync(suggestedDate, findMapDatesRequestDto);
+                var placeSearchResults = await _fourSquareClient.PlacesSearchAsync(suggestedDate, findMapDatesRequestDto);
 
-                Console.WriteLine("Google Maps Response: " + googleMapsResponse);
+                Console.WriteLine("FourSquare Places API Response: " + placeSearchResults);
 
                 // Extract relevant fields from the Google response
                 var findMapDatesResults = new List<FindMapDatesResultDto>();
-                foreach (var place in googleMapsResponse.Places)
-                {
-                    if (place.DisplayName != null)
-                    {
-                        //if ((findMapDatesRequestDto.PriceLevels != null && !findMapDatesRequestDto.PriceLevels.Contains((Price)place.PriceLevel))
-                        //    || (findMapDatesRequestDto.Rating != null && !(findMapDatesRequestDto.Rating >= place.Rating))
-                        //)
-                        //{
-                        //    continue;
-                        //}
-                        var findMapDatesResultDto = new FindMapDatesResultDto
-                        {
-                            GoogleMapsId = place.Id,
-                            DisplayName = place.DisplayName.Text,
-                            DateType = suggestedDate.Name,
-                            Description = place.EditorialSummary?.Text,
-                            PriceLevel = place.PriceLevel.ToString() != null ? place.PriceLevel.ToString() : null,
-                            Rating = place.Rating.ToString() != null ? place.Rating : null,
-                            LatLng = new LatLngDto
-                            {
-                                Latitude = place.Location.Latitude,
-                                Longitude = place.Location.Longitude
-                            },
-                            Photos = place.Photos?.Select(p => new Photo
-                            {
-                                Name = p.Name,
-                                WidthPx = p.WidthPx,
-                                HeightPx = p.HeightPx,
-                                //PhotoUri = p.getURI().ToString()
-                            }).ToArray()
-                        };
-
-                        /// soooo... bascialyl 
-                        //if (findMapDatesResultDto.Photos != null)
-                        //{
-                        //    var photos = await _googleMapsClient.GetPlacePhotos(findMapDatesResultDto.Photos);
-                        //    findMapDatesResultDto.PhotosUris = photos;
-                        //}
-                        findMapDatesResults.Add(findMapDatesResultDto);
-                    }
-                }
-                findMapDatesResponseItemDto.Results = findMapDatesResults;
+                findMapDatesResponseItemDto.Results = placeSearchResults;
                 dateResultsResponseItems.Add(findMapDatesResponseItemDto);
             }
             // return the results (the remaining dates - findMapDatesResponse objects -

@@ -14,7 +14,7 @@ namespace DateFinder.Domain.DTO
     {
         [Required]
         public DateDto Date { get; set; }
-        public List<FindMapDatesResultDto>? Results { get; set; }
+        public List<PlaceSearchResultDto>? Results { get; set; }
 
     }
 }
