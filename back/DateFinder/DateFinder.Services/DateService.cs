@@ -95,12 +95,16 @@ namespace DateFinder.Services
                             }).ToArray()
                         };
 
-                        /// soooo... bascialyl 
-                        //if (findMapDatesResultDto.Photos != null)
-                        //{
-                        //    var photos = await _googleMapsClient.GetPlacePhotos(findMapDatesResultDto.Photos);
-                        //    findMapDatesResultDto.PhotosUris = photos;
-                        //}
+                        /// soooo... bascically
+                        if (findMapDatesResultDto.Photos != null)
+                        {
+                            var photoUris = await _googleMapsClient.GetPlacePhotoUris(findMapDatesResultDto.Photos);
+                            // iterate through Photos of the current findMapDatesResultDto and map the photoUris to the PhotoUri field
+                            for (int i = 0; i < findMapDatesResultDto.Photos.Length; i++)
+                            {
+                                findMapDatesResultDto.Photos[i].PhotoUri = photoUris[i];
+                            }
+                        }
                         findMapDatesResults.Add(findMapDatesResultDto);
                     }
                 }
