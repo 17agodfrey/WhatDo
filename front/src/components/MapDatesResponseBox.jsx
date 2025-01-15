@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 
-const MapDatesResponseBox = forwardRef(({ mapResult, isSelected, onClick }, ref) => {
+const MapDatesResponseBox = forwardRef(({ mapResult, isSelected, onBoxClick, onImageClick }, ref) => {
     // console.log(mapResult);
 
     // *** this is currently just getting one image, but you should be using all of them ***
@@ -14,9 +14,9 @@ const MapDatesResponseBox = forwardRef(({ mapResult, isSelected, onClick }, ref)
         <div 
             ref={ref} 
             className={`map-dates-response-box ${isSelected ? 'highlighted' : ''}`}
-            onClick={onClick}
+            onClick={onBoxClick}
         >
-            <img src={image} alt="date image" />
+            <img src={image} alt="date image" onClick={onImageClick} style={{cursor: "pointer"}}/>
             <div className='date-response-info'>
                 <h3>Name: {mapResult.displayName}</h3>
                 <p>Description: {mapResult.description}</p>

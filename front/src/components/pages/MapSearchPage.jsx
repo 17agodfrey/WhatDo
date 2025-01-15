@@ -19,6 +19,7 @@ import {AppStateContext} from "../../context/AppStateProvider";
 import { mapSearch, dateIdeasSearch } from "../../utils/apiCalls";
 import DialogButton from "../DialogButton";
 import CriteriaBox from "../CriteriaBox";
+import MapResultImageGalleryDialog from "../MapResultImageGalleryDialog";
 
 
 
@@ -54,6 +55,7 @@ const MapSearchPage = () => {
     const [newDateIdeas, setNewDateIdeas] = useState([]);
     const [newDateIdeasSelected, setNewDateIdeasSelected] = useState([]);
     const [newSearchDialogOpen, setNewSearchDialogOpen] = useState(false);  
+    const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
 
     useEffect(() => {
         console.log('selectedItemId: ', selectedItemId);
@@ -160,6 +162,7 @@ const MapSearchPage = () => {
             selectedDuration,
             selectedActivityLevels,
         );
+        setNewDateIdeasSelected([]);
         setNewDateIdeas(response);
         setIsLoading(false);
         setShowNewDateResults(true);
@@ -167,9 +170,11 @@ const MapSearchPage = () => {
 
     const newMapSearch = async () => {
         setIsLoading(true);
+        setSelectedDates(newDateIdeasSelected);
+        const selectedDateObjects = newDateIdeas.filter((date) => newDateIdeasSelected.includes(date.name));  
         const response = await mapSearch(
             api,
-            newDateIdeasSelected,
+            selectedDateObjects,
             location,
         );
         setMapResponseItems(response);
@@ -268,7 +273,6 @@ const MapSearchPage = () => {
                                 {!isLoading && showNewDateResults &&
                                     <>
                                         {       
-               
                                             mapResponseItems && 
                                             <>
                                                 <div id='msp-dates-selected-dialog-content' className='v-center'>
@@ -413,10 +417,16 @@ const MapSearchPage = () => {
                         selectedItemId={selectedItemId}
                         setSelectedItemId={setSelectedItemId}
                         // showMapResults={showMapResults}
+                        setImageGalleryOpen={setImageGalleryOpen}
                     />
                 </>
                 }
             </div>
+            <MapResultImageGalleryDialog
+                open={imageGalleryOpen}
+                onClose={() => setImageGalleryOpen(false)}
+                imageUrls={() => selectedMapDateResults.filter(mapDateResult => mapDateResult.displayName === selectedItemId)[0].photos.map(photo => photo.photoUri)}
+            />
         </div>
     );
 };
