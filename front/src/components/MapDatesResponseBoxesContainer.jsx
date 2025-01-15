@@ -3,7 +3,7 @@ import MapDatesResponseBox from './MapDatesResponseBox';
 import {AppStateContext} from "../context/AppStateProvider";
 
 
-const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setSelectedItemId}) => {
+const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setSelectedItemId, setImageGalleryOpen}) => {
     const { selectedDates, selectedMapDateResults } = useContext(AppStateContext);
 
     const selectedRef = useRef(null);
@@ -15,7 +15,6 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
             selectedRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [selectedItemId]);
-
 
 
 
@@ -32,8 +31,10 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
                             key={mapDateResult.displayName}
                             mapResult={mapDateResult}
                             isSelected={selectedItemId === mapDateResult.displayName}
-                            onClick={() => setSelectedItemId(mapDateResult.displayName)}
+                            onBoxClick={() => setSelectedItemId(mapDateResult.displayName)}
+                            onImageClick = {() => { setImageGalleryOpen(true); }}
                             ref={selectedItemId === mapDateResult.displayName ? selectedRef : null}
+
                         />
                     ))}
                 </div>
