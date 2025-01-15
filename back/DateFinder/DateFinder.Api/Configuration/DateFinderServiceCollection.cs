@@ -25,6 +25,9 @@ namespace DateFinder.Api.Configuration
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // add AWS lambda hosting 
+            services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+
             // Add services to the container.
             services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request

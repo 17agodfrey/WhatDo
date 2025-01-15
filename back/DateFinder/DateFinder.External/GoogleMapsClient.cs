@@ -88,7 +88,7 @@ namespace DateFinder.External
         /// </summary>
         /// <param name="photos"></param>
         /// <returns></returns>
-        public async Task<List<string>> GetPlacePhotos(Domain.Storage.Photo[] photos)
+        public async Task<List<string>> GetPlacePhotoUris(Domain.Storage.Photo[] photos)
         {
             var photoUris = new List<string>();
 

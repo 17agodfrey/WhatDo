@@ -16,6 +16,6 @@ namespace DateFinder.Domain.External
     {
         // text search: given a query, return a list of places, displayName only, the first 5
         Task<SearchTextResponse> TextSearchAsync(Date date, FindMapDatesRequestDto findMapDatesRequestDto);
-        Task<List<string>> GetPlacePhotos(Storage.Photo[] names);
+        Task<List<string>> GetPlacePhotoUris(Storage.Photo[] names);
     }
 }
