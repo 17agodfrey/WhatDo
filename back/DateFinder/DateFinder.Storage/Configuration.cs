@@ -16,7 +16,7 @@ namespace DateFinder.Storage
 
             var builder = new DbContextOptionsBuilder<DateFinderDbContext>();
             var connectionString = configuration.GetConnectionString("DateFinderConnectionString");
-            builder.UseSqlServer(connectionString);
+            builder.UseNpgsql(connectionString);
 
             return new DateFinderDbContext(builder.Options);
         }

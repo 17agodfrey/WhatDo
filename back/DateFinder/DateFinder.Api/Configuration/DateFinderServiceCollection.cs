@@ -25,7 +25,7 @@ namespace DateFinder.Api.Configuration
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // add AWS lambda hosting 
+                        // add AWS lambda hosting 
             services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
             // Add services to the container.
@@ -61,7 +61,7 @@ namespace DateFinder.Api.Configuration
 
                 if (_isTest == false)
                 {
-                    options.UseSqlServer(configuration.DateFinderConnectionString);
+                    options.UseNpgsql(configuration.DateFinderConnectionString);
                 }
                 else
                 {
