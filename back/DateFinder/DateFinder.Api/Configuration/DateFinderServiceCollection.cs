@@ -9,6 +9,10 @@ using DateFinder.Domain.Repositories;
 using DateFinder.Repositories;
 using DateFinder.Domain.Services;
 using DateFinder.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using AWS.Logger.AspNetCore;
+
 
 
 
@@ -33,6 +37,21 @@ namespace DateFinder.Api.Configuration
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
             services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
+            //services.AddScoped<IGoogleMapsClient, GoogleMapsClient>();
+
+            // Add GoogleMapsClient with logger injection
+            //services.AddScoped<IGoogleMapsClient, GoogleMapsClient>(provider =>
+            //{
+            //    var logger = provider.GetRequiredService<ILogger<GoogleMapsClient>>();
+            //    return new GoogleMapsClient(provider.GetRequiredService<HttpClient>(), logger);
+            //});
+
+            // Add AWS logging to the services
+            services.AddLogging(builder =>
+            {
+                builder.AddAWSProvider();
+            });
+
             services.AddTransient<IDateService, DateService>();
 
             ConfigureJwtAuthentication(services);
