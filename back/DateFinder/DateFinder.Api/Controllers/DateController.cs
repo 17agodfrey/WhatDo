@@ -54,6 +54,15 @@ namespace DateFinder.Api.Controllers
             return Ok(dateIdeasResponse);
         }
 
+        // endpoint that return hello world
+        [HttpGet]
+        [Route("hello-world")]
+        public IActionResult HelloWorld()
+        {
+            return Ok("Hello World");
+        }
+
+
     }
 
 }
