@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Mvc;
 using DateFinder.Domain.DTO;
 using Google.Protobuf.Collections;
 using DateFinder.Domain.Storage.EnumAttributes;
+using Microsoft.Extensions.Logging;
+using System.Collections;
 
 
 
@@ -29,9 +31,30 @@ namespace DateFinder.External
     {
         private readonly IDateFinderConfigurationSettings _dateFinderConfigurationSettings;
         private readonly PlacesClient _placesClient;
-        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings)
+        private readonly ILogger<GoogleMapsClient> _logger;
+
+        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger)
         {
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
+            _logger = logger;
+
+            //// Log environment variables
+            //var environmentVariables = Environment.GetEnvironmentVariables();
+            //_logger.LogInformation("Logging all environment variables:");
+            //foreach (DictionaryEntry env in environmentVariables)
+            //{
+            //    _logger.LogInformation($"{env.Key}: {env.Value}");
+            //}
+
+            //// Log the contents of the /var/task directory
+            //var files = Directory.GetFiles("/var/task");
+            //_logger.LogInformation("Files in /var/task:");
+            //foreach (var file in files)
+            //{
+            //    _logger.LogInformation(file);
+            //}
+
+
             _placesClient = PlacesClient.Create();
         }
 
