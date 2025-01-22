@@ -9,12 +9,19 @@
 	<ItemGroup>
 		<PackageReference Include="Google.Api.Gax.Grpc" Version="4.8.0" />
 		<PackageReference Include="Google.Apis" Version="1.68.0" />
+		<PackageReference Include="Google.Cloud.Storage.V1" Version="4.10.0" />
 		<PackageReference Include="Google.Maps.Places.V1" Version="1.0.0-beta08" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\DateFinder.Models\DateFinder.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="clientLibraryConfig-aws-provider.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

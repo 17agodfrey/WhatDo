@@ -10,7 +10,9 @@ namespace DateFinder.Api.Configuration
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables(); // Add environment variables support
+
 
             _configurationRoot = builder.Build();
         }

@@ -7,6 +7,12 @@
   "function-timeout": 30,
   "function-handler": "DateFinder.Api",
   "function-name": "datefinder-api",
-  "environment-variables": "ASPNETCORE_ENVIRONMENT=Development;SOMETHING_ELSE=SomeValue",
+  "environment-variables": "ASPNETCORE_ENVIRONMENT=Development;SOMETHING_ELSE=SomeValue;GOOGLE_APPLICATION_CREDENTIALS=/var/task/clientLibraryConfig-aws-provider.json",
+  //"environment-variables": {
+  //  "ASPNETCORE_ENVIRONMENT": "Development",
+  //  "SOMETHING_ELSE": "SomeValue",
+  //  "GOOGLE_APPLICATION_CREDENTIALS": "/var/task/clientLibraryConfig-aws-provider.json"
+  //},
+
   "function-url-enable": true
 }
