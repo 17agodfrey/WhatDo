@@ -22,6 +22,7 @@ using Google.Protobuf.Collections;
 using DateFinder.Domain.Storage.EnumAttributes;
 using Microsoft.Extensions.Logging;
 using System.Collections;
+using Newtonsoft.Json;
 
 
 
@@ -30,79 +31,61 @@ namespace DateFinder.External
     public class GoogleMapsClient : IGoogleMapsClient
     {
         private readonly IDateFinderConfigurationSettings _dateFinderConfigurationSettings;
-        private readonly PlacesClient _placesClient;
+        private readonly HttpClient _httpClient;
         private readonly ILogger<GoogleMapsClient> _logger;
 
-        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger)
+        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger, HttpClient httpClient)
         {
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
             _logger = logger;
-
-            //// Log environment variables
-            //var environmentVariables = Environment.GetEnvironmentVariables();
-            //_logger.LogInformation("Logging all environment variables:");
-            //foreach (DictionaryEntry env in environmentVariables)
-            //{
-            //    _logger.LogInformation($"{env.Key}: {env.Value}");
-            //}
-
-            //// Log the contents of the /var/task directory
-            //var files = Directory.GetFiles("/var/task");
-            //_logger.LogInformation("Files in /var/task:");
-            //foreach (var file in files)
-            //{
-            //    _logger.LogInformation(file);
-            //}
-
-
-            _placesClient = PlacesClient.Create();
+            _httpClient = httpClient;
         }
 
+        // the base response from the places API, returning a list of places
         // the base response from the places API, returning a list of places
         public async Task<SearchTextResponse> TextSearchAsync(Date date, FindMapDatesRequestDto findMapDatesRequestDto)
         {
             // create query from date object
             string query = $"{date.Name} in {findMapDatesRequestDto.Location}";
 
-
-            CallSettings callSettings = CallSettings.FromHeader("X-Goog-Api-Key", _dateFinderConfigurationSettings.GoogleMapsApiKey)
-                .WithHeader("Content-Type", "applications/json")
-                .WithHeader("X-Goog-FieldMask",
-                    "places.id," +
-                    "places.displayName.text," + 
-                    "places.editorialSummary," +
-                    "places.priceLevel," +
-                    "places.rating," +
-                    "places.location," +
-                    "places.photos,"
-                ); // when adding more fields use commas 
-            
-            
-            //if (findMapDatesRequestDto.Prices != null)
-            //{
-            //    callSettings = callSettings.WithHeader("X-Goog-FieldMask", "places.priceLevel");
-            //}
-
-            //if (findMapDatesRequestDto.Rating != null)
-            //{
-            //    callSettings = callSettings.WithHeader("X-Goog-FieldMask", "places.rating");
-            //}
-
-            SearchTextRequest request = new SearchTextRequest
+            var requestBody = new
             {
-                TextQuery = query,
-                MaxResultCount = 5,
+                textQuery = query,
+                maxResultCount = 1
             };
 
-            SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);
+            var jsonRequestBody = JsonConvert.SerializeObject(requestBody);
+            var apiKey = _dateFinderConfigurationSettings.GoogleMapsApiKey;
+            var fields = "" +
+                "places.id," +
+                "places.displayName.text," +
+                "places.editorialSummary," +
+                "places.priceLevel," +
+                "places.rating," +
+                "places.location," +
+                "places.photos";
+            var url = $"https://places.googleapis.com/v1/places:searchText?fields={fields}&key={apiKey}";
 
-            // Extract display names
-            //var displayNames = response.Places
-            //    .Where(place => !string.IsNullOrEmpty(place.DisplayName.ToString()))
-            //    .Select(place => place.DisplayName.ToString())
-            //    .ToList();
+            var content = new StringContent(jsonRequestBody, Encoding.UTF8, "application/json");
 
-            return response;
+            try
+            {
+                _logger.LogInformation("Sending request to Google Places API with query: {Query}", query);
+                var response = await _httpClient.PostAsync(url, content);
+                response.EnsureSuccessStatusCode();
+
+                var responseBody = await response.Content.ReadAsStringAsync();
+                _logger.LogInformation("Received response from Google Places API: {ResponseBody}", responseBody);
+
+                // Deserialize the response to SearchTextResponse
+                var searchTextResponse = JsonConvert.DeserializeObject<SearchTextResponse>(responseBody);
+                return searchTextResponse;
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogError(ex, "Error occurred while calling Google Places API");
+                throw;
+            }
         }
 
         /// <summary>
@@ -114,6 +97,7 @@ namespace DateFinder.External
         public async Task<List<string>> GetPlacePhotoUris(Domain.Storage.Photo[] photos)
         {
             var photoUris = new List<string>();
+            var apiKey = _dateFinderConfigurationSettings.GoogleMapsApiKey;
 
             foreach (var photo in photos)
             {
@@ -123,16 +107,22 @@ namespace DateFinder.External
                     var placeId = nameParts[1];
                     var photoReference = nameParts[3];
 
-                    var photoResponse = await _placesClient.GetPhotoMediaAsync(new GetPhotoMediaRequest
-                    {
-                        PhotoMediaName = PhotoMediaName.FromPlacePhotoReference(placeId, photoReference),
-                        MaxWidthPx = photo.WidthPx,
-                        MaxHeightPx = photo.HeightPx
-                    });
+                    var url = $"https://maps.googleapis.com/maps/api/place/photo?maxwidth={photo.WidthPx}&maxheight={photo.HeightPx}&placeid={placeId}&photoreference={photoReference}&key={apiKey}";
 
-                    if (photoResponse != null)
+                    try
                     {
-                        photoUris.Add(photoResponse.PhotoUri);
+                        _logger.LogInformation("Sending request to Google Places API for photo reference: {PhotoReference}", photoReference);
+                        var response = await _httpClient.GetAsync(url);
+                        response.EnsureSuccessStatusCode();
+
+                        var photoUri = response.RequestMessage.RequestUri.ToString();
+                        _logger.LogInformation("Received photo URI from Google Places API: {PhotoUri}", photoUri);
+
+                        photoUris.Add(photoUri);
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        _logger.LogError(ex, "Error occurred while calling Google Places API for photo reference: {PhotoReference}", photoReference);
                     }
                 }
             }

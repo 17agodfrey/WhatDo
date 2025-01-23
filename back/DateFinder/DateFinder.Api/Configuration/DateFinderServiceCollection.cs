@@ -29,15 +29,17 @@ namespace DateFinder.Api.Configuration
 
         public void ConfigureServices(IServiceCollection services)
         {
-                        // add AWS lambda hosting 
+            // add AWS lambda hosting 
             services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
             // Add services to the container.
             services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
-            services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
+            //services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
             //services.AddScoped<IGoogleMapsClient, GoogleMapsClient>();
+            services.AddHttpClient<IGoogleMapsClient, GoogleMapsClient>();
+
 
             // Add GoogleMapsClient with logger injection
             //services.AddScoped<IGoogleMapsClient, GoogleMapsClient>(provider =>
