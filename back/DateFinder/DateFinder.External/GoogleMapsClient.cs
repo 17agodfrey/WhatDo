@@ -22,6 +22,10 @@ using Google.Protobuf.Collections;
 using DateFinder.Domain.Storage.EnumAttributes;
 using Microsoft.Extensions.Logging;
 using System.Collections;
+using Google.Apis.Auth.OAuth2;
+using Grpc.Core;
+using Grpc.Net.Client;
+using Grpc.Auth;
 
 
 
@@ -31,31 +35,39 @@ namespace DateFinder.External
     {
         private readonly IDateFinderConfigurationSettings _dateFinderConfigurationSettings;
         private readonly PlacesClient _placesClient;
-        private readonly ILogger<GoogleMapsClient> _logger;
+        //private readonly ILogger<GoogleMapsClient> _logger;
 
-        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger)
+        //public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger)
+        public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings)
         {
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
-            _logger = logger;
+            //_logger = logger;
 
-            //// Log environment variables
-            //var environmentVariables = Environment.GetEnvironmentVariables();
-            //_logger.LogInformation("Logging all environment variables:");
-            //foreach (DictionaryEntry env in environmentVariables)
+
+            // Explicitly use API key
+            //_placesClient = new PlacesClientBuilder
             //{
-            //    _logger.LogInformation($"{env.Key}: {env.Value}");
-            //}
+            //    Settings = new PlacesSettings
+            //    {
+            //        CallSettings = CallSettings.FromHeader("X-Goog-Api-Key", _dateFinderConfigurationSettings.GoogleMapsApiKey)
+            //    }
+            //}.Build();
+            
+            //_placesClient = PlacesClient.Create();
 
-            //// Log the contents of the /var/task directory
-            //var files = Directory.GetFiles("/var/task");
-            //_logger.LogInformation("Files in /var/task:");
-            //foreach (var file in files)
-            //{
-            //    _logger.LogInformation(file);
-            //}
+            // Load service account credentials from JSON file
+            GoogleCredential credential;
+            using (var stream = new FileStream("clientLibraryConfig-aws-provider.json", FileMode.Open, FileAccess.Read))
+            {
+                credential = GoogleCredential.FromStream(stream)
+                    .CreateScoped("https://www.googleapis.com/auth/maps-platform.places");
+            }
 
-
-            _placesClient = PlacesClient.Create();
+            // Create PlacesClient with the credentials
+            _placesClient = new PlacesClientBuilder
+            {
+                ChannelCredentials = credential.ToChannelCredentials()
+            }.Build();
         }
 
         // the base response from the places API, returning a list of places
@@ -77,32 +89,26 @@ namespace DateFinder.External
                     "places.photos,"
                 ); // when adding more fields use commas 
             
-            
-            //if (findMapDatesRequestDto.Prices != null)
-            //{
-            //    callSettings = callSettings.WithHeader("X-Goog-FieldMask", "places.priceLevel");
-            //}
-
-            //if (findMapDatesRequestDto.Rating != null)
-            //{
-            //    callSettings = callSettings.WithHeader("X-Goog-FieldMask", "places.rating");
-            //}
-
             SearchTextRequest request = new SearchTextRequest
             {
                 TextQuery = query,
-                MaxResultCount = 5,
+                MaxResultCount = 1,
             };
 
-            SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);
+            //SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);
 
-            // Extract display names
-            //var displayNames = response.Places
-            //    .Where(place => !string.IsNullOrEmpty(place.DisplayName.ToString()))
-            //    .Select(place => place.DisplayName.ToString())
-            //    .ToList();
+            try
+            {
+                SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "Error occurred while calling SearchTextAsync with query: {Query}", query);
+                throw; // Re-throw the exception after logging it
+            }
 
-            return response;
+            //return response;
         }
 
         /// <summary>
