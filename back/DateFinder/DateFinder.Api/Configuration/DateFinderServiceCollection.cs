@@ -47,10 +47,10 @@ namespace DateFinder.Api.Configuration
             //});
 
             // Add AWS logging to the services
-            services.AddLogging(builder =>
-            {
-                builder.AddAWSProvider();
-            });
+            //services.AddLogging(builder =>
+            //{
+            //    builder.AddAWSProvider();
+            //});
 
             services.AddTransient<IDateService, DateService>();
 
