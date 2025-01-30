@@ -7,12 +7,9 @@
   "function-timeout": 30,
   "function-handler": "DateFinder.Api",
   "function-name": "datefinder-api",
-  "environment-variables": "ASPNETCORE_ENVIRONMENT=Development;SOMETHING_ELSE=SomeValue;GOOGLE_APPLICATION_CREDENTIALS=/var/task/clientLibraryConfig-aws-provider.json",
-  //"environment-variables": {
-  //  "ASPNETCORE_ENVIRONMENT": "Development",
-  //  "SOMETHING_ELSE": "SomeValue",
-  //  "GOOGLE_APPLICATION_CREDENTIALS": "/var/task/clientLibraryConfig-aws-provider.json"
-  //},
+  //"environment-variables": "ASPNETCORE_ENVIRONMENT=Development;SOMETHING_ELSE=SomeValueForReal;",
+  "environment-variables": "ASPNETCORE_ENVIRONMENT=Development;GOOGLE_WORKLOADIDENTITY_AUDIENCE=//iam.googleapis.com/projects/847869831239/locations/global/workloadIdentityPools/maps-identity-pool/providers/aws-provider;GOOGLE_WORKLOADIDENTITY_SERVICEACCOUNT=datefinder-service-account@sacred-vigil-426421-n8.iam.gserviceaccount.com;",
+
 
   "function-url-enable": true
 }

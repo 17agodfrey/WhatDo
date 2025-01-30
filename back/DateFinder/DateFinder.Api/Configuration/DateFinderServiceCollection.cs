@@ -40,11 +40,12 @@ namespace DateFinder.Api.Configuration
             services.AddScoped<IGoogleMapsClient, GoogleMapsClient>();
 
             // Add GoogleMapsClient with logger injection
-            //services.AddScoped<IGoogleMapsClient, GoogleMapsClient>(provider =>
-            //{
-            //    var logger = provider.GetRequiredService<ILogger<GoogleMapsClient>>();
-            //    return new GoogleMapsClient(provider.GetRequiredService<HttpClient>(), logger);
-            //});
+            services.AddScoped<IGoogleMapsClient, GoogleMapsClient>(provider =>
+            {
+                var logger = provider.GetRequiredService<ILogger<GoogleMapsClient>>();
+                var config = provider.GetRequiredService<IDateFinderConfigurationSettings>();
+                return new GoogleMapsClient(config, logger);
+            });
 
             // Add AWS logging to the services
             // ***IMPORTANT*** this cannot be used if running locally, will cause crash 
