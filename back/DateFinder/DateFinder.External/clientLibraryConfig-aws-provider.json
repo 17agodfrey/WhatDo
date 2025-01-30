@@ -3,6 +3,7 @@
   "type": "external_account",
   "audience": "//iam.googleapis.com/projects/847869831239/locations/global/workloadIdentityPools/maps-identity-pool/providers/aws-provider",
   "subject_token_type": "urn:ietf:params:aws:token-type:aws4_request",
+  "service_account_impersonation_url": "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/datefinder-service-account@sacred-vigil-426421-n8.iam.gserviceaccount.com:generateAccessToken",
   "token_url": "https://sts.googleapis.com/v1/token",
   "credential_source": {
     "environment_id": "aws1",
