@@ -38,46 +38,14 @@ namespace DateFinder.External
         private readonly ILogger<GoogleMapsClient> _logger;
 
         public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings, ILogger<GoogleMapsClient> logger)
-        //public GoogleMapsClient(IDateFinderConfigurationSettings dateFinderConfigurationSettings)
         {
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
             _logger = logger;
 
-
-            // Explicitly use API key
-            //_placesClient = new PlacesClientBuilder
-            //{
-            //    Settings = new PlacesSettings
-            //    {
-            //        CallSettings = CallSettings.FromHeader("X-Goog-Api-Key", _dateFinderConfigurationSettings.GoogleMapsApiKey)
-            //    }
-            //}.Build();
-
-            //_placesClient = PlacesClient.Create();
-
-            // Load service account credentials from JSON file
-
-            //GoogleCredential credential;
-            //using (var stream = new FileStream("clientLibraryConfig-aws-provider.json", FileMode.Open, FileAccess.Read))
-            //{
-            //    credential = GoogleCredential.FromStream(stream)
-            //        //.CreateScoped("https://www.googleapis.com/auth/maps-platform.places");
-            //        .CreateScoped("https://www.googleapis.com/auth/cloud-platform");
-
-            //}
-
-            // Create PlacesClient with the credentials
-            //_placesClient = new PlacesClientBuilder
-            //{
-            //    ChannelCredentials = credential.ToChannelCredentials()
-            //}.Build();
-
-
-
             try
             {
                 GoogleCredential credential;
-                string filePath = @"clientLibraryConfig-aws-provider.json";
+                string filePath = @"sacred-vigil-426421-n8-d953900d73b4.json";
 
                 // Check if the file exists
                 if (!File.Exists(filePath))
@@ -92,48 +60,20 @@ namespace DateFinder.External
                         .CreateScoped("https://www.googleapis.com/auth/cloud-platform");
                 }
 
-                //GoogleCredential credential = GoogleCloudAuth.CreateGoogleCredential();
-
                 _placesClient = new PlacesClientBuilder
                 {
                     ChannelCredentials = credential.ToChannelCredentials()
                 }.Build();
-
-                //LogCredentialInformation(credential);
 
                 _logger.LogInformation("PlacesClient initialized successfully.");
                 Console.WriteLine("PlacesClient initialized successfully.");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error initializing PlacesClient");
                 Console.WriteLine($"Error initializing PlacesClient: {ex.Message}");
             }
         }
-
-
-
-        // print awsCallerIdentity using http client
-        private async void LogAwsCallerIdentity()
-        {
-            using (var httpClient = new HttpClient())
-            {
-                string awsCallerIdentity = await httpClient.GetStringAsync("https://sts.amazonaws.com?Action=GetCallerIdentity&Version=2011-06-15");
-                _logger.LogInformation($"AWS Caller Identity: {awsCallerIdentity}");
-            }
-        }
-
-        //private void LogCredentialInformation(GoogleCredential credential)
-        //{
-        //    _logger.LogInformation("Credential Information:");
-        //    _logger.LogInformation($"Audience: {credential.}");
-        //    _logger.LogInformation($"SubjectToken: {credential.SubjectToken}");
-        //    _logger.LogInformation($"TokenUrl: {credential.TokenUrl}");
-        //    _logger.LogInformation($"CredentialSource: {credential.CredentialSource}");
-        //    _logger.LogInformation($"ServiceAccountImpersonationUrl: {credential.ServiceAccountImpersonationUrl}");
-        //}
-
-
-
 
 
 
@@ -167,7 +107,6 @@ namespace DateFinder.External
 
             try
             {
-                LogAwsCallerIdentity();
                 SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);
                 return response;
                 //throw new Exception("yea, yea, yea, ok");

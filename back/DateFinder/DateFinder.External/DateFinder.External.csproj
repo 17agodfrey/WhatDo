@@ -22,6 +22,9 @@
 		<None Update="clientLibraryConfig-aws-provider.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<None Update="sacred-vigil-426421-n8-d953900d73b4.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>
