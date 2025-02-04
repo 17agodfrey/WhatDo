@@ -1,5 +1,5 @@
 const api = (token) => {
-    // const baseUrl = "https://localhost:5001/api/";
+    // const baseUrl = "https://localhost:5001/api/"; 
     const baseUrl = "https://zoxazzvkxnn5ubjkmlsfxmhqwa0tazte.lambda-url.us-west-1.on.aws/api/"
 
     const headers = {
