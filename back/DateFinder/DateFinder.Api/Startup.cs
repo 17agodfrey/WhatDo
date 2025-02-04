@@ -10,10 +10,17 @@ namespace DateFinder.Api
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
-            (new DateFinderServiceCollection()).ConfigureServices(services);
+            (new DateFinderServiceCollection(_configuration)).ConfigureServices(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)

@@ -8,10 +8,13 @@ namespace DateFinder.Storage
     public class DateFinderDbContext : DbContext
     {
         public DbSet<Date> Dates { get; set; }
+        private static int _instanceCount = 0;
+
 
         public DateFinderDbContext(DbContextOptions<DateFinderDbContext> options) : base(options)
         {
-
+            Interlocked.Increment(ref _instanceCount);
+            Console.WriteLine($"DbContext instance created. Current count: {_instanceCount}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -81,5 +84,31 @@ namespace DateFinder.Storage
 
             modelBuilder.Entity<Date>().HasData(dates);
         }
+
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            Interlocked.Decrement(ref _instanceCount);
+            //_logger.LogInformation($"DbContext instance disposed. Current count: {_instanceCount}");
+            Console.WriteLine($"DbContext instance disposed. Current count: {_instanceCount}");
+        }
+
+        public override async ValueTask DisposeAsync()
+        {
+            await base.DisposeAsync();
+            Interlocked.Decrement(ref _instanceCount);
+            //_logger.LogInformation($"DbContext instance disposed asynchronously. Current count: {_instanceCount}");
+            Console.WriteLine($"DbContext instance disposed. Current count: {_instanceCount}");
+        }
+
+        public static int GetInstanceCount()
+        {
+            return _instanceCount;
+        }
+
+
+
+
     }
 }
