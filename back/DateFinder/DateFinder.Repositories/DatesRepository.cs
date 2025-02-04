@@ -56,43 +56,56 @@ namespace DateFinder.Repositories
 
         public async Task<IEnumerable<Date>> GetAllFromRequestAsync(DateRequestDto dateRequestDto)
         {
-            var query = _context.Dates.AsQueryable();
+            Console.WriteLine($"DbContext instance hash code: {_context.GetHashCode()}");
 
-            if (dateRequestDto.IndoorOutdoor != null && dateRequestDto.IndoorOutdoor.Any())
+            try
             {
-                if (dateRequestDto.IndoorOutdoor.Contains(IndoorOutdoor.Any))
+                var query = _context.Dates.AsQueryable();
+
+
+
+                if (dateRequestDto.IndoorOutdoor != null && dateRequestDto.IndoorOutdoor.Any())
                 {
-                    query = query.Where(d => d.IndoorOutdoor != null); // dates where Indoor or Outdoor is not null (all)
-                }else
-                {
-                    query = query.Where(d => dateRequestDto.IndoorOutdoor.Contains(d.IndoorOutdoor.Value) || (d.IndoorOutdoor.Value == IndoorOutdoor.Any));
+                    if (dateRequestDto.IndoorOutdoor.Contains(IndoorOutdoor.Any))
+                    {
+                        query = query.Where(d => d.IndoorOutdoor != null); // dates where Indoor or Outdoor is not null (all)
+                    }
+                    else
+                    {
+                        query = query.Where(d => dateRequestDto.IndoorOutdoor.Contains(d.IndoorOutdoor.Value) || (d.IndoorOutdoor.Value == IndoorOutdoor.Any));
+                    }
+
                 }
 
-            }
+                if (dateRequestDto.DurationRange != null) // Start and End required in DurationRange
+                {
+                    var minDuration = dateRequestDto.DurationRange.Min;
+                    var maxDuration = dateRequestDto.DurationRange.Max;
+                    query = query.Where(d => d.Duration >= minDuration && d.Duration <= maxDuration);
+                }
 
-            if (dateRequestDto.DurationRange != null) // Start and End required in DurationRange
+                //if (findMapDatesRequestDto.Prices != null && findMapDatesRequestDto.Prices.Any())
+                //{
+                //    query = query.Where(d => findMapDatesRequestDto.Prices.Contains(d.Price));
+                //}
+
+                //if (findMapDatesRequestDto.Ratings != null && findMapDatesRequestDto.Ratings.Any())
+                //{
+                //    query = query.Where(d => findMapDatesRequestDto.Ratings.Contains(d.Rating));
+                //}
+
+                if (dateRequestDto.ActivityLevels != null && dateRequestDto.ActivityLevels.Any())
+                {
+                    query = query.Where(d => dateRequestDto.ActivityLevels.Contains(d.ActivityLevel.Value));
+                }
+
+                return await query.ToListAsync();
+            }
+            catch (Exception e)
             {
-                var minDuration = dateRequestDto.DurationRange.Min;
-                var maxDuration = dateRequestDto.DurationRange.Max;
-                query = query.Where(d => d.Duration >= minDuration && d.Duration <= maxDuration);
+                Console.WriteLine($"Error getting date ideas: {e.Message}");
+                throw;
             }
-
-            //if (findMapDatesRequestDto.Prices != null && findMapDatesRequestDto.Prices.Any())
-            //{
-            //    query = query.Where(d => findMapDatesRequestDto.Prices.Contains(d.Price));
-            //}
-
-            //if (findMapDatesRequestDto.Ratings != null && findMapDatesRequestDto.Ratings.Any())
-            //{
-            //    query = query.Where(d => findMapDatesRequestDto.Ratings.Contains(d.Rating));
-            //}
-
-            if (dateRequestDto.ActivityLevels != null && dateRequestDto.ActivityLevels.Any())
-            {
-                query = query.Where(d => dateRequestDto.ActivityLevels.Contains(d.ActivityLevel.Value));
-            }
-
-            return await query.ToListAsync();
         }
 
         public async Task<Date?> GetByIdAsync(int id)

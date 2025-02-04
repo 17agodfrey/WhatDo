@@ -46,9 +46,18 @@ namespace DateFinder.Api.Controllers
         public async Task<IActionResult> GetDateIdeas([FromQuery] DateRequestDto dateRequestDto)
         {
             Console.WriteLine("\n\n\n\n\n\n\napi/date-ideas hit\n\n\n\n\n\n\nrequest: ", dateRequestDto);
+            IEnumerable<Date> dateIdeasResponse;
 
-            // Call the service to get the date ideas
-            var dateIdeasResponse = await _dateService.GetDateIdeasAsync(dateRequestDto);
+            try
+            {
+                // Call the service to get the date ideas
+                dateIdeasResponse = await _dateService.GetDateIdeasAsync(dateRequestDto);
+            }catch(Exception e)
+            {
+                throw new Exception("Error getting date ideas: " + e.Message);
+            }
+
+
 
             // Return the JSON result
             return Ok(dateIdeasResponse);

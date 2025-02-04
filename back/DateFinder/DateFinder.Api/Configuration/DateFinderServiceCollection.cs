@@ -12,6 +12,8 @@ using DateFinder.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using AWS.Logger.AspNetCore;
+using Microsoft.Extensions.Options;
+using System;
 
 
 
@@ -21,19 +23,34 @@ namespace DateFinder.Api.Configuration
     public class DateFinderServiceCollection
     {
         private readonly bool? _isTest;
+        private readonly IConfiguration _configuration;
 
-        public DateFinderServiceCollection(bool? isTest = false)
+        public DateFinderServiceCollection(IConfiguration configuration, bool? isTest = false)
         {
+            _configuration = configuration;
             _isTest = isTest;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // Configuration is automatically registered with the DI container in ASP.NET Core
+            // services.AddSingleton<IConfiguration>(_configuration);// Register IConfiguration
+
+            // Register DateFinderConfigurationSettings and inject IConfiguration
+            services.AddSingleton<IDateFinderConfigurationSettings>(sp =>
+            {
+                var configuration = sp.GetRequiredService<IConfiguration>();
+                return new DateFinderConfigurationSettings(configuration); // Pass IConfiguration into the constructor
+            });
+
+
+
             // add AWS lambda hosting 
             services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
             // Add services to the container.
-            services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
+            //services.AddSingleton<IDateFinderConfigurationSettings, DateFinderConfigurationSettings>(); // singleton means single instance throughout the application
             services.AddScoped<IDatesRepository, DatesRepository>(); // scoped - created once per request
 
             //services.AddTransient<IGoogleMapsClient, GoogleMapsClient>(); // transient means a new instance is created every time it is requested
@@ -79,13 +96,16 @@ namespace DateFinder.Api.Configuration
 
             services.AddControllers();
 
-            services.AddDbContext<DateFinderDbContext>(options =>
+            services.AddDbContext<DateFinderDbContext>((serviceProvider, options) =>
             {
-                var configuration = services.BuildServiceProvider().GetRequiredService<IDateFinderConfigurationSettings>();
+                //var dateFinderSettings = _configuration.GetSection("DateFinderSettings").Get<DateFinderConfigurationSettings>();
+                //var provider = services.BuildServiceProvider();
+                //var configSettings = provider.GetRequiredService<IDateFinderConfigurationSettings>();
+                var configSettings = serviceProvider.GetRequiredService<IDateFinderConfigurationSettings>();
 
                 if (_isTest == false)
                 {
-                    options.UseNpgsql(configuration.DateFinderConnectionString);
+                    options.UseNpgsql(configSettings.DateFinderConnectionString);
                 }
                 else
                 {
