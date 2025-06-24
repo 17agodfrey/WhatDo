@@ -14,6 +14,13 @@ const DurationSlider = ({ selectedDuration, handleDurationSliderChange, valuetex
             max={duration[duration.length - 1]}
             marks={marks}
             step={0.5}
+            style={{ 
+                color: 'var(--primary-color)', 
+                '& .MuiFormControlLabel-label': {
+                    fontFamily: 'var(--body-font)',
+                    fontWeight: '500',
+                },
+            }}
         />
     );
 };
@@ -69,9 +76,16 @@ const CriteriaBox = () => {
                                 checked={selectedValues.includes(value)}
                                 onChange={handleChange}
                                 value={value}
+                                style={{ color: 'var(--primary-color)'}}
                             />
                         }                        
                         label={value}
+                        sx={{
+                            '& .MuiFormControlLabel-label': {
+                                fontFamily: 'var(--body-font)',
+                                fontWeight: '500',
+                            }
+                        }}
                     />
                 ))}            
             </>
@@ -80,7 +94,7 @@ const CriteriaBox = () => {
 
     return (
         <div id='criteria-box'>
-            <h3 className='criteria-box-selector-label'>Setting</h3>
+            <h3 className='criteria-box-selector-label body-text'>Setting</h3>
             <div className='criteria-box-selector'>
                 <FormControl>
                     <RadioGroup
@@ -94,14 +108,20 @@ const CriteriaBox = () => {
                             <FormControlLabel
                                 key={value}
                                 value={value}
-                                control={<Radio />}
+                                control={<Radio style={{ color: 'var(--primary-color)' }} />}
                                 label={value}
-                            />
+                                sx={{
+                                    '& .MuiFormControlLabel-label': {
+                                        fontFamily: 'var(--body-font)',
+                                        fontWeight: '500',
+                                    }
+                                }}
+                        />
                         ))}
                     </RadioGroup>
                 </FormControl>
             </div>
-            <h3 className='criteria-box-selector-label'>Duration</h3>
+            <h3 className='criteria-box-selector-label  body-text'>Duration</h3>
             <div className='criteria-box-selector'>
                 <FormControl style={{ width: '80%' }}>
                     <DurationSlider
@@ -113,7 +133,7 @@ const CriteriaBox = () => {
                     />
                 </FormControl>
             </div>
-            <h3 className='criteria-box-selector-label'>Activity Level</h3>
+            <h3 className='criteria-box-selector-label body-text'>Activity Level</h3>
             <div className='criteria-box-selector'>
                 <FormControl style={{display: 'flex', flexDirection: 'row'}}>
                     <CheckBoxSelector 
@@ -124,7 +144,7 @@ const CriteriaBox = () => {
                     />
                 </FormControl>
             </div>
-            <h3 className='criteria-box-selector-label'>Price</h3>
+            <h3 className='criteria-box-selector-label body-text'>Price</h3>
             <div className='criteria-box-selector'>
                 <FormControl style={{display: 'flex', flexDirection: 'row'}}>
                     <CheckBoxSelector 
@@ -135,7 +155,7 @@ const CriteriaBox = () => {
                     />
                 </FormControl>
             </div>
-            <h3 className='criteria-box-selector-label'>Rating</h3>
+            <h3 className='criteria-box-selector-label body-text'>Rating</h3>
             <div className='criteria-box-selector'>
                 {/* <FormControl style={{display: 'flex', flexDirection: 'row'}}>
                     <CheckBoxSelector 
@@ -158,8 +178,14 @@ const CriteriaBox = () => {
                             <FormControlLabel
                                 key={value}
                                 value={value}
-                                control={<Radio />}
-                                label={value + '+'}
+                                control={<Radio style={{ color: 'var(--primary-color)'}} />}
+                                label={value + '+'}  
+                                sx={{
+                                    '& .MuiFormControlLabel-label': {
+                                        fontFamily: 'var(--body-font)',
+                                        fontWeight: '500',
+                                    }
+                                }}
                             />
                         ))}
                     </RadioGroup>

@@ -42,10 +42,16 @@ namespace DateFinder.External
             _dateFinderConfigurationSettings = dateFinderConfigurationSettings;
             _logger = logger;
 
+
+            Console.WriteLine(AppContext.BaseDirectory);
+            Console.WriteLine(File.Exists(Path.Combine(AppContext.BaseDirectory, "sacred-vigil-426421-n8-d953900d73b4.json")));
+
+
             try
             {
                 GoogleCredential credential;
-                string filePath = @"sacred-vigil-426421-n8-d953900d73b4.json";
+                //string filePath = @"sacred-vigil-426421-n8-d953900d73b4.json";
+                string filePath = Path.Combine(AppContext.BaseDirectory, "sacred-vigil-426421-n8-d953900d73b4.json");
 
                 // Check if the file exists
                 if (!File.Exists(filePath))
@@ -100,7 +106,7 @@ namespace DateFinder.External
             SearchTextRequest request = new SearchTextRequest
             {
                 TextQuery = query,
-                MaxResultCount = 1,
+                MaxResultCount = 5,
             };
 
             //SearchTextResponse response = await _placesClient.SearchTextAsync(request, callSettings);

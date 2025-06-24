@@ -15,7 +15,7 @@
 }
 
 .slider-container .img-slider .slick-slide {
-    height: 20rem;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +70,7 @@
     max-height:95px; */
     /* max-width: 345px; */
     max-width: 100%;
-    max-height: 400px;
+    max-height: 1000px;
     width: auto;
     height: auto;
 }

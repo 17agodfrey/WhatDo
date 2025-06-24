@@ -19,6 +19,7 @@ import { useApiWithoutToken } from '../../hooks';
 import SkeletonDance from '../../assets/skeleton-dance.gif'
 import CriteriaBox from '../CriteriaBox';
 import Switch from '@mui/material/Switch';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 
@@ -128,6 +129,10 @@ const LandingPage = () => {
         setIsLoading(false);
     }, [pageLocation]); // Add this useEffect to reset showDates on location change
 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
 
 
     return (
@@ -157,14 +162,14 @@ const LandingPage = () => {
                             />
                             <Button 
                                 variant="contained" 
-                                style={{ backgroundColor: '#A1D7F5', color: 'white' }} 
+                                style={{ backgroundColor: 'var(--tertiary-color)', color: 'white' }} 
                                 onClick={() => onSearchButtonClicked()}
                             >
                                 Search
                             </Button>
                     </div>
-                    <p>or</p>
-                    <Button variant="contained" style={{ backgroundColor: '#F69EA3', color: 'white' }}>Free Date Ideas</Button>                
+                    {/* <p>or</p>
+                    <Button variant="contained" style={{ backgroundColor: '#F69EA3', color: 'white' }}>Free Date Ideas</Button>                 */}
                 </>
                 }
                 {isLoading &&
@@ -173,8 +178,8 @@ const LandingPage = () => {
                 {showDates &&
                     <div id='landing-date-display-selector'>
                         <h1>Choose a date</h1>
-                        <p>Choose a date from the list below to see more details</p>
-                        <p>*max 5 dates</p>
+                        <p>Choose dates from the list below to see map results for your location</p>
+                        <p>*max 5</p>
                         <div id = 'date-display' className='v-center'>
                             <div id='date-display-scrollable-area'>
                                 {returnedDateIdeas.map((date, index) => (
@@ -187,9 +192,16 @@ const LandingPage = () => {
                                                 onChange={handleDateSelection}
                                                 value={date.name}
                                                 disabled={maxDatesSelected && !selectedDates.includes(date.name)}
+                                                style={{ color: 'var(--primary-color)' }}
                                             />
                                         }                        
-                                        label={date.name}
+                                        label={capitalizeFirstLetter(date.name)}
+                                        sx={{
+                                            '& .MuiFormControlLabel-label': {
+                                                fontFamily: 'var(--body-font)',
+                                                fontWeight: '500',
+                                            }
+                                        }}
                                     />
                                 ))}  
                             </div>
@@ -198,12 +210,12 @@ const LandingPage = () => {
                         <div className='hz-space-btwn'>
                             <Button 
                                 variant="contained" 
-                                style={{ backgroundColor: '#F69EA3', color: 'white' }} 
+                                style={{ backgroundColor: 'var(--primary-color)', color: 'white' }} 
                                 onClick={() => setShowDates(false)}>Back
                             </Button>
                             <Button 
                                 variant="contained" 
-                                style={{ backgroundColor: '#A1D7F5', color: 'white' }} 
+                                style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }} 
                                 onClick={seeDatesButtonClicked}>See dates
                             </Button>
                         </div>
