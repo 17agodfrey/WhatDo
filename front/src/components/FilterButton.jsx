@@ -21,6 +21,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 const fontFamily = [
+  'Quicksand',
   '-apple-system',
   'BlinkMacSystemFont',
   '"Segoe UI"',
@@ -118,7 +119,7 @@ function valuetext(value) {
 const calculateLabelWidth = (label) => {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
-  context.font = `400 14px ${fontFamily}`;
+  context.font = `500 14px ${fontFamily}`;
   const width = context.measureText(label).width;
   return width + 60;
 };
@@ -157,6 +158,10 @@ const FilterButton = ({ label, variant, possibleValues, selectedValues, setSelec
         <InputLabel 
               id="demo-customized-select-label" 
               shrink={false}
+              // styles={{ "&& .MuiInputBase-root": {
+              //           fontFamily: 'var(--body-font)',
+              // },}}
+              sx={{fontFamily: 'var(--body-font)', fontWeight: '500', color: 'black', fontSize: '16px',}}
         >
           {label}
         </InputLabel>

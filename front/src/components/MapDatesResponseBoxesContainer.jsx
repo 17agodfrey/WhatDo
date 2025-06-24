@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useContext } from 'react';
 import MapDatesResponseBox from './MapDatesResponseBox';
 import {AppStateContext} from "../context/AppStateProvider";
 
+const colors = ['#D72638', '#3F88C5', '#F49D37', '#9842f5', '#1aba1a'];
 
 const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setSelectedItemId, setImageGalleryOpen}) => {
     const { selectedDates, selectedMapDateResults } = useContext(AppStateContext);
-
     const selectedRef = useRef(null);
 
     // console.log('from MapDatesResponseBoxesContainer', mapResponseItems);
@@ -16,6 +16,11 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
         }
     }, [selectedItemId]);
 
+    //function to captilize word: 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
 
 
     return (
@@ -23,7 +28,7 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
             {selectedDates
                 .map((date, index1) => (
                 <div key={index1}>
-                    <p>{date}</p>
+                    <p className='date-header'>{capitalizeFirstLetter(date)}</p>
                     {selectedMapDateResults
                         .filter(mapDateResult => mapDateResult.dateType === date)
                         .map((mapDateResult) => (
@@ -33,8 +38,8 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
                             isSelected={selectedItemId === mapDateResult.displayName}
                             onBoxClick={() => setSelectedItemId(mapDateResult.displayName)}
                             onImageClick = {() => { setImageGalleryOpen(true); }}
+                            color={colors[index1 % colors.length]} // pass the color
                             ref={selectedItemId === mapDateResult.displayName ? selectedRef : null}
-
                         />
                     ))}
                 </div>

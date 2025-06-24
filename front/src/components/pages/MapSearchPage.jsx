@@ -20,6 +20,7 @@ import { mapSearch, dateIdeasSearch } from "../../utils/apiCalls";
 import DialogButton from "../DialogButton";
 import CriteriaBox from "../CriteriaBox";
 import MapResultImageGalleryDialog from "../MapResultImageGalleryDialog";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 
@@ -230,6 +231,11 @@ const MapSearchPage = () => {
         setNewSearchDialogOpen(false);
     }
 
+        //function to captilize word: 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
     return (
         <div id='map-search-page-root'>
             <div id='msp-options-section-flex'>
@@ -241,6 +247,7 @@ const MapSearchPage = () => {
                         onClose={handleNewSearchDialogClose}
                         isOpen={newSearchDialogOpen}
                         setIsOpen={setNewSearchDialogOpen}
+                        buttonStyles={{backgroundColor: 'var(--tertiary-color)'}}
                         content={
                             <>
                                 {!isLoading && !showNewDateResults &&
@@ -248,7 +255,8 @@ const MapSearchPage = () => {
                                         <CriteriaBox/>
                                         <div id='msp-new-search-dialog-bottom-section' className='hz-center'>
                                             <TextField 
-                                                label={location ? location : "Enter location"} 
+                                                // label={location ? location : "Enter location"} 
+                                                label="Enter location"
                                                 variant="outlined" 
                                                 value={location} 
                                                 onChange={(e) => setLocation(e.target.value)}
@@ -258,7 +266,7 @@ const MapSearchPage = () => {
                                             />
                                             <Button 
                                                 variant="contained" 
-                                                style={{ backgroundColor: '#A1D7F5', color: 'white' }} 
+                                                style={{ backgroundColor: 'var(--tertiary-color)', color: 'white' }} 
                                                 onClick={handleDialogSeeDatesButtonClicked}
                                             >See dates
                                             </Button>                                    
@@ -267,7 +275,9 @@ const MapSearchPage = () => {
                                 }
                                 {isLoading &&
                                     <>
-                                        <img src={ThanosDance} alt="loading symbol" />
+                                        <div style={{ minWidth: '15rem', height: '15rem' }} className='hz-center'>
+                                            <CircularProgress style={{ color: 'var(--tertiary-color)' }} size="12rem" />
+                                        </div>
                                     </>
                                 }
                                 {!isLoading && showNewDateResults &&
@@ -286,6 +296,7 @@ const MapSearchPage = () => {
                                                                         checked={newDateIdeasSelected.includes(newDateIdea.name)}
                                                                         onChange={handleNewDateIdeaSelectedChange}
                                                                         value={newDateIdea.name}
+                                                                        style={{ color: 'var(--primary-color)' }}
                                                                     />
                                                                 }                        
                                                                 label={newDateIdea.name}
@@ -296,12 +307,12 @@ const MapSearchPage = () => {
                                                 <div id='msp-new-search-dialog-new-dates-bottom-section'className='hz-center'>
                                                     <Button 
                                                         variant="contained" 
-                                                        style={{ backgroundColor: '#F69EA3', color: 'white' }} 
+                                                        style={{ backgroundColor: 'var(--primary-color)', color: 'white' }} 
                                                         onClick={handleNewDatesCancelButton}>Cancel
                                                     </Button> 
                                                     <Button 
                                                         variant="contained" 
-                                                        style={{ backgroundColor: '#A1D7F5', color: 'white' }} 
+                                                        style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }} 
                                                         onClick={handleConfirmNewDatesButtonClicked}>Confirm New Dates
                                                     </Button>    
                                                 </div>
@@ -360,6 +371,7 @@ const MapSearchPage = () => {
                         <DialogButton
                             text='Dates Selected'
                             title='Date Types Selected'
+                            buttonStyles={{backgroundColor: 'var(--secondary-color)'}}
                             content={
                                 mapResponseItems && 
                                 <div id='msp-dates-selected-dialog-content' className='v-center'>
@@ -367,7 +379,7 @@ const MapSearchPage = () => {
                                         {Object.values(mapResponseItems).map((mapResponseItem, index1) => (
                                             <FormControlLabel
                                                 key={mapResponseItem.date.name}
-                                                value={mapResponseItem.date.name}
+                                                value={capitalizeFirstLetter(mapResponseItem.date.name)}
                                                 control={
                                                     <Checkbox
                                                         checked={selectedDates.includes(mapResponseItem.date.name)}
@@ -375,7 +387,7 @@ const MapSearchPage = () => {
                                                         value={mapResponseItem.date.name}
                                                     />
                                                 }                        
-                                                label={mapResponseItem.date.name}
+                                                label={capitalizeFirstLetter(mapResponseItem.date.name)}
                                             />
                                         ))}
                                     </div>
@@ -383,24 +395,17 @@ const MapSearchPage = () => {
                                 }
                         />
                     </div>
-                    <div className='hz-close'>
-                        {/* <FormControlLabel control={
-                            <Switch
-                                checked={showMapResults}
-                                onChange={handleSwitchChange}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />} 
-                            label={showMapResults ? 'Map Results' : 'Date Types'} 
-                            labelPlacement='start'
-                        /> */}
+                    {/* <div className='hz-close'>
+
                         <p id='sort-text'>Sort</p>
                         <img src={sortIcon} alt="" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className={`msp-main-content ${isLoading ? 'loading' : ''}`}>
                 {isLoading && 
-                    <img id='load-img' src={ThanosDance} alt="" />
+                    // <img id='load-img' src={ThanosDance} alt="" />
+                    <CircularProgress style={{ color: 'var(--tertiary-color)' }} size="10rem" />
                 }
                 
                 {!isLoading &&

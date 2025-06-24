@@ -492,3 +492,24 @@ $RECYCLE.BIN/
 sacred-vigil-426421-n8-d953900d73b4.json
 
 
+#### stuff i added 6/24/2025 (some of this might be redundant idk)
+# Build output
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Designer/tool cache
+*.dtbcache.v2
+*.futdcache.v2
+DocumentLayout.json
+
+# Rider / VS Code / JetBrains cache (optional)
+.idea/
+.vscode/
+
+

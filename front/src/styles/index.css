@@ -1,5 +1,5 @@
 body {
-    background: beige;
+    /* background: beige; */
     margin: 0;
     height: 100vh;
     /* overflow: hidden; */
@@ -12,14 +12,19 @@ body {
     width: 100%;
 }
 
-/* #page-content {
+:root {
+    --site-name-font: "Righteous", system-ui;
+    --body-font: "Quicksand", sans-serif;
 
-} */
+    --background-color: #FFFAF8;
+    --primary-color: #FF7077;
+    --secondary-color: #ACEEF3;
+    --tertiary-color: #FFB067;
 
-.filters-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    --nav-background-color: #2E3C50;
+    --card-background-color: #FFFDF9;
+
+
 }
 
 h1, h3 {
@@ -58,37 +63,26 @@ p {
     /* align-items: center; */
 }
 
-.marker-wrapper {
-    pointer-events: all;
-}
-
-/* WARNING: if you change this, currently you MUST change popupWidth and popupHeight 
-in src/components/GoogleMaps/GoogleMap. Otherwise, the popup will not display correctly. */
-.map-popup-image {
-    height: 10rem;
-    width: 14rem;
-}
-
-#criteria-box {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border: 1px solid black;
-    min-width: 34rem;
-}
-.criteria-box-selector {
-    min-width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.criteria-box-selector-label {
-    margin-left: .5rem;
-}
-
 .y-scroll {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scoll;
 }   
+
+.vertical-warm-text-gradient {
+    background: linear-gradient(
+        0deg,
+        var(--secondary-color) 0%,
+        var(--secondary-color) 25%,
+        var(--primary-color) 50%,
+        var(--primary-color) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.body-text {
+    font-family: var(--body-font);
+}

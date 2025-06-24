@@ -6,7 +6,7 @@
 } */
 #LandingPageBody {
     height: 100%;
-    background-color: #F4F7F3;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +14,7 @@
     flex-grow: 1; /* Allow it to grow to fill remaining space */
     min-height: 0; /* Prevent overflow */
 }
+
 #LandingPageMainContent {
     display: flex;
     flex-direction: column;
@@ -21,12 +22,15 @@
     align-items: center;
     height: 100%;
 }
+
 #LandingPageMainContent h1 {
+    font-family: var(--body-font);
     font-size: 2.5rem;
     color: #2E2E2E;
     margin-top: 0;
     margin-bottom: 2rem;
 }
+
 .MapSearchEntrySection {
     display: flex;
     flex-direction: row;
@@ -37,9 +41,12 @@
 #landing-date-display-selector {
     height: 30rem; 
     border: 2px solid black;
+    border-radius: 4px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    background-color: var(--card-background-color);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
 #date-display {
@@ -55,3 +62,4 @@
     align-items: start;
     overflow-y: scroll;
 }
+

@@ -6,9 +6,7 @@ import LandingPage from './components/pages/LandingPage.jsx';
 import MapSearchPage from './components/pages/MapSearchPage.jsx';
 import NotFoundPage from './components/pages/NotFoundPage.jsx';
 import AppStateProvider from './context/AppStateProvider.jsx';
-
-import './App.css'
-
+import './styles/App.css'
 
 function App() {
   return (

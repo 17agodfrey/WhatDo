@@ -14,7 +14,7 @@
 
 .filter-button .MuiInputBase-root {
     position: relative;
-    background-color: #A1D7F5;
+    background-color: var(--secondary-color);
     border-radius: 16px; /* Increase the border radius value for more rounded corners */
     font-size: 16px;
     font-weight: bold;
@@ -29,7 +29,7 @@
 }
 
 .filter-button .MuiSelect-icon {
-    color: #F69EA3;
+    color: var(--primary-color);
     font-size: 2rem;
 }
 

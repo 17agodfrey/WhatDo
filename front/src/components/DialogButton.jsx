@@ -10,7 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import {AppStateContext} from "../context/AppStateProvider";
 
 
-const DialogButton = ({text, content, title=null, onClose=null, isOpen=null, setIsOpen=null}) => {
+const DialogButton = ({text, content, title=null, onClose=null, isOpen=null, setIsOpen=null, buttonStyles }) => {
     const {
         mapResponseItems, 
         selectedDates, setSelectedDates,
@@ -47,11 +47,15 @@ const DialogButton = ({text, content, title=null, onClose=null, isOpen=null, set
                 variant="outlined" 
                 onClick={toggleDialogOpen}
                 sx={{
+                    ...buttonStyles,
                     minWidth: 'fit-content', 
-                    backgroundColor: '#A1D7F5',
-                    fontWeight: 'inherit',
+                    fontWeight: '500',
+                    fontSize: '16px',
+                    fontFamily: 'var(--body-font)',
                     color: 'currentColor',
                     borderRadius: '16px',
+                    textTransform: 'none', 
+
                 }}
             >{text}
             </Button>
