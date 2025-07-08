@@ -140,7 +140,7 @@ const LandingPage = () => {
             <div id='LandingPageMainContent'>
                 {!showDates && 
                 <>
-                    <h1>Find your perfect date!</h1>
+                    <h1>Find out what to do today!</h1>
                     <div className='hz-center'>
                         <CriteriaBox/>  
                         <div className='v-center'>
@@ -216,7 +216,7 @@ const LandingPage = () => {
                             <Button 
                                 variant="contained" 
                                 style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }} 
-                                onClick={seeDatesButtonClicked}>See dates
+                                onClick={seeDatesButtonClicked}>See activities
                             </Button>
                         </div>
 
