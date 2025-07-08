@@ -1,4 +1,4 @@
-import logo from '../../src/assets/logo.png';
+import logo from '../../src/assets/whatdo-logo.png';
 import circleUserSolid from '../../src/assets/circle-user-solid.svg';
 import { Link } from 'react-router-dom';
 import '../../src/styles/Navbar.css';
@@ -9,8 +9,8 @@ export default function Navbar() {
             <nav id='navbar'>
                 <div id='navbar-middle'>
                     <Link className='middle-nav' to='/'>
-                        {/* <img src={logo} alt="magnifying glass" /> */}
-                        <h1 className='vertical-warm-text-gradient'>DateFinder</h1> 
+                        {/* <img src={logo} alt="magnifying glass" style={{borderRadius: '50%'}}/> */}
+                        <h1 className='vertical-warm-text-gradient'>WhatDo</h1> 
                     </Link>
                 </div>
                 <div id='navbar-right'>

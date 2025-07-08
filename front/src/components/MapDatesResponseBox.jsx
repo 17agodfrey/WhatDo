@@ -59,7 +59,7 @@ const MapDatesResponseBox = forwardRef(({ mapResult, isSelected, onBoxClick, onI
                 className={!showFullName ? 'clamp-2' : ''}
                 style={{marginBottom: 0}}
             >
-                Name: {mapResult.displayName}
+                {mapResult.displayName}
                 {!showFullName && isNameTruncated && (
                     <span
                         style={{color:'#888', marginLeft:4, cursor:'pointer'}}
