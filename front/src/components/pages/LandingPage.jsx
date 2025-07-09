@@ -172,9 +172,11 @@ const LandingPage = () => {
                     <Button variant="contained" style={{ backgroundColor: '#F69EA3', color: 'white' }}>Free Date Ideas</Button>                 */}
                 </>
                 }
-                {isLoading &&
-                    <img src={SkeletonDance} alt="loading symbol" />
-                }
+                {isLoading && (
+                    <div className="loading-overlay">
+                        <CircularProgress style={{ color: 'var(--primary-color)', height: '100px', width: '100px' }} />
+                    </div>
+                )}
                 {showDates &&
                     <div id='landing-date-display-selector'>
                         <h1>Choose a date</h1>
