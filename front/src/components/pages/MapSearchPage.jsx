@@ -275,8 +275,11 @@ const MapSearchPage = () => {
                                 }
                                 {isLoading &&
                                     <>
-                                        <div style={{ minWidth: '15rem', height: '15rem' }} className='hz-center'>
+                                        {/* <div style={{ minWidth: '15rem', height: '15rem' }} className='hz-center'>
                                             <CircularProgress style={{ color: 'var(--tertiary-color)' }} size="12rem" />
+                                        </div> */}
+                                        <div className="loading-overlay">
+                                            <CircularProgress style={{ color: 'var(--primary-color)', height: '100px', width: '100px' }} />
                                         </div>
                                     </>
                                 }
