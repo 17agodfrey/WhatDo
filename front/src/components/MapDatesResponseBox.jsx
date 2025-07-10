@@ -48,7 +48,7 @@ const MapDatesResponseBox = forwardRef(({ mapResult, isSelected, onBoxClick, onI
                     alt="date image" 
                     style={{display: "block", cursor: "default"}} 
                 />
-                <button onClick={e => { e.stopPropagation(); onImageClick(); }} className='more-photos-button'>
+                <button onClick={e => { onImageClick(); }} className='more-photos-button'>
                     See More
                 </button>
             </div>
