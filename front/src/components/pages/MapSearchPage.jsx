@@ -57,71 +57,12 @@ const MapSearchPage = () => {
     const [newDateIdeasSelected, setNewDateIdeasSelected] = useState([]);
     const [newSearchDialogOpen, setNewSearchDialogOpen] = useState(false);  
     const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
+    const [locationError, setLocationError] = useState(false);
+    
 
     useEffect(() => {
         console.log('selectedItemId: ', selectedItemId);
     }, [selectedItemId]);
-    // const [showMapResults, setShowMapResults] = useState(false);
-
-    // const handleSwitchChange = (event) => {
-    //     setShowMapResults(event.target.checked);
-    // };
-
-    // useEffect(() => {
-    //     // localStorage.setItem('mapResponseItems', JSON.stringify(mapResponseItems));
-    //     if (Object.keys(mapResponseItems).length > 0) {
-    //         setIsLoading(false);
-    //     }
-    // }, [setIsLoading, mapResponseItems]);
-
-    // useEffect(() => {
-    //     // let dateIdea;
-    //     // let currDateIdeaName = '';
-    //     // for(const selectedMapDateResult of selectedMapDateResults) {
-    //     //     if(selectedMapDateResult.dateType !== currDateIdeaName) {
-    //     //         currDateIdeaName = selectedMapDateResult.dateType;
-    //     //         dateIdea = mapResponseDateObjects[selectedMapDateResult.dateType];
-    //     //     }
-    //     //     if(selectedDates.includes(selectedMapDateResult.date) &&
-    //     //         selectedMapDateResult) {
-    //     //         console.log('selectedMapDateResult: ', selectedMapDateResult);
-    //     //     }
-    //     // }
-
-    //     const newSelectedDates = [];
-    //     for(const mapResponseDateObject of Object.values(mapResponseDateObjects)){
-    //         if(selectedDates.includes(mapResponseDateObject.name) &&
-    //             (mapResponseDateObject.indoorOutdoor === selectedIndoorOutdoor || selectedIndoorOutdoor === 'Any')) {
-    //             newSelectedDates.push(mapResponseDateObject.name);
-    //         }
-    //     }
-
-    //     setSelectedDates(newSelectedDates);
-    // }, [selectedIndoorOutdoor]);
-
-    // useEffect(() => {
-    //     const newSelectedDates = [];
-    //     for(const mapResponseDateObject of Object.values(mapResponseDateObjects)){
-    //         if(selectedDates.includes(mapResponseDateObject.name) &&
-    //             (mapResponseDateObject.duration >= selectedDuration[0] && mapResponseDateObject.duration <= selectedDuration[1])) {
-    //             newSelectedDates.push(mapResponseDateObject.name);
-    //         }
-    //     }
-
-    //     setSelectedDates(newSelectedDates);
-    // }, [selectedDuration]);
-
-    // useEffect(() => {
-    //     const newSelectedDates = [];
-    //     for(const mapResponseDateObject of Object.values(mapResponseDateObjects)){
-    //         if(selectedDates.includes(mapResponseDateObject.name) &&
-    //             (selectedActivityLevels.includes(mapResponseDateObject.activityLevel))) {
-    //             newSelectedDates.push(mapResponseDateObject.name);
-    //         }
-    //     }
-
-    //     setSelectedDates(newSelectedDates);
-    // }, [selectedActivityLevels]);
 
     useEffect(() => {
         console.log('selectedPrices: ', selectedPrices);
@@ -156,6 +97,10 @@ const MapSearchPage = () => {
     }, [selectedRating]);
 
     const newDateSearch = async () => {
+        if(!location || location.trim() === "") {
+            setLocationError(true);
+            return;
+        }
         setIsLoading(true);
         const response = await dateIdeasSearch(
             api,
@@ -253,16 +198,21 @@ const MapSearchPage = () => {
                                 {!isLoading && !showNewDateResults &&
                                     <>
                                         <CriteriaBox/>
-                                        <div id='msp-new-search-dialog-bottom-section' className='hz-center'>
+                                        <div id='msp-new-search-dialog-bottom-section' className='hz-center-top'>
                                             <TextField 
                                                 // label={location ? location : "Enter location"} 
                                                 label="Enter location"
                                                 variant="outlined" 
                                                 value={location} 
-                                                onChange={(e) => setLocation(e.target.value)}
-                                                // InputLabelProps={{shrink: false}}
+                                                onChange={(e) => {
+                                                    setLocation(e.target.value);
+                                                    if (locationError) setLocationError(false);
+                                                }}                                                // InputLabelProps={{shrink: false}}
                                                 size="small"
                                                 sx={{minWidth: 'fit-content'}}
+                                                error={locationError}
+                                                helperText={locationError ? "Location is required" : ""}
+
                                             />
                                             <Button 
                                                 variant="contained" 
@@ -287,7 +237,7 @@ const MapSearchPage = () => {
                                     <>
                                         {       
                                             mapResponseItems && 
-                                            <>
+                                            <div id='msp-new-search-dialog-content-wrapper'>
                                                 <div id='msp-dates-selected-dialog-content' className='v-center'>
                                                     <div className="y-scroll">
                                                         {newDateIdeas.map((newDateIdea, index1) => (
@@ -307,20 +257,19 @@ const MapSearchPage = () => {
                                                         ))}
                                                     </div>
                                                 </div>
-                                                <div id='msp-new-search-dialog-new-dates-bottom-section'className='hz-center'>
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ backgroundColor: 'var(--primary-color)', color: 'white' }} 
-                                                        onClick={handleNewDatesCancelButton}>Cancel
-                                                    </Button> 
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }} 
-                                                        onClick={handleConfirmNewDatesButtonClicked}>Confirm New Dates
-                                                    </Button>    
-                                                </div>
-                                        
-                                            </> 
+                                                    <div id='msp-new-search-dialog-new-dates-bottom-section'className='hz-center'>
+                                                        <Button 
+                                                            variant="contained" 
+                                                            style={{ backgroundColor: 'var(--primary-color)', color: 'white' }} 
+                                                            onClick={handleNewDatesCancelButton}>Cancel
+                                                        </Button> 
+                                                        <Button 
+                                                            variant="contained" 
+                                                            style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }} 
+                                                            onClick={handleConfirmNewDatesButtonClicked}>Confirm New Dates
+                                                        </Button>    
+                                                    </div>
+                                            </div> 
                                         }                                        
                                     </>
                                 }
@@ -406,10 +355,11 @@ const MapSearchPage = () => {
                 </div>
             </div>
             <div className={`msp-main-content ${isLoading ? 'loading' : ''}`}>
-                {isLoading && 
-                    // <img id='load-img' src={ThanosDance} alt="" />
-                    <CircularProgress style={{ color: 'var(--tertiary-color)' }} size="10rem" />
-                }
+                {/* {isLoading && 
+                    <div className="loading-overlay">
+                        <CircularProgress style={{ color: 'var(--primary-color)', height: '100px', width: '100px' }} />
+                    </div>
+                } */}
                 
                 {!isLoading &&
                 <>

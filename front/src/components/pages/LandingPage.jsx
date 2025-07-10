@@ -43,6 +43,8 @@ const LandingPage = () => {
     const [showDates, setShowDates] = useState(false);
     const maxNumDates = 5;
     const [maxDatesSelected, setMaxDatesSelected] = useState(false);
+    const [locationError, setLocationError] = useState(false);
+
 
     const navigate = useNavigate();
     const pageLocation = useLocation();
@@ -50,6 +52,11 @@ const LandingPage = () => {
 
 
     const onSearchButtonClicked = async () => {    
+        if(!location || location.trim() === "") {
+            setLocationError(true);
+            return;
+        }
+
         setSelectedDates([]);    
         setIsLoading(true);
         const ideas = await dateIdeasSearch(
@@ -154,19 +161,24 @@ const LandingPage = () => {
                     </div>
 
                     <div className="MapSearchEntrySection">
-                            <TextField 
-                                label="Enter location" 
-                                variant="outlined" 
-                                value={location} 
-                                onChange={(e) => setLocation(e.target.value)}
-                            />
-                            <Button 
-                                variant="contained" 
-                                style={{ backgroundColor: 'var(--tertiary-color)', color: 'white' }} 
-                                onClick={() => onSearchButtonClicked()}
-                            >
-                                Search
-                            </Button>
+                        <TextField 
+                            label="Enter location" 
+                            variant="outlined" 
+                            value={location} 
+                            onChange={(e) => {
+                                setLocation(e.target.value);
+                                if (locationError) setLocationError(false);
+                            }}
+                            error={locationError}
+                            helperText={locationError ? "Location is required" : ""}
+                        />
+                        <Button 
+                            variant="contained" 
+                            style={{ backgroundColor: 'var(--tertiary-color)', color: 'white', height: '56px' }} 
+                            onClick={() => onSearchButtonClicked()}
+                        >
+                            Search
+                        </Button>
                     </div>
                     {/* <p>or</p>
                     <Button variant="contained" style={{ backgroundColor: '#F69EA3', color: 'white' }}>Free Date Ideas</Button>                 */}
@@ -179,8 +191,8 @@ const LandingPage = () => {
                 )}
                 {showDates &&
                     <div id='landing-date-display-selector'>
-                        <h1>Choose a date</h1>
-                        <p>Choose dates from the list below to see map results for your location</p>
+                        <h1>Choose activities</h1>
+                        <p>Choose activities from the list below to see map results for your location</p>
                         <p>*max 5</p>
                         <div id = 'date-display' className='v-center'>
                             <div id='date-display-scrollable-area'>

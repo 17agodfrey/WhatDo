@@ -24,27 +24,32 @@ const MapDatesResponseBoxesContainer = ({ mapResponseItems, selectedItemId, setS
 
 
     return (
-        <div id='map-results'>
-            {selectedDates
-                .map((date, index1) => (
+    <div id='map-results'>
+        {selectedDates.map((date, index1) => {
+            // Find the index of the date in mapResponseItems
+            const mapResponseItemsArray = Object.values(mapResponseItems);
+            const colorIndex = mapResponseItemsArray.findIndex(item => item.date.name === date);
+
+            return (
                 <div key={index1}>
                     <p className='date-header'>{capitalizeFirstLetter(date)}</p>
                     {selectedMapDateResults
                         .filter(mapDateResult => mapDateResult.dateType === date)
                         .map((mapDateResult) => (
-                        <MapDatesResponseBox
-                            key={mapDateResult.displayName}
-                            mapResult={mapDateResult}
-                            isSelected={selectedItemId === mapDateResult.displayName}
-                            onBoxClick={() => setSelectedItemId(mapDateResult.displayName)}
-                            onImageClick = {() => { setImageGalleryOpen(true); }}
-                            color={colors[index1 % colors.length]} // pass the color
-                            ref={selectedItemId === mapDateResult.displayName ? selectedRef : null}
-                        />
-                    ))}
+                            <MapDatesResponseBox
+                                key={mapDateResult.displayName}
+                                mapResult={mapDateResult}
+                                isSelected={selectedItemId === mapDateResult.displayName}
+                                onBoxClick={() => setSelectedItemId(mapDateResult.displayName)}
+                                onImageClick={() => { setImageGalleryOpen(true); }}
+                                color={colors[colorIndex % colors.length]} // use consistent color
+                                ref={selectedItemId === mapDateResult.displayName ? selectedRef : null}
+                            />
+                        ))}
                 </div>
-            ))}
-        </div>
+            );
+        })}
+    </div>
     );
 };
 

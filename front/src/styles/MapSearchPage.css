@@ -80,7 +80,7 @@
     /* width: 50rem; */
     /* height: 100%; */
     /* max-height: 100%; */
-    background-color: red;
+    background-color: #e6d3b3;
 }
 
 .map-dates-response-box {
@@ -183,11 +183,21 @@
     width: 100%;
 }
 
+#msp-new-search-dialog-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 28rem; /* Set a fixed height for the dialog */
+    min-width: 22rem;
+}
+
 #msp-dates-selected-dialog-content {
-    max-height: 20rem;
-    /* display: flex;
-    flex-direction: column; */
-    /* width: fit-content; */
+    /* max-height: 20rem;
+    min-height: 20rem;
+    height: 20rem; */
+     flex: 1 1 auto; 
+     overflow-y: auto; 
+     padding-bottom: 1rem; 
+     padding-top: 1rem;
 }
 
 .map-infoWindow-header {
@@ -197,11 +207,23 @@
 #msp-new-search-dialog-bottom-section {
     margin-top: 1rem;
     gap: 1rem;
+    /* height: 80px; */
 }
 
 #msp-new-search-dialog-new-dates-bottom-section {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    /* gap: 1rem;  */
+
+    flex-shrink: 0;
+    padding: 0rem 0 0rem 0;
+    background: white;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+    /* position: sticky; */
+    bottom: 0;
+    z-index: 2;
+    display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 /* //// MUI stuff //// */
