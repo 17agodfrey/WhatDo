@@ -71,6 +71,30 @@ namespace DateFinder.Api.Controllers
             return Ok("Hello World");
         }
 
+        [HttpGet]
+        [Route("pingdb")]
+        public async Task<IActionResult> PingDB()
+        {
+            try
+            {
+                var response = await _dateService.PingDB();
+
+                if (response == true)
+                {
+                    return Ok("WD ping successful");
+                }
+                else
+                {
+                    return StatusCode(503, "WD ping not successful"); // 503 = Service Unavailable
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
 
     }
 

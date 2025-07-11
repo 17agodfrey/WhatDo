@@ -12,6 +12,7 @@ namespace DateFinder.Domain.Services
     {
         Task<List<FindMapDatesResponseItemDto>> GetMapResultsAsync(FindMapDatesRequestDto findMapDatesRequestDto);
         Task<IEnumerable<Date>> GetDateIdeasAsync(DateRequestDto dateRequestDto);
+        Task<bool> PingDB();
 
     }
 }

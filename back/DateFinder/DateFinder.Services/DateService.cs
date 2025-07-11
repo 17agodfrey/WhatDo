@@ -123,5 +123,10 @@ namespace DateFinder.Services
 
             return suggestedDates;
         }
+
+        public async Task<bool> PingDB()
+        {
+            return await _datesRepository.PingDB();
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace DateFinder.Domain.Repositories
         Task<Date?> GetByIdAsync(int id);
         Task AddAsync(Date entity);
         Task UpdateAsync(Date entity);
-        Task DeleteAsync(int id);   
+        Task DeleteAsync(int id);
+        Task<bool> PingDB();
     }
 }

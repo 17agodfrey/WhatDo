@@ -118,5 +118,18 @@ namespace DateFinder.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<bool> PingDB()
+        {
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync("SELECT 1;");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
